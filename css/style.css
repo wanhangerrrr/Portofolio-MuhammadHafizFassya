@@ -752,85 +752,120 @@ body::after {
 
 /* ===== Portfolio Section ===== */
 .portfolio {
-    padding: 80px 0;
-    background: var(--card-bg);
+  padding: 80px 0;
+  background: #050505;                     /* hitam gelap */
 }
 
+/* card horizontal: gambar kiri, teks kanan */
+.portfolio-card.horizontal {
+  display: flex;
+  align-items: stretch;
+  width: 520px;               /* atur sesuai selera */
+}
+
+.portfolio-card.horizontal .portfolio-image {
+  width: 45%;
+  height: auto;
+}
+
+.portfolio-card.horizontal .portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-card.horizontal .portfolio-info {
+  width: 55%;
+  padding: 18px 18px 18px 20px;
+}
+
+
+/* judul + subjudul optional */
+.portfolio .section-title {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.portfolio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.portfolio-header .view-all {
+  padding: 8px 18px;
+  background: #e11d48;
+  color: #f9fafb;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* GRID 2×2 seperti contoh */
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(420px, 520px)); /* 2 kolom */
+  gap: 24px 32px;
+  justify-content: center;
 }
 
+
+/* CARD gelap, tanpa radius berlebihan */
 .portfolio-card {
-    background: var(--dark-bg);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  background: #111;
+  border-radius: 6px;
+  border: 1px solid #1f2933;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
-.portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-}
+/* gambar full card top */
 
 .portfolio-image {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
+  flex: 0 0 40%;
 }
 
 .portfolio-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.portfolio-card:hover .portfolio-image img {
-    transform: scale(1.1);
-}
-
+/* info di bawah gambar */
 .portfolio-info {
-    padding: 25px;
+  flex: 1;
+  padding: 18px 20px;
 }
 
 .portfolio-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f9fafb;
+  margin-bottom: 4px;
 }
 
 .portfolio-info p {
-    color: var(--text-secondary);
-    margin-bottom: 15px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 6px;
 }
 
-.tech-stack {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-}
-
-.tech-stack span {
-    background: rgba(0, 255, 136, 0.1);
-    color: var(--primary-color);
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-}
-
+/* link kecil 'Lihat Detail' mirip 'SHOW MORE' */
 .btn-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+  font-size: 0.75rem;
+  color: #f97373;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .btn-link:hover {
-    color: var(--secondary-color);
+  color: #fb7185;
 }
+
+
 
 /* ===== Project CTA Section ===== */
 .project-cta {
