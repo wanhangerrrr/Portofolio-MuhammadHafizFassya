@@ -20,12 +20,17 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+    background: #050810;  
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
 }
+
+section {
+    background: transparent;
+}
+
 
 body::before {
     content: '';
@@ -190,11 +195,11 @@ body::after {
 
 /* ===== Hero Section ===== */
 .hero {
-    min-height: 100vh;
+    min-height: 90vh;
     padding-top: 120px;
     padding-bottom: 60px;
     position: relative;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    background: transparent; 
     display: flex;
     align-items: center;
 }
@@ -478,11 +483,11 @@ body::after {
     }
 }
 
-/* ===== Skills Section ===== */
+
 /* ===== Skills Section ===== */
 .skills {
     padding: 100px 0;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f1419 100%);
+    background: transparent !important;  
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -496,10 +501,8 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(0, 217, 255, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+    background: transparent;
+ 
     z-index: -1;
     animation: gradientShift 10s ease infinite;
 }
@@ -590,6 +593,11 @@ body::after {
     max-width: 1000px;
     margin: 0 auto;
 }
+
+.skills-section {
+    background: transparent;
+}
+
 
 .skill-card {
     background: var(--card-bg);
@@ -713,13 +721,13 @@ body::after {
 }
 
 .skill-card:nth-child(5):hover {
-    border-color: #61DAFB;
+    border-color: #b6067b;
     box-shadow: 0 20px 60px rgba(97, 218, 251, 0.3),
                 0 0 40px rgba(97, 218, 251, 0.2);
 }
 
 .skill-card:nth-child(5):hover::after {
-    background: linear-gradient(45deg, #61DAFB, #00D8FF);
+    background: linear-gradient(45deg, #b6067b, #b6067b);
 }
 
 .skill-card:nth-child(6):hover {
@@ -728,6 +736,7 @@ body::after {
                 0 0 40px rgba(51, 153, 51, 0.2);
 }
 
+
 .skill-card:nth-child(6):hover::after {
     background: linear-gradient(45deg, #339933, #66BB66);
 }
@@ -735,7 +744,9 @@ body::after {
 /* ===== About Section ===== */
 .about {
     padding: 80px 0;
+    background: transparent;
 }
+
 
 .about-content {
     max-width: 800px;
@@ -752,8 +763,8 @@ body::after {
 
 /* ===== Portfolio Section ===== */
 .portfolio {
-  padding: 80px 0;
-  background: #050505;                     /* hitam gelap */
+    padding: 80px 0;
+    background: transparent;
 }
 
 /* card horizontal: gambar kiri, teks kanan */
@@ -870,8 +881,9 @@ body::after {
 /* ===== Project CTA Section ===== */
 .project-cta {
     padding: 60px 0;
-    background: var(--card-bg);
+    background: transparent;
 }
+
 
 .cta-content {
     display: flex;
@@ -921,7 +933,9 @@ body::after {
 /* ===== Contact Section ===== */
 .contact {
     padding: 80px 0;
+    background: transparent;
 }
+
 
 .contact-form {
     max-width: 600px;
@@ -1386,11 +1400,12 @@ body::after {
 /* ===== Old Footer Hidden ===== */
 /* ===== Footer ===== */
 .footer {
-    background: var(--card-bg);
+    background: transparent;
     padding: 40px 0;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 
 .footer .container {
     display: flex;
