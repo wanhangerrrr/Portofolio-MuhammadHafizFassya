@@ -197,6 +197,7 @@ body::after {
 .hero {
     min-height: 90vh;
     padding-top: 120px;
+    justify-content: flex-end;  
     padding-bottom: 60px;
     position: relative;
     background: transparent; 
@@ -273,6 +274,7 @@ body::after {
 
 .btn-secondary {
     background: transparent;
+    white-space: nowrap; 
     color: var(--text-primary);
     border: 2px solid var(--text-primary);
 }
@@ -414,6 +416,7 @@ body::after {
 /* ===== Hero Image ===== */
 .hero-image {
     position: relative;
+    margin-left: 150px;
 }
 
 .image-wrapper {
@@ -721,13 +724,13 @@ body::after {
 }
 
 .skill-card:nth-child(5):hover {
-    border-color: #b6067b;
+    border-color: #fd3d02;
     box-shadow: 0 20px 60px rgba(97, 218, 251, 0.3),
                 0 0 40px rgba(97, 218, 251, 0.2);
 }
 
 .skill-card:nth-child(5):hover::after {
-    background: linear-gradient(45deg, #b6067b, #b6067b);
+    background: linear-gradient(45deg, #fd3d02, #b6067b);
 }
 
 .skill-card:nth-child(6):hover {
@@ -739,6 +742,17 @@ body::after {
 
 .skill-card:nth-child(6):hover::after {
     background: linear-gradient(45deg, #339933, #66BB66);
+}
+
+.skill-card:nth-child(7):hover {
+    border-color: #ff00bf;
+    box-shadow: 0 20px 60px rgba(207, 54, 161, 0.3),
+                0 0 40px rgba(207, 54, 161, 0.3);
+}
+
+
+.skill-card:nth-child(7):hover::after {
+    background: linear-gradient(45deg, #540886, #c90798);
 }
 
 /* ===== About Section ===== */
@@ -1527,6 +1541,7 @@ body::after {
 /* ===== Button CV Styles ===== */
 .btn-cv {
     background: transparent;
+    white-space: nowrap; 
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
 }
@@ -1543,6 +1558,7 @@ body::after {
     .nav-menu {
         position: fixed;
         left: -100%;
+        transform: translateX(40px);
         top: 80px;
         flex-direction: column;
         background: rgba(10, 10, 10, 0.98);
