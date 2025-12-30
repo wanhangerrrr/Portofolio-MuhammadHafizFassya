@@ -416,7 +416,7 @@ body::after {
 /* ===== Hero Image ===== */
 .hero-image {
     position: relative;
-    margin-left: 150px;
+    margin: 0 auto 30px;
 }
 
 .image-wrapper {
@@ -1558,7 +1558,7 @@ body::after {
     .nav-menu {
         position: fixed;
         left: -100%;
-        transform: translateX(40px);
+        transform: translateX(0px);
         top: 80px;
         flex-direction: column;
         background: rgba(10, 10, 10, 0.98);
