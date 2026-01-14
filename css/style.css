@@ -418,8 +418,11 @@ body::after {
 
 /* ===== Hero Image ===== */
 .hero-image {
-    position: relative;
-    margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* tambahkan: */
+  transform: translateY(-25px);   /* nilai minus = naik ke atas */
 }
 
 .image-wrapper {
@@ -995,6 +998,397 @@ body::after {
   color: #9ca3af;
   margin-bottom: 6px;
 }
+
+/* ===== Certificate Section ===== */
+.cert-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cert-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+
+.cert-slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2; /* di atas background */
+}
+
+.cert-nav-btn {
+  position: relative;
+  z-index: 3;        /* pastikan di atas kartu sertifikat */
+}
+
+.cert-viewport {
+  width: 900px;          /* area tampilan */
+  max-width: 80vw;
+  overflow: hidden;       /* balik ke model awal */
+}
+
+.cert-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.cert-card.active {
+  transform: scale(1);                     /* sedikit lebih besar */
+  opacity: 1;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+}
+
+
+.cert-card.active {
+  transform: translate(-50%, -55%) scale(1);  /* -55% sedikit naik */
+}
+
+
+/* opsional, kartu di kanan dikasih sedikit geser */
+.cert-card.next {
+  transform: translateX(-10%) scale(0.95);
+  opacity: 0.8;
+}
+
+/* opsional, kartu di kiri juga */
+.cert-card.prev {
+  transform: translateX(10%) scale(0.95);
+  opacity: 0.8;
+}
+
+/* 1. Style umum tombol – DI LUAR media query */
+.cert-nav-btn {
+  border: none;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #e5e7eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.cert-nav-btn:hover {
+  background: rgba(16, 185, 129, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+
+.cert-nav-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+.cert-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* 2. Baru di dalam media query, HANYA pengaturan ukuran jarak di mobile */
+@media (max-width: 768px) {
+  .cert-slider-wrapper {
+    gap: 6px;
+  }
+
+  .cert-viewport {
+    max-width: 80vw;      /* lebar maksimum kartu di mobile */
+  }
+
+  .cert-nav-btn {
+    min-width: 32px;
+    height: 32px;
+  }
+}
+
+
+.cert-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;     /* naikkan kalau masih kurang besar */
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.cert-subtitle {
+  margin-top: 10px;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+/* Filter pills */
+.cert-filters {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  margin: 0 auto 30px;
+}
+
+.cert-filter-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.cert-filter-btn:hover {
+  transform: translateY(-1px);
+  color: var(--text-primary);
+}
+
+.cert-filter-btn.active {
+  background: linear-gradient(90deg, #22c55e, #06b6d4);
+  color: #020617;
+}
+
+/* Grid */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.cert-card {
+  flex: 0 0 260px;       /* perbesar kartu */
+  margin: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.9);
+  opacity: 0.6;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.17), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.14), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px) translateZ(0);
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.95),
+    0 0 30px rgba(34, 197, 94, 0.2);
+  border-color: rgba(94, 234, 212, 0.9);
+}
+
+.cert-card:hover::before {
+  opacity: 1;
+}
+
+.cert-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.cert-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.cert-title {
+  font-size: 1.02rem;
+  margin-bottom: 6px;
+}
+
+.cert-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.cert-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-date {
+  font-size: 0.8rem;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+/* View button */
+.cert-view-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #22c55e, #06b6d4);
+  color: #020617;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+              filter 0.18s ease, background 0.18s ease;
+}
+
+.cert-view-btn::after {
+  content: '↗';
+  font-size: 0.76rem;
+}
+
+.cert-view-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 40px rgba(34, 197, 94, 0.45),
+    0 0 20px rgba(6, 182, 212, 0.45);
+  filter: saturate(1.2);
+}
+
+/* Fade-in on scroll */
+.fade-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modal */
+.cert-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.cert-modal.open {
+  display: flex;
+}
+
+.cert-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(10px);
+}
+
+.cert-modal-dialog {
+  position: relative;
+  max-width: min(900px, 92vw);
+  max-height: 88vh;
+  background: radial-gradient(circle at top left,
+                rgba(34, 197, 94, 0.18),
+                #020617 55%);
+  border-radius: 20px;
+  padding: 20px 20px 18px;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(15, 23, 42, 1);
+  overflow: hidden;
+  z-index: 61;
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  border-radius: 999px;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-modal-body {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cert-modal-title {
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.cert-modal-img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #020617;
+}
+
+  /* Mobile */
+@media (max-width: 768px) {
+  .cert-viewport {
+    width: 360px;
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+
+
 
 /* link kecil 'Lihat Detail' mirip 'SHOW MORE' */
 .btn-link {

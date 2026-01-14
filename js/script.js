@@ -3,6 +3,8 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
+
+
 if (hamburger) {
     hamburger.addEventListener('click', function() {
         navMenu.classList.toggle('active');
@@ -186,5 +188,160 @@ if (contactForm) {
             submitBtn.style.opacity = '1';
             submitBtn.style.cursor = 'pointer';
         });
+
+        if (certTrack && prevBtn && nextBtn) {
+  const scrollAmount = () => {
+    const item = certTrack.querySelector(".cert-item");
+    return item ? item.clientWidth + 16 : 300; // + gap
+  };
+
+  const updateButtons = () => {
+    const maxScroll = certTrack.scrollWidth - certTrack.clientWidth;
+    prevBtn.disabled = certTrack.scrollLeft <= 0;
+    nextBtn.disabled = certTrack.scrollLeft >= maxScroll - 1;
+  };
+
+  prevBtn.addEventListener("click", () => {
+    certTrack.scrollLeft -= scrollAmount();
+    setTimeout(updateButtons, 300);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    certTrack.scrollLeft += scrollAmount();
+    setTimeout(updateButtons, 300);
+  });
+
+  certTrack.addEventListener("scroll", updateButtons);
+  window.addEventListener("load", updateButtons);
+}
     });
 }
+
+// ==== Modal preview ====
+const modal = document.getElementById('certModal');
+const modalImg = modal?.querySelector('.cert-modal-img');
+const modalTitle = modal?.querySelector('.cert-modal-title');
+const modalClose = modal?.querySelector('.cert-modal-close');
+const modalBackdrop = modal?.querySelector('.cert-modal-backdrop');
+
+const openModal = (title, imgSrc) => {
+  if (!modal || !modalImg || !modalTitle) return;
+  modalTitle.textContent = title;
+  modalImg.src = imgSrc;
+  modalImg.alt = title;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+const closeModal = () => {
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+};
+
+document.querySelectorAll('[data-cert-modal]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const title = btn.getAttribute('data-cert-title') || 'Certificate';
+    const img = btn.getAttribute('data-cert-img') || '';
+    openModal(title, img);
+  });
+});
+
+[modalClose, modalBackdrop].forEach(el => {
+  el?.addEventListener('click', closeModal);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+    closeModal();
+  }
+});
+
+
+// ==== Certificates slider (1 card per view) ====
+const certTrack = document.querySelector('.cert-track');
+const certCards = document.querySelectorAll('.cert-card');
+const certPrev  = document.querySelector('.cert-prev');
+const certNext  = document.querySelector('.cert-next');
+
+if (certTrack && certCards.length && certPrev && certNext) {
+  let certIndex = 0;
+
+  function setActiveCert() {
+    certCards.forEach(card => card.classList.remove('active'));
+    certCards[certIndex].classList.add('active');
+  }
+
+  function moveCertTrack() {
+    const cardWidth = certCards[0].offsetWidth + 24; // margin kiri+kanan
+    const offset = -certIndex * cardWidth;
+    certTrack.style.transform = `translateX(${offset}px)`;
+  }
+
+  function goToCert(index) {
+    const total = certCards.length;
+    certIndex = (index + total) % total;
+    setActiveCert();
+    moveCertTrack();
+  }
+
+  certNext.addEventListener('click', () => {
+    goToCert(certIndex + 1);
+  });
+
+  certPrev.addEventListener('click', () => {
+    goToCert(certIndex - 1);
+  });
+
+  window.addEventListener('load', () => {
+    setActiveCert();
+    moveCertTrack();
+  });
+}
+
+
+// ==== Fade-in on scroll (section + cards) ====
+const fadeSection = document.querySelector('.cert-section.fade-section');
+const fadeItems = document.querySelectorAll('.cert-card.fade-item');
+
+if (fadeSection) {
+  const sectionObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.25 });
+
+  sectionObserver.observe(fadeSection);
+}
+
+if (fadeItems.length) {
+  const itemObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+
+  fadeItems.forEach(item => itemObserver.observe(item));
+}
+
+// tombol next
+btnCertNext?.addEventListener('click', () => {
+  certIndex = (certIndex + 1) % certCards.length;
+  updateCertClasses();
+});
+
+// tombol prev
+btnCertPrev?.addEventListener('click', () => {
+  certIndex = (certIndex - 1 + certCards.length) % certCards.length;
+  updateCertClasses();
+});
+
+// panggil sekali saat load
+if (certCards.length > 0) {
+  updateCertClasses();
+}
+
