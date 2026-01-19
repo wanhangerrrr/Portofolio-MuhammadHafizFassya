@@ -30,10 +30,11 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         const target = document.querySelector(targetId);
         
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
         }
     });
 });
@@ -48,7 +49,7 @@ window.addEventListener('scroll', function() {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         
-        if (window.scrollY >= (sectionTop - 200)) {
+        if (window.scrollY >= (sectionTop - 120)) {
             current = section.getAttribute('id');
         }
     });
@@ -344,4 +345,40 @@ btnCertPrev?.addEventListener('click', () => {
 if (certCards.length > 0) {
   updateCertClasses();
 }
+
+// Auto-loop Tools & Skills
+const toolsTrack = document.querySelector('.tools-track');
+
+if (toolsTrack) {
+  const cards = Array.from(toolsTrack.children);
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    toolsTrack.appendChild(clone);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const track = document.querySelector('.skills-track');
+  if (!track) return;
+
+  const cards = Array.from(track.children);
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
+
+  // ✅ MOBILE SWIPE CERTIFICATES - FIXED SYNTAX
+const certViewport = document.querySelector('.cert-viewport');
+if (certViewport) {
+  let startX = 0, isDragging
+}
+});
+  
+
+
+
+
+
 

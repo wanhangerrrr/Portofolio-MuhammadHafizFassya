@@ -586,6 +586,137 @@ body::after {
     z-index: 1;
 }
 
+/* Section wrapper */
+.skills-section {
+  padding: 80px 5vw 60px;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.skills-subtitle {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin-bottom: 40px;
+}
+
+/* Marquee container */
+.skills-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-block: 12px;
+}
+
+/* Track yang bergerak */
+.skills-track {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 24px;
+  /* total width kira-kira 2x viewport (karena kartu di‑duplikasi) */
+  animation: skills-scroll 35s linear infinite;
+}
+
+/* Card */
+.skill-card {
+  width: 180px !important;
+  height: 180px !important;
+  border-radius: 24px !important;
+  background: #111827;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 45px !important;
+  color: #e5e7eb;
+  transition: transform 0.3s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 1px solid rgba(31, 41, 55, 0.8) !important;
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.skill-icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+}
+
+
+.skill-name {
+  font-size: 0.8rem !important;
+  margin-top: 5px !important;  /* Spasi ikon-nama */
+  font-weight: 600;
+  letter-spacing: 0.04em;   /* kecilkan dari sebelumnya */
+  text-transform: none;     /* atau 'capitalize' kalau mau */
+  text-align: center;
+  white-space: nowrap !important;   /* cegah pecah baris */
+  overflow: visible !important;        /* cegah teks keluar card */
+  text-overflow: ellipsis;  /* kalau terlalu panjang, jadi ... */
+}
+
+@media (max-width: 640px) {
+  .skill-name {
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+
+/* Hover state */
+.skill-card:hover {
+  border-color:rgba(16, 185, 129, 0.5) !important;
+  box-shadow: none !important;
+  transform: translateY(-3px) !important;
+}
+
+/* Animasi marquee */
+@keyframes skills-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* geser sepanjang set pertama (50%) */
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover */
+.skills-marquee:hover .skills-track {
+  animation-play-state: paused;
+}
+
+/* Mobile: sedikit lebih kecil */
+@media (max-width: 768px) {
+  .skills-section {
+    padding-inline: 16px;
+  }
+
+  .skills-track {
+    gap: 14px;
+    animation-duration: 25s; /* sedikit lebih cepat agar tidak bosan */
+  }
+
+   .skill-card {
+    width: 170px;
+    height: 170px;
+  }
+
+  .skill-icon {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
 /* Animated gradient background */
 .skills::before {
     content: '';
@@ -680,11 +811,10 @@ body::after {
 }
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 32px 28px;
+  justify-items: center;
 }
 
 .skills-section {
@@ -737,11 +867,9 @@ body::after {
 }
 
 .skill-card:hover {
-    transform: translateY(-8px) rotate(3deg) scale(1.03);
-    border-color: var(--primary-color);
-    box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3),
-                0 0 40px rgba(0, 255, 136, 0.2),
-                inset 0 0 20px rgba(0, 255, 136, 0.05);
+    transform: translateY(-6px);
+    box-shadow: none !important;
+    border-color: #10b981;
 }
 
 .skill-card:hover::after {
@@ -772,79 +900,6 @@ body::after {
 .skill-card:hover p {
     color: var(--text-primary);
     text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-}
-
-/* Individual skill colors */
-.skill-card:nth-child(1):hover {
-    border-color: #E34F26;
-    box-shadow: 0 20px 60px rgba(227, 79, 38, 0.3),
-                0 0 40px rgba(227, 79, 38, 0.2);
-}
-
-.skill-card:nth-child(1):hover::after {
-    background: linear-gradient(45deg, #E34F26, #F06529);
-}
-
-.skill-card:nth-child(2):hover {
-    border-color: #1572B6;
-    box-shadow: 0 20px 60px rgba(21, 114, 182, 0.3),
-                0 0 40px rgba(21, 114, 182, 0.2);
-}
-
-.skill-card:nth-child(2):hover::after {
-    background: linear-gradient(45deg, #1572B6, #33A9DC);
-}
-
-.skill-card:nth-child(3):hover {
-    border-color: #F7DF1E;
-    box-shadow: 0 20px 60px rgba(247, 223, 30, 0.3),
-                0 0 40px rgba(247, 223, 30, 0.2);
-}
-
-.skill-card:nth-child(3):hover::after {
-    background: linear-gradient(45deg, #F7DF1E, #F0DB4F);
-}
-
-.skill-card:nth-child(4):hover {
-    border-color: #F24E1E;
-    box-shadow: 0 20px 60px rgba(242, 78, 30, 0.3),
-                0 0 40px rgba(242, 78, 30, 0.2);
-}
-
-.skill-card:nth-child(4):hover::after {
-    background: linear-gradient(45deg, #F24E1E, #FF7262);
-}
-
-.skill-card:nth-child(5):hover {
-    border-color: #fd3d02;
-    box-shadow: 0 20px 60px rgba(97, 218, 251, 0.3),
-                0 0 40px rgba(97, 218, 251, 0.2);
-}
-
-.skill-card:nth-child(5):hover::after {
-    background: linear-gradient(45deg, #fd3d02, #b6067b);
-}
-
-.skill-card:nth-child(6):hover {
-    border-color: #339933;
-    box-shadow: 0 20px 60px rgba(51, 153, 51, 0.3),
-                0 0 40px rgba(51, 153, 51, 0.2);
-}
-
-
-.skill-card:nth-child(6):hover::after {
-    background: linear-gradient(45deg, #339933, #66BB66);
-}
-
-.skill-card:nth-child(7):hover {
-    border-color: #ff00bf;
-    box-shadow: 0 20px 60px rgba(207, 54, 161, 0.3),
-                0 0 40px rgba(207, 54, 161, 0.3);
-}
-
-
-.skill-card:nth-child(7):hover::after {
-    background: linear-gradient(45deg, #540886, #c90798);
 }
 
 /* ===== About Section ===== */
@@ -1041,7 +1096,7 @@ body::after {
 .cert-card.active {
   transform: scale(1);                     /* sedikit lebih besar */
   opacity: 1;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+  box-shadow: none !important;  
 }
 
 
@@ -1181,7 +1236,7 @@ body::after {
 }
 
 .cert-card::before {
-  content: '';
+  content:none !important;
   position: absolute;
   inset: -40%;
   background:
@@ -1194,9 +1249,7 @@ body::after {
 
 .cert-card:hover {
   transform: translateY(-6px) translateZ(0);
-  box-shadow:
-    0 22px 60px rgba(0, 0, 0, 0.95),
-    0 0 30px rgba(34, 197, 94, 0.2);
+  box-shadow: none !important;  
   border-color: rgba(94, 234, 212, 0.9);
 }
 
@@ -1381,12 +1434,11 @@ body::after {
   /* Mobile */
 @media (max-width: 768px) {
   .cert-viewport {
-    width: 360px;
-    width: 100%;
-    max-width: 360px;
+    width: 90vw !important;  /* Lebar penuh mobile */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
   }
 }
-
 
 
 
@@ -2251,8 +2303,176 @@ body::after {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
-  .project-detail-layout {
-    grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
   }
 }
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    width: 150px;
+    height: 150px;
+  }
+
+  .skill-icon img {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* Pusatkan Featured Projects */
+.portfolio h2.section-title,
+.portfolio-header h2 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 600px;
+}
+
+/* Opsional: Tambah underline glow seperti section lain */
+.portfolio h2.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+
+/* Pusatkan Sertifikat di Mobile */
+@media (max-width: 768px) {
+  .cert-header {
+    text-align: center !important;
+    padding: 0 16px;
+  }
+  
+  .cert-header h2.section-title {
+    text-align: center !important;
+    margin: 0 auto !important;
+    max-width: 90vw;
+  }
+  
+  /* Pastikan container slider juga center */
+  .cert-section .container {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.skills-track .skill-card {
+  border: 1px solid rgba(31, 41, 55, 0.8) !important;  /* Abu gelap semua */
+  box-shadow:none!important;  /* Shadow hitam uniform */
+  background: #111827 !important;  /* Bg gelap sama */
+}
+.skills-track .skill-card:nth-child(n) {  /* Reset semua nth-child */
+  border-color: rgba(31, 41, 55, 0.8) !important;
+  box-shadow: none !important;
+}
+
+
+
+/* Hover - efek tambahan saja */
+.skill-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: none !important;
+}
+
+/* NO SHADOW Skills - Clean Flat */
+.skills-section .skill-card,
+.skill-card {
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Hover minimal - hanya border glow */
+.skill-card:hover {
+  box-shadow: none !important;
+  transform: translateY(-4px);
+  border-width: 3px !important;
+}
+
+/* Pastikan marquee clean */
+.skill-track {
+  filter: drop-shadow(0 0 0 transparent) !important;
+}
+
+@media (max-width: 768px) {
+  .skill-card {
+    width: 140px !important;
+    height: 140px !important;
+    gap: 10px !important;  /* Gap super kecil mobile */
+    padding: 15px !important;
+  }
+  .skill-icon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .skill-icon img {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .skill-name {
+    font-size: 0.75rem !important;  /* Masih readable */
+    letter-spacing: 0 !important;
+    margin: 0 !important;
+    padding: 0 5px !important;
+    white-space: normal !important;  /* Wrap jika perlu */
+  }
+  .skills-track {
+    gap: 12px !important;  /* Gap antar card kecil */
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-card {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  .skill-name {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Force no shadow semua skill card */
+.skills-section article.skill-card,
+.skills-track article {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* ===== Tambahan Navbar  ===== */
+.nav-link.active {
+  color: #000 !important;
+  background: var(--primary-color) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile menu spacing */
+@media (max-width: 768px) {
+  .nav-menu {
+    gap: 15px !important;  /* Spasi lebih untuk 6 item */
+  }
+}
+
+
+
+
+
+
+
+
