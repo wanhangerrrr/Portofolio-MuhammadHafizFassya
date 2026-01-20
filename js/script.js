@@ -87,8 +87,9 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Elements to animate on scroll
-const animateElements = document.querySelectorAll('.skill-card, .portfolio-card, .about-content');
-
+const animateElements = document.querySelectorAll(
+  '.skill-card, .portfolio-card, .about-content, .edu-card'
+);
 animateElements.forEach(function(element) {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
