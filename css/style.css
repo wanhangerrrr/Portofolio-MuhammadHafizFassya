@@ -118,11 +118,61 @@ body::after {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.1rem;  /* Dari 1.3rem → 1.1rem */
-    font-weight: 700;
-    color: var(--primary-color);
-    transition: all 0.3s ease;
+.logo{
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #00ff88;
+}
+
+#live-clock{
+  color: #00ff88;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,255,136,0.4);
+  background: radial-gradient(circle at 0 0,#022c22,#020617);
+  box-shadow:
+    0 0 12px rgba(0,255,136,0.65),
+    0 0 24px rgba(0,217,255,0.35);
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clock-icon{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #00ff88;
+  position: relative;
+  box-shadow: 0 0 8px rgba(0,255,136,0.8);
+}
+
+.clock-icon::before,
+.clock-icon::after{
+  content: '';
+  position: absolute;
+  background: #00ff88;
+  border-radius: 999px;
+}
+
+.clock-icon::before{ /* jarum jam */
+  width: 2px;
+  height: 6px;
+  top: 3px;
+  left: 7px;
+}
+
+.clock-icon::after{  /* jarum menit */
+  width: 5px;
+  height: 2px;
+  top: 7px;
+  left: 7px;
 }
 
 .logo:hover {

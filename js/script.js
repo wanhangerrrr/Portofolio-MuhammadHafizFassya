@@ -341,20 +341,20 @@ if (fadeItems.length) {
 }
 
 // tombol next
-btnCertNext?.addEventListener('click', () => {
-  certIndex = (certIndex + 1) % certCards.length;
-  updateCertClasses();
-});
+//btnCertNext?.addEventListener('click', () => {
+  //certIndex = (certIndex + 1) % certCards.length;
+  //updateCertClasses();
+//});
 
 // tombol prev
-btnCertPrev?.addEventListener('click', () => {
-  certIndex = (certIndex - 1 + certCards.length) % certCards.length;
-  updateCertClasses();
-});
+//btnCertPrev?.addEventListener('click', () => {
+  //certIndex = (certIndex - 1 + certCards.length) % certCards.length;
+  //updateCertClasses();
+//});
 
 // panggil sekali saat load
 if (certCards.length > 0) {
-  updateCertClasses();
+ // updateCertClasses();
 }
 
 // Auto-loop Tools & Skills
@@ -386,6 +386,23 @@ if (certViewport) {
   let startX = 0, isDragging
 }
 });
+
+function updateClock() {
+  const el = document.getElementById('live-clock');
+  console.log('clock run', el);
+  if (!el) return;
+
+  const now = new Date();
+  const opt = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+  el.textContent = now.toLocaleTimeString('id-ID', opt);
+} // <== tambahkan kurung kurawal ini
+
+updateClock();
+setInterval(updateClock, 1000);
+
+
+
+
   
 
 
