@@ -12,6 +12,16 @@ if (hamburger) {
     });
 }
 
+const desktopToggle = document.querySelector('.desktop-nav-toggle');
+const desktopMenu   = document.querySelector('.desktop-nav-menu');
+
+if (desktopToggle && desktopMenu) {
+  desktopToggle.addEventListener('click', () => {
+    desktopMenu.classList.toggle('open');
+  });
+}
+
+
 // Close menu when clicking on a link
 navLinks.forEach(function(link) {
     link.addEventListener('click', function() {
