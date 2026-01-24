@@ -394,11 +394,19 @@ function updateClock() {
 
   const now = new Date();
   const opt = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
-  el.textContent = now.toLocaleTimeString('id-ID', opt);
+  el.textContent = now.toLocaleTimeString('id-ID', opt) + ' WIB';
 } // <== tambahkan kurung kurawal ini
 
 updateClock();
 setInterval(updateClock, 1000);
+
+document.querySelectorAll('.project-more').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const slug = btn.dataset.project;
+    window.location.href = `project-detail-${slug}.html`;
+  });
+});
+
 
 
 

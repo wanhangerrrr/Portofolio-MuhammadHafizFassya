@@ -52,9 +52,8 @@
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                     <a href="#portfolio" class="btn btn-secondary">View Portofolio Project</a>
-                     <a href="assets/CV_MUHAMMADHAFIZFASSYA.pdf" download="CV_MUHAMMADHAFIZFASSYA.pdf" class="btn btn-cv">
-        <i class="fas fa-download"></i> Download CV
-    </a>
+                     <a href="assets/Cv_MuhammadHafizFassya.pdf" download="Cv_MuhammadHafizFassya.pdf" class="btn btn-cv">
+                     <i class="fas fa-download"></i> Download CV</a>
                 </div>
 
                 <!-- Social Links -->
@@ -361,75 +360,170 @@
 </section>
 
 
-    <!-- Portfolio Section -->
-   <section id="portfolio" class="portfolio">
+   <!-- Portfolio Section -->
+<section id="portfolio" class="portfolio">
   <div class="container">
     <div class="portfolio-header">
       <h2 class="section-title">Projects</h2>
     </div>
 
-    <div class="portfolio-grid">
+    <div class="portfolio-grid portfolio-grid--cards">
+
       <!-- Project 1 -->
-      <article class="project-card">
-        <div class="project-thumb">
-          <img src="images/project1.jpg" alt="Aplikasi Mobile Notebook Berbasis AI">
-        </div>
-        <div class="project-meta">
-          <h3 class="project-title">Aplikasi Mobile NoteBook Berbasis AI</h3>
-          <a href="#detail-notebook-ai-Apps" class="project-more"></a>
+      <article class="project-card project-card--v2" data-project="fraud-mobile-banking" data-category="ML">
+        <a class="project-thumb project-thumb--v2">
+        <img src="images/bank.JPG" alt="..." loading="lazy">
+        </a>
+
+        <div class="project-meta project-meta--v2">
+          <div class="project-top">
+            <span class="project-badge">ML</span>
+          </div>
+
+          <h3 class="project-title project-title--v2">
+            Fraud Detection Mobile Banking (XGBoost)
+          </h3>
+
+          <p class="project-desc project-desc--v2">
+            Model machine learning untuk mendeteksi transaksi mencurigakan dengan pipeline preprocessing dan evaluasi metrik.
+          </p>
+
         </div>
       </article>
 
-    
       <!-- Project 2 -->
-      <article class="project-card">
-        <div class="project-thumb">
-          <img src="images/aplikasidaun.jpeg" alt="Aplikasi Klasifikasi Daun Tomat">
+      <article class="project-card project-card--v2" data-project="notebook-ai" data-category="AI">
+        <a class="project-thumb project-thumb--v2 is-portrait">
+          <img
+            src="images/notebook1.png"
+            alt="Aplikasi Mobile NoteBook Berbasis AI"
+            loading="lazy">
+        </a>
+
+        <div class="project-meta project-meta--v2">
+          <div class="project-top">
+            <span class="project-badge">AI</span>
+          </div>
+
+          <h3 class="project-title project-title--v2">
+            Aplikasi Mobile Notebook Berbasis AI
+          </h3>
+
+          <p class="project-desc project-desc--v2">
+            Aplikasi catatan dengan fitur bantuan AI untuk merangkum ide, menyusun catatan, dan meningkatkan produktivitas.
+          </p>
+
         </div>
-        <div class="project-meta">
-          <h3 class="project-title">Aplikasi Klasifikasi Daun Tomat Menggunakan Transfer Learning MobileNetV2</h3>
-          <a href="#detail-tomato-Apps" class="project-more"></a>
-        </div>
-        <div class="tech-stack">
       </article>
 
-    
       <!-- Project 3 -->
-      <article class="project-card">
-        <div class="project-thumb">
-          <img src="images/MANA.jpg" alt="AI Notebook App">
-        </div>
-        <div class="project-meta">
-          <h3 class="project-title">Aplikasi UMKM Sederhana Untuk Membantu Pedagang UMKM</h3>
-          <a href="#detail-UMKM-Apps" class="project-more"></a>
+      <article class="project-card project-card--v2" data-project="tomato-leaf-app" data-category="ML">
+        <a class="project-thumb project-thumb--v2 is-portrait">
+          <img
+            src="images/aplikasidaun2.png"
+            alt="Aplikasi Klasifikasi Daun Tomat Menggunakan Transfer Learning MobileNetV2"
+            loading="lazy"
+          >
+        </a>
+
+        <div class="project-meta project-meta--v2">
+          <div class="project-top">
+            <span class="project-badge">ML</span>
+          </div>
+
+          <h3 class="project-title project-title--v2">
+            Klasifikasi Daun Tomat (MobileNetV2)
+          </h3>
+
+          <p class="project-desc project-desc--v2">
+            Aplikasi klasifikasi penyakit daun tomat berbasis transfer learning, dioptimasi untuk penggunaan mobile.
+          </p>
+
         </div>
       </article>
-      
-    
-        <!-- Project 4 -->
-        <article class="project-card">
-            <div class="project-thumb">
-            <img src="images/WEB.jpeg" alt="AI Notebook App">
-            </div>
-            <div class="project-meta">
-            <h3 class="project-title">Web Klasifikasi Daun Tomat Menggunakan Transfer Learning MobileNetV2</h3>
-            <a href="#detail-tomato-web" class="project-more"></a>
-            </div>
-        </article>
 
-        <article class="project-card" data-project="notebook-ai">
-            <div class="project-thumb">
-            <img src="images/Web and Aplikasi CRUD Sederhana.jpeg" alt="AI Notebook App">
-            </div>
-            <div class="project-meta">
-            <h3 class="project-title">Aplikasi berbasis Flutter yang digunakan untuk mengelola data mahasiswa secara sederhana dan terstruktur</h3>
-            <a href="#detail-crudsederhana" class="project-more"></a>
-            </div>
-        </article>
-    
+      <!-- Project 4 -->
+      <article class="project-card project-card--v2" data-project="umkm-app" data-category="Web">
+        <a class="project-thumb project-thumb--v2 is-portrait">
+          <img
+            src="images/UMKM1.png"
+            alt="Aplikasi UMKM Sederhana Untuk Membantu Pedagang UMKM"
+            loading="lazy"
+          >
+        </a>
+
+        <div class="project-meta project-meta--v2">
+          <div class="project-top">
+            <span class="project-badge">Mobile</span>
+          </div>
+
+          <h3 class="project-title project-title--v2">
+            Aplikasi UMKM Sederhana
+          </h3>
+
+          <p class="project-desc project-desc--v2">
+            Aplikasi untuk membantu pedagang UMKM mengelola data dasar dan alur operasional secara lebih terstruktur.
+          </p>
+
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="project-card project-card--v2" data-project="tomato-leaf-web" data-category="Web">
+        <a class="project-thumb project-thumb--v2">
+          <img
+            src="images/WEB.jpeg"
+            alt="Web Klasifikasi Daun Tomat Menggunakan Transfer Learning MobileNetV2"
+            loading="lazy"
+          >
+        </a>
+
+        <div class="project-meta project-meta--v2">
+          <div class="project-top">
+            <span class="project-badge">Web</span>
+          </div>
+
+          <h3 class="project-title project-title--v2">
+            Web Klasifikasi Daun Tomat
+          </h3>
+
+          <p class="project-desc project-desc--v2">
+            Web app untuk klasifikasi daun tomat dengan alur upload → prediksi → hasil, dibuat untuk presentasi project.
+          </p>
+
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="project-card project-card--v2" data-project="crud-mahasiswa-flutter" data-category="Mobile">
+        <a class="project-thumb project-thumb--v2">
+          <img
+            src="images/Web and Aplikasi CRUD Sederhana.jpeg"
+            alt="Aplikasi CRUD Sederhana"
+            loading="lazy"
+          >
+        </a>
+
+        <div class="project-meta project-meta--v2">
+          <div class="project-top">
+            <span class="project-badge">Web</span>
+          </div>
+
+          <h3 class="project-title project-title--v2">
+            CRUD Mahasiswa (Flutter)
+          </h3>
+
+          <p class="project-desc project-desc--v2">
+            Aplikasi Flutter untuk mengelola data mahasiswa secara sederhana, rapi, dan mudah dipelajari (CRUD end-to-end).
+          </p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
+
+
+
 <!-- Sertifikat Section -->
 <section id="certificates" class="cert-section fade-section">
   <div class="container">
@@ -442,54 +536,59 @@
 
     <div class="cert-viewport">
          <div class="cert-track">
-            <!-- CARD 1 -->
-            <article class="cert-card fade-item">
-                <img src="images/sertifikat1.jpeg" alt="Certificate 1" class="cert-image">
-            </article>
+          <!-- CARD 1 -->
+          <article class="cert-card fade-item">
+              <img src="images/sertifikat11.JPG" alt="Certificate 1" class="cert-image">
+          </article>
 
           <!-- CARD 2 -->
-         <article class="cert-card fade-item">
-                <img src="images/sertifikat2.JPG" alt="Certificate 2" class="cert-image">
-            </article>
+          <article class="cert-card fade-item">
+              <img src="images/sertifikat1.jpeg" alt="Certificate 2" class="cert-image">
+          </article>
 
           <!-- CARD 3 -->
+            <article  article class="cert-card fade-item">
+              <img src="images/sertifikat2.JPG" alt="Certificate 3" class="cert-image">
+            </article>
+
+          <!-- CARD 4 -->
          <article class="cert-card fade-item">
-                <img src="images/sertifikat3.JPG" alt="Certificate 3" class="cert-image">
+                <img src="images/sertifikat3.JPG" alt="Certificate 4" class="cert-image">
             </article>
             
-            <!-- CARD 4 -->
+            <!-- CARD 5 -->
          <article class="cert-card fade-item">
-                <img src="images/sertifikat4.JPG" alt="Certificate 4" class="cert-image">
+                <img src="images/sertifikat4.JPG" alt="Certificate 5" class="cert-image">
             </article>
 
-            <!-- CARD 4 -->
+            <!-- CARD 6 -->
          <article class="cert-card fade-item">
-                <img src="images/sertifikat5.JPG" alt="Certificate 5" class="cert-image">
+                <img src="images/sertifikat5.JPG" alt="Certificate 6" class="cert-image">
             </article>
 
-            <!-- CARD 4 -->
+            <!-- CARD 7 -->
          <article class="cert-card fade-item">
-                <img src="images/sertifikat6.JPG" alt="Certificate 6" class="cert-image">
+                <img src="images/sertifikat6.JPG" alt="Certificate 7" class="cert-image">
             </article>
 
-            <!-- CARD 4 -->
+            <!-- CARD 8 -->
          <article class="cert-card fade-item">
-                <img src="images/sertifikat7.JPG" alt="Certificate 7" class="cert-image">
+                <img src="images/sertifikat7.JPG" alt="Certificate 8" class="cert-image">
             </article>
 
-            <!-- CARD 4 -->
+            <!-- CARD 9 -->
          <article class="cert-card fade-item">
-                <img src="images/sertifikat8.JPG" alt="Certificate 8" class="cert-image">
+                <img src="images/sertifikat8.JPG" alt="Certificate 9" class="cert-image">
             </article>
 
-            <!-- CARD 4 -->
+            <!-- CARD 10 -->
          <article class="cert-card fade-item">
-                <img src="images/sertifikat9.JPG" alt="Certificate 9" class="cert-image">
+                <img src="images/sertifikat9.JPG" alt="Certificate 10" class="cert-image">
             </article>
 
-            <!-- CARD 4 -->
+            <!-- CARD 11 -->
          <article class="cert-card fade-item">
-                <img src="images/sertifikat10.JPG" alt="Certificate 10" class="cert-image">
+                <img src="images/sertifikat10.JPG" alt="Certificate 11" class="cert-image">
             </article>
         </div>
       </div>
