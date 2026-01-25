@@ -3,291 +3,212 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
 
-
-if (hamburger) {
-    hamburger.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
+  // Close menu when clicking a link (mobile)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
     });
-}
-
-const desktopToggle = document.querySelector('.desktop-nav-toggle');
-const desktopMenu   = document.querySelector('.desktop-nav-menu');
-
-if (desktopToggle && desktopMenu) {
-  desktopToggle.addEventListener('click', () => {
-    desktopMenu.classList.toggle('open');
   });
 }
 
-
-// Close menu when clicking on a link
-navLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-        navMenu.classList.remove('active');
-        if (hamburger) {
-            hamburger.classList.remove('active');
-        }
-    });
-});
-
 // ===== Smooth Scrolling =====
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const target = document.querySelector(targetId);
-        
-        if (target) {
-            target.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start',
-            inline: 'nearest'
-          });
-        }
-    });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const targetId = anchor.getAttribute('href');
+    const target = document.querySelector(targetId);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+  });
 });
 
 // ===== Active Navigation on Scroll =====
 const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (window.scrollY >= (sectionTop - 120)) current = section.getAttribute('id') || '';
+  });
 
-window.addEventListener('scroll', function() {
-    let current = '';
-    
-    sections.forEach(function(section) {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= (sectionTop - 120)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(function(link) {
-        link.classList.remove('active');
-        const href = link.getAttribute('href');
-        if (href && href.includes(current)) {
-            link.classList.add('active');
-        }
-    });
-    
-    // Add shadow to navbar on scroll
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href') || '';
+    if (current && href.includes(current)) link.classList.add('active');
+  });
+
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }
 });
 
 // ===== Scroll Reveal Animation =====
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.style.opacity = '1';
+    entry.target.style.transform = 'translateY(0)';
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Elements to animate on scroll
-const animateElements = document.querySelectorAll(
-  '.skill-card, .portfolio-card, .about-content, .edu-card'
-);
-animateElements.forEach(function(element) {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'all 0.6s ease';
-    observer.observe(element);
-});
+document.querySelectorAll('.skill-card, .portfolio-card, .about-content, .edu-card')
+  .forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.6s ease';
+    observer.observe(el);
+  });
 
 // ===== Typing Effect for Hero Title =====
 const highlight = document.querySelector('.highlight');
 if (highlight) {
-    const text = highlight.textContent;
-    highlight.textContent = '';
-    
-    let i = 0;
-    function typeWriter() {
-        if (i < text.length) {
-            highlight.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    }
-    
-    setTimeout(typeWriter, 500);
+  const text = highlight.textContent;
+  highlight.textContent = '';
+  let i = 0;
+
+  function typeWriter() {
+    if (i >= text.length) return;
+    highlight.textContent += text.charAt(i);
+    i += 1;
+    setTimeout(typeWriter, 100);
+  }
+
+  setTimeout(typeWriter, 500);
 }
 
-// ===== Contact Form Handling with Formspree =====
+// ===== Contact Form (Formspree) =====
 const contactForm = document.getElementById('contactForm');
 const successMessage = document.getElementById('successMessage');
 const errorMessage = document.getElementById('errorMessage');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Hide previous messages
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'none';
-        
-        // Get submit button
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const btnText = submitBtn.querySelector('.btn-text');
-        const originalText = btnText.textContent;
-        
-        // Show loading state
-        btnText.textContent = 'Mengirim...';
-        submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.6';
-        submitBtn.style.cursor = 'not-allowed';
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        
-        // Send to Formspree
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                // Show success message
-                successMessage.style.display = 'block';
-                contactForm.reset();
-                
-                // Scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                
-                // Hide success message after 8 seconds
-                setTimeout(function() {
-                    successMessage.style.display = 'none';
-                }, 8000);
-            } else {
-                // Show error message
-                errorMessage.style.display = 'block';
-                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                
-                setTimeout(function() {
-                    errorMessage.style.display = 'none';
-                }, 8000);
-            }
-        })
-        .catch(error => {
-            // Show error message
-            errorMessage.style.display = 'block';
-            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            console.error('Error:', error);
-            
-            setTimeout(function() {
-                errorMessage.style.display = 'none';
-            }, 8000);
-        })
-        .finally(() => {
-            // Reset button state
-            btnText.textContent = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            submitBtn.style.cursor = 'pointer';
-        });
+if (contactForm && successMessage && errorMessage) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        if (certTrack && prevBtn && nextBtn) {
-  const scrollAmount = () => {
-    const item = certTrack.querySelector(".cert-item");
-    return item ? item.clientWidth + 16 : 300; // + gap
-  };
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
 
-  const updateButtons = () => {
-    const maxScroll = certTrack.scrollWidth - certTrack.clientWidth;
-    prevBtn.disabled = certTrack.scrollLeft <= 0;
-    nextBtn.disabled = certTrack.scrollLeft >= maxScroll - 1;
-  };
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const btnText = submitBtn?.querySelector('.btn-text');
+    const originalText = btnText ? btnText.textContent : '';
 
-  prevBtn.addEventListener("click", () => {
-    certTrack.scrollLeft -= scrollAmount();
-    setTimeout(updateButtons, 300);
+    if (btnText) btnText.textContent = 'Mengirim...';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.6';
+      submitBtn.style.cursor = 'not-allowed';
+    }
+
+    try {
+      const formData = new FormData(contactForm);
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        successMessage.style.display = 'block';
+        contactForm.reset();
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        setTimeout(() => { successMessage.style.display = 'none'; }, 8000);
+      } else {
+        errorMessage.style.display = 'block';
+        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        setTimeout(() => { errorMessage.style.display = 'none'; }, 8000);
+      }
+    } catch (err) {
+      errorMessage.style.display = 'block';
+      errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      console.error('Error:', err);
+      setTimeout(() => { errorMessage.style.display = 'none'; }, 8000);
+    } finally {
+      if (btnText) btnText.textContent = originalText;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+      }
+    }
   });
-
-  nextBtn.addEventListener("click", () => {
-    certTrack.scrollLeft += scrollAmount();
-    setTimeout(updateButtons, 300);
-  });
-
-  certTrack.addEventListener("scroll", updateButtons);
-  window.addEventListener("load", updateButtons);
 }
+
+// ===== Modal Preview Certificates =====
+const certModal = document.getElementById('certModal');
+if (certModal) {
+  const modalImg = certModal.querySelector('.cert-modal-img');
+  const modalTitle = certModal.querySelector('.cert-modal-title');
+  const modalClose = certModal.querySelector('.cert-modal-close');
+  const modalBackdrop = certModal.querySelector('.cert-modal-backdrop');
+
+  const openModal = (title, imgSrc) => {
+    if (!modalImg || !modalTitle) return;
+    modalTitle.textContent = title;
+    modalImg.src = imgSrc;
+    modalImg.alt = title;
+    certModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    certModal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('[data-cert-modal]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const title = btn.getAttribute('data-cert-title') || 'Certificate';
+      const img = btn.getAttribute('data-cert-img') || '';
+      openModal(title, img);
     });
+  });
+
+  [modalClose, modalBackdrop].forEach(el => el?.addEventListener('click', closeModal));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && certModal.classList.contains('open')) closeModal();
+  });
 }
 
-// ==== Modal preview ====
-const modal = document.getElementById('certModal');
-const modalImg = modal?.querySelector('.cert-modal-img');
-const modalTitle = modal?.querySelector('.cert-modal-title');
-const modalClose = modal?.querySelector('.cert-modal-close');
-const modalBackdrop = modal?.querySelector('.cert-modal-backdrop');
-
-const openModal = (title, imgSrc) => {
-  if (!modal || !modalImg || !modalTitle) return;
-  modalTitle.textContent = title;
-  modalImg.src = imgSrc;
-  modalImg.alt = title;
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-};
-
-const closeModal = () => {
-  if (!modal) return;
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-};
-
-document.querySelectorAll('[data-cert-modal]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const title = btn.getAttribute('data-cert-title') || 'Certificate';
-    const img = btn.getAttribute('data-cert-img') || '';
-    openModal(title, img);
-  });
-});
-
-[modalClose, modalBackdrop].forEach(el => {
-  el?.addEventListener('click', closeModal);
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
-    closeModal();
-  }
-});
-
-
-// ==== Certificates slider (1 card per view) ====
+// ===== Certificates Slider + Dots =====
 const certTrack = document.querySelector('.cert-track');
 const certCards = document.querySelectorAll('.cert-card');
-const certPrev  = document.querySelector('.cert-prev');
-const certNext  = document.querySelector('.cert-next');
+const certPrev = document.querySelector('.cert-prev');
+const certNext = document.querySelector('.cert-next');
+const dotsWrap = document.querySelector('.cert-dots');
 
 if (certTrack && certCards.length && certPrev && certNext) {
   let certIndex = 0;
 
   function setActiveCert() {
-    certCards.forEach(card => card.classList.remove('active'));
+    certCards.forEach(c => c.classList.remove('active'));
     certCards[certIndex].classList.add('active');
   }
 
   function moveCertTrack() {
-    const cardWidth = certCards[0].offsetWidth + 24; // margin kiri+kanan
-    const offset = -certIndex * cardWidth;
-    certTrack.style.transform = `translateX(${offset}px)`;
+    const cardWidth = certCards[0].offsetWidth + 24;
+    certTrack.style.transform = `translateX(${-certIndex * cardWidth}px)`;
+  }
+
+  function renderDots() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    certCards.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'cert-dot' + (i === certIndex ? ' active' : '');
+      d.setAttribute('aria-label', `Sertifikat ${i + 1}`);
+      d.addEventListener('click', () => goToCert(i));
+      dotsWrap.appendChild(d);
+    });
   }
 
   function goToCert(index) {
@@ -295,24 +216,20 @@ if (certTrack && certCards.length && certPrev && certNext) {
     certIndex = (index + total) % total;
     setActiveCert();
     moveCertTrack();
+    renderDots();
   }
 
-  certNext.addEventListener('click', () => {
-    goToCert(certIndex + 1);
-  });
-
-  certPrev.addEventListener('click', () => {
-    goToCert(certIndex - 1);
-  });
+  certNext.addEventListener('click', () => goToCert(certIndex + 1));
+  certPrev.addEventListener('click', () => goToCert(certIndex - 1));
 
   window.addEventListener('load', () => {
     setActiveCert();
     moveCertTrack();
+    renderDots();
   });
 }
 
-
-// ==== Fade-in on scroll (section + cards) ====
+// ===== Fade-in Certificates =====
 const fadeSection = document.querySelector('.cert-section.fade-section');
 const fadeItems = document.querySelectorAll('.cert-card.fade-item');
 
@@ -340,81 +257,33 @@ if (fadeItems.length) {
   fadeItems.forEach(item => itemObserver.observe(item));
 }
 
-// tombol next
-//btnCertNext?.addEventListener('click', () => {
-  //certIndex = (certIndex + 1) % certCards.length;
-  //updateCertClasses();
-//});
-
-// tombol prev
-//btnCertPrev?.addEventListener('click', () => {
-  //certIndex = (certIndex - 1 + certCards.length) % certCards.length;
-  //updateCertClasses();
-//});
-
-// panggil sekali saat load
-if (certCards.length > 0) {
- // updateCertClasses();
-}
-
-// Auto-loop Tools & Skills
-const toolsTrack = document.querySelector('.tools-track');
-
-if (toolsTrack) {
-  const cards = Array.from(toolsTrack.children);
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    toolsTrack.appendChild(clone);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
+// ===== Auto-loop Tools & Skills =====
+document.addEventListener('DOMContentLoaded', () => {
   const track = document.querySelector('.skills-track');
   if (!track) return;
 
-  const cards = Array.from(track.children);
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    track.appendChild(clone);
-  });
+  if (track.dataset.cloned === '1') return;
+  track.dataset.cloned = '1';
 
-  // ✅ MOBILE SWIPE CERTIFICATES - FIXED SYNTAX
-const certViewport = document.querySelector('.cert-viewport');
-if (certViewport) {
-  let startX = 0, isDragging
-}
+  const cards = Array.from(track.children);
+  cards.forEach(card => track.appendChild(card.cloneNode(true)));
 });
 
+// ===== Live Clock =====
 function updateClock() {
   const el = document.getElementById('live-clock');
-  console.log('clock run', el);
   if (!el) return;
-
   const now = new Date();
   const opt = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
   el.textContent = now.toLocaleTimeString('id-ID', opt) + ' WIB';
-} // <== tambahkan kurung kurawal ini
-
+}
 updateClock();
 setInterval(updateClock, 1000);
 
+// ===== Project Detail Redirect =====
 document.querySelectorAll('.project-more').forEach(btn => {
   btn.addEventListener('click', () => {
     const slug = btn.dataset.project;
     window.location.href = `project-detail-${slug}.html`;
   });
 });
-
-
-
-
-
-  
-
-
-
-
-
-

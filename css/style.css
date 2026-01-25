@@ -661,13 +661,11 @@ body::after {
   padding-block: 12px;
 }
 
-/* Track yang bergerak */
-.skills-track {
-  display: inline-flex;
-  align-items: stretch;
-  gap: 24px;
-  /* total width kira-kira 2x viewport (karena kartu di‑duplikasi) */
-  animation: skills-scroll 35s linear infinite;
+.skills-track{
+  display: flex;
+  width: max-content;              /* biar track selebar kontennya */
+  will-change: transform;
+  animation: skills-scroll 28s linear infinite;
 }
 
 /* Card */
@@ -730,13 +728,8 @@ body::after {
 
 /* Animasi marquee */
 @keyframes skills-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* geser sepanjang set pertama (50%) */
-    transform: translateX(-50%);
-  }
+ from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Pause on hover */
@@ -1249,6 +1242,70 @@ body::after {
 }
 
 /* ===== Certificate Section ===== */
+
+/* === FIX: tombol tidak menimpa sertifikat (layout pakai grid) === */
+.cert-slider-wrapper{
+  display: grid;                       /* ganti flex -> grid */
+  grid-template-columns: 56px 1fr 56px;/* kolom kiri tombol, tengah viewport, kanan tombol */
+  align-items: center;
+  gap: 14px;
+  width: min(1100px, 92vw);            /* lebar wrapper responsif */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Base tombol */
+.cert-nav-btn{
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(2, 6, 23, 0.55);
+  color: rgba(226, 232, 240, 0.95);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  transform: translateZ(0);
+  will-change: transform;
+  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+  box-shadow: 0 18px 45px rgba(0,0,0,.55);
+}
+
+.cert-nav-btn i{
+  font-size: 1.05rem;
+}
+
+.cert-nav-btn:hover{
+  transform: translateZ(0) scale(1.06);
+  border-color: rgba(34, 197, 94, 0.55);
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 22px 55px rgba(0,0,0,.70), 0 0 22px rgba(34,197,94,.18);
+}
+
+.cert-nav-btn:active{
+  transform: translateZ(0) scale(1.02);
+}
+
+.cert-nav-btn:disabled{
+  opacity: .35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Optional: tombol nempel kiri/kanan viewport (lebih “premium”) */
+.cert-prev, .cert-next{
+  position: absolute;
+  top: 70%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.cert-prev{ left: 18px; }
+.cert-next{ right: 18px; }
+
 .cert-section {
   position: relative;
   display: flex;
@@ -1323,9 +1380,10 @@ body::after {
 
   /* Biar user tetap bisa geser sertifikat dengan swipe */
   .cert-viewport{
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-  }
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
 
   .cert-track{
     scroll-snap-type: x mandatory;
@@ -3035,6 +3093,188 @@ html {
   padding-right: 12px !important;
   padding-left: 12px !important;
 }
+
+/* === FIX HOVER CERT NAV (NO FLICKER) === */
+.cert-slider-wrapper{
+  position: relative;
+  overflow: visible;
+}
+
+.cert-prev, .cert-next{
+  position: static;                    /* penting: hilangkan absolute */
+  transform: none;                     /* hilangkan translateY */
+  z-index: 3;
+}
+
+.cert-prev{ left: 18px; }
+.cert-next{ right: 18px; }
+
+.cert-nav-btn{
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(2, 6, 23, 0.55);
+  color: rgba(226, 232, 240, 0.95);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 45px rgba(0,0,0,.55);
+
+  /* stabil di layer transform */
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+/* ganti translateY jadi scale */
+.cert-nav-btn:hover{
+  transform: translateZ(0) scale(1.06);
+  border-color: rgba(34, 197, 94, 0.55);
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 22px 55px rgba(0,0,0,.70), 0 0 22px rgba(34,197,94,.18);
+}
+
+.cert-nav-btn:active{
+  transform: translateZ(0) scale(1.02);
+}
+
+/* === FIX spacing marquee skills === */
+.skills-marquee{
+  padding-inline: 28px;          /* ruang kiri/kanan biar tidak mepet */
+}
+
+.skills-track{
+  gap: 28px !important;          /* jarak antar card (override rule lama) */
+}
+
+.skill-card{
+  margin: 0 !important;          /* pastikan tidak ada margin aneh */
+}
+
+/* versi mobile biar tetap ada jarak */
+@media (max-width: 768px){
+  .skills-marquee{ padding-inline: 16px; }
+  .skills-track{ gap: 16px !important; }
+}
+
+/* === Fix icon center in skill card === */
+.skill-card{
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px !important;          /* ganti gap besar 45px */
+  padding: 22px 18px !important; /* biar ada ruang */
+}
+
+.skill-icon{
+  width: 72px !important;
+  height: 72px !important;
+  display: grid !important;
+  place-items: center !important; /* ini yang bikin ikon dead-center */
+}
+
+.skill-icon img{
+  width: 56px !important;
+  height: 56px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.skill-name{
+  margin: 0 !important;          /* hilangkan margin-top yang ganggu */
+  line-height: 1.2;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .skill-icon{ width: 64px !important; height: 64px !important; }
+  .skill-icon img{ width: 48px !important; height: 48px !important; }
+}
+
+/* Default kalau ada card belum dikasih warna */
+.skill-card { --c1:#22c55e; --c2:#06b6d4; }
+
+/* Background card saat hover: ikut warna */
+.skill-card:hover{
+  background: radial-gradient(circle at 30% 20%,
+    color-mix(in srgb, var(--c1) 45%, transparent),
+    #111827 70%) !important;
+  border-color: color-mix(in srgb, var(--c1) 55%, rgba(31,41,55,.85)) !important;
+}
+
+/* Snake border ikut warna */
+.skill-card::after{
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(0,0,0,0) 40deg,
+    var(--c1) 55deg,
+    var(--c2) 62deg,
+    color-mix(in srgb, var(--c1) 20%, transparent) 75deg,
+    transparent 95deg,
+    transparent 360deg
+  );
+
+  box-shadow:
+    0 0 14px color-mix(in srgb, var(--c1) 70%, transparent),
+    0 0 26px color-mix(in srgb, var(--c2) 50%, transparent);
+}
+
+/* FIX marquee: card tidak putus */
+.skills-track{
+  display: flex !important;
+  width: max-content !important;
+  gap: 28px !important;          /* pastikan gap konsisten */
+}
+
+/* Card jangan shrink (biar hitungan 50% pas) */
+.skills-track > .skill-card{
+  flex: 0 0 auto !important;
+}
+
+/* Snake border jangan melebar keluar (ini yang bikin sambungan kelihatan putus) */
+.skill-card::after{
+  inset: 0 !important;           /* kalau sebelumnya -2px, ganti jadi 0 */
+}
+
+/* MOBILE: kunci gap & jangan berubah-ubah */
+@media (max-width: 768px){
+  .skills-track{
+    gap: 16px !important;           /* samakan & kunci */
+  }
+
+  .skills-track > .skill-card{
+    flex: 0 0 auto !important;      /* jangan shrink */
+  }
+
+  /* snake jangan menambah lebar visual */
+  .skill-card::after{
+    inset: 0 !important;            /* override yang -2px di bawah */
+  }
+}
+
+/* Mobile tidak ada hover, jadi aktifkan efek saat tap/focus */
+.skill-card:active,
+.skill-card:focus-visible,
+.skill-card:focus-within{
+  transform: translateY(-3px) !important;
+  border-color: rgba(16, 185, 129, 0.55) !important;
+}
+
+.skill-card:active::after,
+.skill-card:focus-visible::after,
+.skill-card:focus-within::after{
+  opacity: 0.9; /* kalau efek ular kamu pakai opacity */
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.75), 0 0 30px rgba(6, 182, 212, 0.45) !important;
+}
+
+
+
+
+
 
 
 
