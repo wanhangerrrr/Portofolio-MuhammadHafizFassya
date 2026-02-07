@@ -178,54 +178,33 @@ if (certModal) {
   });
 }
 
-// ===== Certificates Slider + Dots =====
-const certTrack = document.querySelector('.cert-track');
-const certCards = document.querySelectorAll('.cert-card');
-const certPrev = document.querySelector('.cert-prev');
-const certNext = document.querySelector('.cert-next');
-const dotsWrap = document.querySelector('.cert-dots');
+// ===== Modern Certificates Slider =====
+const certSlider = document.getElementById('cert-slider');
+const certNextMobile = document.getElementById('cert-next-mobile');
+const certNextDesktop = document.getElementById('cert-next-desktop');
+const certPrevDesktop = document.getElementById('cert-prev-desktop');
 
-if (certTrack && certCards.length && certPrev && certNext) {
-  let certIndex = 0;
+if (certSlider) {
+  const scrollAmount = 320; // Scroll increment
 
-  function setActiveCert() {
-    certCards.forEach(c => c.classList.remove('active'));
-    certCards[certIndex].classList.add('active');
-  }
-
-  function moveCertTrack() {
-    const cardWidth = certCards[0].offsetWidth + 24;
-    certTrack.style.transform = `translateX(${-certIndex * cardWidth}px)`;
-  }
-
-  function renderDots() {
-    if (!dotsWrap) return;
-    dotsWrap.innerHTML = '';
-    certCards.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.type = 'button';
-      d.className = 'cert-dot' + (i === certIndex ? ' active' : '');
-      d.setAttribute('aria-label', `Sertifikat ${i + 1}`);
-      d.addEventListener('click', () => goToCert(i));
-      dotsWrap.appendChild(d);
+  const scrollSlider = (direction) => {
+    certSlider.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
     });
-  }
+  };
 
-  function goToCert(index) {
-    const total = certCards.length;
-    certIndex = (index + total) % total;
-    setActiveCert();
-    moveCertTrack();
-    renderDots();
-  }
+  certNextMobile?.addEventListener('click', () => scrollSlider(1));
+  certNextDesktop?.addEventListener('click', () => scrollSlider(1));
+  certPrevDesktop?.addEventListener('click', () => scrollSlider(-1));
 
-  certNext.addEventListener('click', () => goToCert(certIndex + 1));
-  certPrev.addEventListener('click', () => goToCert(certIndex - 1));
-
-  window.addEventListener('load', () => {
-    setActiveCert();
-    moveCertTrack();
-    renderDots();
+  // Optional: Auto-hide mobile next button when reaching end
+  certSlider.addEventListener('scroll', () => {
+    if (certSlider.scrollLeft + certSlider.clientWidth >= certSlider.scrollWidth - 10) {
+      certNextMobile?.classList.add('opacity-0', 'pointer-events-none');
+    } else {
+      certNextMobile?.classList.remove('opacity-0', 'pointer-events-none');
+    }
   });
 }
 
@@ -280,10 +259,207 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// ===== Project Detail Redirect =====
-document.querySelectorAll('.project-more').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const slug = btn.dataset.project;
-    window.location.href = `project-detail-${slug}.html`;
+// ===== Projects Filter (New Tailwind Design) =====
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+if (filterBtns.length > 0) {
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      // Update active state
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.style.backgroundColor = '#1a1f2e';
+        b.style.color = '#94a3b8';
+        b.setAttribute('aria-pressed', 'false');
+      });
+
+      btn.classList.add('active');
+      btn.style.backgroundColor = '#00ff88';
+      btn.style.color = '#0b0f14';
+      btn.setAttribute('aria-pressed', 'true');
+
+      // Filter projects
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
   });
+}
+
+// ===== Project Modal =====
+const projectData = {
+  'fraud-detection': {
+    title: 'Fraud Detection Mobile Banking (XGBoost)',
+    description: 'A comprehensive machine learning solution to detect fraudulent transactions in mobile banking systems using XGBoost algorithm with advanced preprocessing pipeline.',
+    features: [
+      'Real-time fraud detection with 95% accuracy',
+      'Automated preprocessing pipeline for data cleaning',
+      'Performance metrics dashboard for model evaluation'
+    ],
+    tech: ['Python', 'XGBoost', 'Pandas', 'Scikit-learn', 'Matplotlib'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: null
+  },
+  'ai-notebook': {
+    title: 'Aplikasi Mobile Notebook Berbasis AI',
+    description: 'An intelligent note-taking mobile application powered by AI to help users summarize ideas, organize notes, and boost productivity.',
+    features: [
+      'AI-powered text summarization',
+      'Smart note organization and categorization',
+      'Cross-platform synchronization'
+    ],
+    tech: ['JavaScript', 'React Native', 'OpenAI API', 'Firebase'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: null
+  },
+  'tomato-leaf': {
+    title: 'Tomato Leaf Classification (Transfer Learning)',
+    description: 'Mobile application for detecting tomato plant diseases using transfer learning with MobileNetV2, optimized for mobile deployment.',
+    features: [
+      'Real-time disease detection via camera',
+      'Transfer learning with MobileNetV2 for accuracy',
+      'Offline-capable model for field use'
+    ],
+    tech: ['TensorFlow', 'MobileNetV2', 'Keras', 'Flutter'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: null
+  },
+  'umkm-app': {
+    title: 'UMKM Management App',
+    description: 'Mobile application designed to help small business owners manage their operations, inventory, and customer data efficiently.',
+    features: [
+      'Inventory management system',
+      'Customer relationship tracking',
+      'Sales analytics dashboard'
+    ],
+    tech: ['Flutter', 'Dart', 'Firebase', 'SQLite'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: null
+  },
+  'tomato-web': {
+    title: 'Tomato Leaf Classification Web',
+    description: 'Web-based application for tomato disease classification with an intuitive upload → prediction → results workflow.',
+    features: [
+      'Drag-and-drop image upload',
+      'Instant prediction results',
+      'Disease information and treatment recommendations'
+    ],
+    tech: ['HTML', 'Tailwind CSS', 'JavaScript', 'TensorFlow.js'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: null
+  },
+  'crud-flutter': {
+    title: 'Student CRUD App (Flutter)',
+    description: 'A clean and simple Flutter application for managing student data with full CRUD (Create, Read, Update, Delete) operations.',
+    features: [
+      'Complete CRUD operations',
+      'Search and filter functionality',
+      'Data export to CSV'
+    ],
+    tech: ['Flutter', 'Dart', 'Firebase', 'Provider'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: null
+  }
+};
+
+function openProjectModal(projectId) {
+  const modal = document.getElementById('projectModal');
+  const modalContent = document.getElementById('modalContent');
+  const project = projectData[projectId];
+
+  if (!project) return;
+
+  // Build modal content
+  let html = `
+    <h3 class="text-2xl sm:text-3xl font-bold mb-4" style="color: #f8fafc;">${project.title}</h3>
+    <p class="text-base mb-6" style="color: #94a3b8;">${project.description}</p>
+    
+    <div class="mb-6">
+      <h4 class="text-lg font-semibold mb-3" style="color: #f8fafc;">Key Features</h4>
+      <ul class="space-y-2">
+        ${project.features.map(feature => `
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: #00ff88;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span style="color: #94a3b8;">${feature}</span>
+          </li>
+        `).join('')}
+      </ul>
+    </div>
+    
+    <div class="mb-6">
+      <h4 class="text-lg font-semibold mb-3" style="color: #f8fafc;">Tech Stack</h4>
+      <div class="flex flex-wrap gap-2">
+        ${project.tech.map(tech => `
+          <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+            ${tech}
+          </span>
+        `).join('')}
+      </div>
+    </div>
+    
+    <div class="flex gap-3">
+      <a 
+        href="${project.github}" 
+        target="_blank"
+        class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+        style="background-color: #00ff88; color: #0b0f14;">
+        <i class="fab fa-github mr-2"></i>View on GitHub
+      </a>
+      ${project.demo ? `
+        <a 
+          href="${project.demo}" 
+          target="_blank"
+          class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+          style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+          <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+        </a>
+      ` : ''}
+    </div>
+  `;
+
+  modalContent.innerHTML = html;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+  const modal = document.getElementById('projectModal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeProjectModal();
+  }
 });
+
+// Close modal on backdrop click
+const projectModal = document.getElementById('projectModal');
+if (projectModal) {
+  projectModal.addEventListener('click', (e) => {
+    if (e.target.id === 'projectModal') {
+      closeProjectModal();
+    }
+  });
+}

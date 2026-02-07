@@ -310,8 +310,10 @@ body::after {
 
 .hero-buttons {
   display: flex;
-  gap: 5px;
+  gap: 15px;
+  flex-wrap: wrap;
   margin-bottom: 40px;
+  align-items: center;
 }
 
 .btn {
@@ -322,6 +324,7 @@ body::after {
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   border: none;
   cursor: pointer;
@@ -869,10 +872,12 @@ body::after {
   font-size: 2.5rem;
   margin-bottom: 60px;
   position: relative;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 700;
 }
 
 .section-title::after {
@@ -2497,6 +2502,21 @@ body::after {
   box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
 }
 
+.dashboard-link {
+  color: #94a3b8 !important;
+  border: 2px solid #4b5563 !important;
+  background-color: transparent !important;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.dashboard-link:hover {
+  border-color: #00ff88 !important;
+  color: #00ff88 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
   .nav-menu {
@@ -3474,30 +3494,38 @@ html {
   box-shadow: 0 0 16px rgba(34, 197, 94, 0.75), 0 0 30px rgba(6, 182, 212, 0.45) !important;
 }
 
-/* Dashboard Link Styles */
-.dashboard-link {
-  position: absolute;
-  top: 70px;
-  right: 20px;
-  color: #00ff88;
-  text-decoration: none;
-  font-weight: bold;
-  z-index: 1001;
-  font-size: 14px;
-}
+/* Legacy dashboard-link styles removed */
 
-@media (max-width: 768px) {
-  .dashboard-link {
-    top: 60px;
-    right: 10px;
-    font-size: 12px;
+/* Modern Certificates Section Utilities */
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(0.98);
   }
 }
 
-@media (max-width: 480px) {
-  .dashboard-link {
-    top: 55px;
-    right: 10px;
-    font-size: 11px;
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-subtle {
+    animation: none;
   }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

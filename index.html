@@ -6,6 +6,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio - Muhammad Hafiz Fassya</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet" href="css/style.css">
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,6 +35,9 @@
         <li><a href="#certificates" class="nav-link">Certificates</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+
+
+
       <div class="hamburger">
         <span></span>
         <span></span>
@@ -38,8 +45,6 @@
       </div>
     </div>
   </nav>
-
-  <a href="https://dashboard-portofolio-ten.vercel.app/dashboard" class="dashboard-link">View Dashboard Traffic -></a>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
@@ -56,9 +61,24 @@
           <a href="https://wa.me/6289697477196" target="_blank" class="btn btn-primary">
             <i class="fab fa-whatsapp"></i> WhatsApp
           </a>
-          <a href="#portfolio" class="btn btn-secondary">View Portofolio Project</a>
+          <!-- <a href="#portfolio" class="btn btn-secondary">View Portofolio Project</a> -->
           <a href="assets/Cv_MuhammadHafizFassya.pdf" download="Cv_MuhammadHafizFassya.pdf" class="btn btn-cv">
             <i class="fas fa-download"></i> Download CV</a>
+          <!-- Dashboard Link -->
+          <a href="https://dashboard-portofolio-ten.vercel.app/dashboard" target="_blank"
+            class="dashboard-link btn sm:w-auto">
+            <!-- Chart Icon -->
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+              </path>
+            </svg>
+            <span>View Dashboard Traffic</span>
+            <!-- Arrow Icon -->
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
         </div>
 
         <!-- Social Links -->
@@ -269,234 +289,605 @@
   </section>
 
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-      <div class="portfolio-header">
-        <h2 class="section-title">Projects</h2>
+  <!-- Portfolio/Projects Section -->
+  <section id="portfolio" class="relative py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h2 class="section-title font-bold" style="font-family: 'Poppins', sans-serif;">Projects</h2>
+        <p class="text-lg" style="color: #94a3b8;">Selected projects in ML, AI, and Data Engineering</p>
       </div>
 
-      <div class="portfolio-grid portfolio-grid--cards">
+      <!-- Filter Chips -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" role="group" aria-label="Project filters">
+        <button
+          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 active"
+          style="background-color: #00ff88; color: #0b0f14;" data-filter="all" aria-pressed="true">
+          All
+        </button>
+        <button
+          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          style="background-color: #1a1f2e; color: #94a3b8; border: 1px solid #334155;" data-filter="ML"
+          aria-pressed="false">
+          ML
+        </button>
+        <button
+          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          style="background-color: #1a1f2e; color: #94a3b8; border: 1px solid #334155;" data-filter="AI"
+          aria-pressed="false">
+          AI
+        </button>
+        <button
+          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          style="background-color: #1a1f2e; color: #94a3b8; border: 1px solid #334155;" data-filter="Web"
+          aria-pressed="false">
+          Web
+        </button>
+        <button
+          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          style="background-color: #1a1f2e; color: #94a3b8; border: 1px solid #334155;" data-filter="Mobile"
+          aria-pressed="false">
+          Mobile
+        </button>
+      </div>
 
-        <!-- Project 1 -->
-        <article class="project-card project-card--v2" data-project="fraud-mobile-banking" data-category="ML">
-          <a class="project-thumb project-thumb--v2">
-            <img src="images/bank.JPG" alt="..." loading="lazy">
-          </a>
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
 
-          <div class="project-meta project-meta--v2">
-            <div class="project-top">
-              <span class="project-badge">ML</span>
-            </div>
+        <!-- Project 1: Fraud Detection -->
+        <article
+          class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+          style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="ML">
 
-            <h3 class="project-title project-title--v2">
+          <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <img src="images/bank.JPG" alt="Fraud Detection Mobile Banking"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+              style="background-color: rgba(0, 255, 136, 0.2); color: #00ff88;">
+              ML
+            </span>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;">
               Fraud Detection Mobile Banking (XGBoost)
             </h3>
 
-            <p class="project-desc project-desc--v2">
-              Model machine learning untuk mendeteksi transaksi mencurigakan dengan pipeline preprocessing dan evaluasi
-              metrik.
+            <p class="text-sm line-clamp-2" style="color: #94a3b8;">
+              Machine learning model to detect fraudulent transactions with preprocessing pipeline and performance
+              metrics evaluation.
             </p>
 
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Python</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">XGBoost</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Pandas</span>
+            </div>
+
+            <div class="flex gap-3 pt-2">
+              <button
+                class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('fraud-detection')">
+                Details
+              </button>
+              <a href="https://github.com/wanhangerrrr" target="_blank"
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
         </article>
 
-        <!-- Project 2 -->
-        <article class="project-card project-card--v2" data-project="notebook-ai" data-category="AI">
-          <a class="project-thumb project-thumb--v2 is-portrait">
-            <img src="images/notebook1.png" alt="Aplikasi Mobile NoteBook Berbasis AI" loading="lazy">
-          </a>
+        <!-- Project 2: AI Notebook -->
+        <article
+          class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+          style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="AI">
 
-          <div class="project-meta project-meta--v2">
-            <div class="project-top">
-              <span class="project-badge">AI</span>
-            </div>
+          <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <img src="images/notebook1.png" alt="AI-Powered Mobile Notebook"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+              style="background-color: rgba(0, 217, 255, 0.2); color: #00d9ff;">
+              AI
+            </span>
+          </div>
 
-            <h3 class="project-title project-title--v2">
+          <div class="p-5 space-y-4">
+            <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;">
               Aplikasi Mobile Notebook Berbasis AI
             </h3>
 
-            <p class="project-desc project-desc--v2">
-              Aplikasi catatan dengan fitur bantuan AI untuk merangkum ide, menyusun catatan, dan meningkatkan
-              produktivitas.
+            <p class="text-sm line-clamp-2" style="color: #94a3b8;">
+              Note-taking app with AI features to summarize ideas, organize notes, and boost productivity.
             </p>
 
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="project-card project-card--v2" data-project="tomato-leaf-app" data-category="ML">
-          <a class="project-thumb project-thumb--v2 is-portrait">
-            <img src="images/aplikasidaun2.png"
-              alt="Aplikasi Klasifikasi Daun Tomat Menggunakan Transfer Learning MobileNetV2" loading="lazy">
-          </a>
-
-          <div class="project-meta project-meta--v2">
-            <div class="project-top">
-              <span class="project-badge">ML</span>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">JavaScript</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">AI</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Mobile</span>
             </div>
 
-            <h3 class="project-title project-title--v2">
-              Klasifikasi Daun Tomat (MobileNetV2)
-            </h3>
-
-            <p class="project-desc project-desc--v2">
-              Aplikasi klasifikasi penyakit daun tomat berbasis transfer learning, dioptimasi untuk penggunaan mobile.
-            </p>
-
+            <div class="flex gap-3 pt-2">
+              <button
+                class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('ai-notebook')">
+                Details
+              </button>
+              <a href="https://github.com/wanhangerrrr" target="_blank"
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
         </article>
 
-        <!-- Project 4 -->
-        <article class="project-card project-card--v2" data-project="umkm-app" data-category="Web">
-          <a class="project-thumb project-thumb--v2 is-portrait">
-            <img src="images/UMKM1.png" alt="Aplikasi UMKM Sederhana Untuk Membantu Pedagang UMKM" loading="lazy">
-          </a>
+        <!-- Project 3: Tomato Leaf Classification -->
+        <article
+          class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+          style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="ML">
 
-          <div class="project-meta project-meta--v2">
-            <div class="project-top">
-              <span class="project-badge">Mobile</span>
+          <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <img src="images/aplikasidaun2.png" alt="Tomato Leaf Classification"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+              style="background-color: rgba(0, 255, 136, 0.2); color: #00ff88;">
+              ML
+            </span>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;">
+              Tomato Leaf Classification (Transfer Learning)
+            </h3>
+
+            <p class="text-sm line-clamp-2" style="color: #94a3b8;">
+              Mobile app for tomato disease classification using transfer learning, optimized for mobile deployment.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">TensorFlow</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">MobileNetV2</span>
             </div>
 
-            <h3 class="project-title project-title--v2">
-              Aplikasi UMKM Sederhana
-            </h3>
-
-            <p class="project-desc project-desc--v2">
-              Aplikasi untuk membantu pedagang UMKM mengelola data dasar dan alur operasional secara lebih terstruktur.
-            </p>
-
+            <div class="flex gap-3 pt-2">
+              <button
+                class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('tomato-leaf')">
+                Details
+              </button>
+              <a href="https://github.com/wanhangerrrr" target="_blank"
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
         </article>
 
-        <!-- Project 5 -->
-        <article class="project-card project-card--v2" data-project="tomato-leaf-web" data-category="Web">
-          <a class="project-thumb project-thumb--v2">
-            <img src="images/WEB.jpeg" alt="Web Klasifikasi Daun Tomat Menggunakan Transfer Learning MobileNetV2"
-              loading="lazy">
-          </a>
+        <!-- Project 4: UMKM App -->
+        <article
+          class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+          style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Mobile">
 
-          <div class="project-meta project-meta--v2">
-            <div class="project-top">
-              <span class="project-badge">Web</span>
+          <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <img src="images/UMKM1.png" alt="UMKM Management App"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+              style="background-color: rgba(0, 217, 255, 0.2); color: #00d9ff;">
+              Mobile
+            </span>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;">
+              UMKM Management App
+            </h3>
+
+            <p class="text-sm line-clamp-2" style="color: #94a3b8;">
+              Mobile application to help small business owners manage basic data and operational workflows efficiently.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Flutter</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Dart</span>
             </div>
 
-            <h3 class="project-title project-title--v2">
-              Web Klasifikasi Daun Tomat
-            </h3>
-
-            <p class="project-desc project-desc--v2">
-              Web app untuk klasifikasi daun tomat dengan alur upload → prediksi → hasil, dibuat untuk presentasi
-              project.
-            </p>
-
+            <div class="flex gap-3 pt-2">
+              <button
+                class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('umkm-app')">
+                Details
+              </button>
+              <a href="https://github.com/wanhangerrrr" target="_blank"
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
         </article>
 
-        <!-- Project 6 -->
-        <article class="project-card project-card--v2" data-project="crud-mahasiswa-flutter" data-category="Mobile">
-          <a class="project-thumb project-thumb--v2">
-            <img src="images/Web and Aplikasi CRUD Sederhana.jpeg" alt="Aplikasi CRUD Sederhana" loading="lazy">
-          </a>
+        <!-- Project 5: Tomato Leaf Web -->
+        <article
+          class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+          style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
-          <div class="project-meta project-meta--v2">
-            <div class="project-top">
-              <span class="project-badge">Web</span>
+          <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <img src="images/WEB.jpeg" alt="Tomato Leaf Classification Web"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+              style="background-color: rgba(0, 217, 255, 0.2); color: #00d9ff;">
+              Web
+            </span>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;">
+              Tomato Leaf Classification Web
+            </h3>
+
+            <p class="text-sm line-clamp-2" style="color: #94a3b8;">
+              Web application for tomato leaf classification with upload → prediction → results flow.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">HTML</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Tailwind</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">JavaScript</span>
             </div>
 
-            <h3 class="project-title project-title--v2">
-              CRUD Mahasiswa (Flutter)
-            </h3>
-
-            <p class="project-desc project-desc--v2">
-              Aplikasi Flutter untuk mengelola data mahasiswa secara sederhana, rapi, dan mudah dipelajari (CRUD
-              end-to-end).
-            </p>
+            <div class="flex gap-3 pt-2">
+              <button
+                class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('tomato-web')">
+                Details
+              </button>
+              <a href="https://github.com/wanhangerrrr" target="_blank"
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
         </article>
+
+        <!-- Project 6: CRUD Flutter -->
+        <article
+          class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+          style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
+
+          <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <img src="images/Web and Aplikasi CRUD Sederhana.jpeg" alt="Student CRUD App"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+              style="background-color: rgba(0, 217, 255, 0.2); color: #00d9ff;">
+              Web
+            </span>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;">
+              Student CRUD App (Flutter)
+            </h3>
+
+            <p class="text-sm line-clamp-2" style="color: #94a3b8;">
+              Flutter application for managing student data with clean interface and end-to-end CRUD operations.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Flutter</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Dart</span>
+              <span class="px-2 py-1 rounded text-xs font-medium"
+                style="background-color: #0b0f14; color: #94a3b8;">Firebase</span>
+            </div>
+
+            <div class="flex gap-3 pt-2">
+              <button
+                class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('crud-flutter')">
+                Details
+              </button>
+              <a href="https://github.com/wanhangerrrr" target="_blank"
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
+  <!-- Project Details Modal -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+    style="background-color: rgba(11, 15, 20, 0.9);">
+    <div class="relative max-w-2xl w-full rounded-xl p-6 sm:p-8"
+      style="background-color: #1a1f2e; border: 1px solid #334155;">
+
+      <!-- Close Button -->
+      <button onclick="closeProjectModal()"
+        class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2"
+        style="background-color: #0b0f14; color: #94a3b8;" aria-label="Close modal">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Modal Content -->
+      <div id="modalContent" class="space-y-6">
+        <!-- Content will be injected by JavaScript -->
+      </div>
+    </div>
+  </div>
 
 
-  <!-- Sertifikat Section -->
-  <section id="certificates" class="cert-section fade-section">
-    <div class="container">
-      <div class="cert-header">
-        <h2 class="section-title">Certificates</h2>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="py-20 overflow-hidden">
+    <div class="container mx-auto px-4 max-w-6xl relative">
+      <div class="text-center mb-10 relative">
+        <h2 class="section-title font-bold" style="font-family: 'Poppins', sans-serif;">Certificates</h2>
+
+        <!-- Mobile Next Button - Absolute right to maintain title center -->
+        <button id="cert-next-mobile"
+          class="md:hidden absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[#00ff88]/30 bg-[#00ff88]/10 text-[#00ff88] text-sm font-medium animate-pulse-subtle focus:outline-none focus:ring-2 focus:ring-[#00ff88]/50 active:scale-95 transition-transform"
+          aria-label="Next Certificate">
+          Next <i class="fas fa-chevron-right text-[10px]"></i>
+        </button>
+
+        <!-- Desktop Nav Buttons - Side by Side layout usually or absolute -->
+        <div class="hidden md:flex gap-3 absolute right-0 top-1/2 -translate-y-1/2">
+          <button id="cert-prev-desktop"
+            class="w-12 h-12 flex items-center justify-center rounded-full border border-[#334155] text-[#94a3b8] hover:border-[#00ff88] hover:text-[#00ff88] hover:bg-[#00ff88]/5 transition-all focus:outline-none focus:ring-2 focus:ring-[#00ff88]/50"
+            aria-label="Previous Certificate">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button id="cert-next-desktop"
+            class="w-12 h-12 flex items-center justify-center rounded-full border border-[#334155] text-[#94a3b8] hover:border-[#00ff88] hover:text-[#00ff88] hover:bg-[#00ff88]/5 transition-all focus:outline-none focus:ring-2 focus:ring-[#00ff88]/50"
+            aria-label="Next Certificate">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
 
-      <div class="cert-slider-wrapper">
-        <button class="cert-prev cert-nav-btn" type="button" aria-label="Sertifikat sebelumnya">‹</button>
-
-        <div class="cert-viewport">
-          <div class="cert-track">
-            <!-- CARD 1 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat11.JPG" alt="Certificate 1" class="cert-image">
-            </article>
-
-            <!-- CARD 2 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat12.JPG" alt="Certificate 2" class="cert-image">
-            </article>
-
-            <!-- CARD 3 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat1.jpeg" alt="Certificate 3" class="cert-image">
-            </article>
-
-            <!-- CARD 4 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat2.JPG" alt="Certificate 4" class="cert-image">
-            </article>
-
-            <!-- CARD 5 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat3.JPG" alt="Certificate 5" class="cert-image">
-            </article>
-
-            <!-- CARD 7 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat4.JPG" alt="Certificate 7" class="cert-image">
-            </article>
-
-            <!-- CARD 8 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat5.JPG" alt="Certificate 8" class="cert-image">
-            </article>
-
-            <!-- CARD 9 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat6.JPG" alt="Certificate 9" class="cert-image">
-            </article>
-
-            <!-- CARD 10 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat7.JPG" alt="Certificate 10" class="cert-image">
-            </article>
-
-            <!-- CARD 11 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat8.JPG" alt="Certificate 11" class="cert-image">
-            </article>
-
-            <!-- CARD 12 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat9.JPG" alt="Certificate 12" class="cert-image">
-            </article>
-
-            <!-- CARD 13 -->
-            <article class="cert-card fade-item">
-              <img src="images/sertifikat10.JPG" alt="Certificate 13" class="cert-image">
-            </article>
+      <div id="cert-slider"
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 -mx-4 px-4 scroll-smooth">
+        <!-- CARD 1 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Achievement Certification 1" data-cert-img="images/sertifikat11.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat11.JPG" alt="Certificate 1"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Achievement</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Professional Certification</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Verified Institution</p>
+            </div>
           </div>
         </div>
 
-        <button class="cert-next cert-nav-btn" type="button" aria-label="Sertifikat berikutnya">›</button>
+        <!-- CARD 2 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Professional Accomplishment 2" data-cert-img="images/sertifikat12.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat12.JPG" alt="Certificate 2"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Credential</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Technical Workshop Completion</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Academy of Excellence</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Academic Excellence 3" data-cert-img="images/sertifikat1.jpeg">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat1.jpeg" alt="Certificate 3"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Scholarly</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Academic Achievement Honor</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">University Partner</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Technical Mastery 4" data-cert-img="images/sertifikat2.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat2.JPG" alt="Certificate 4"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Skillset</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Specialized Skill Training</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Learning Center</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Professional Growth 5" data-cert-img="images/sertifikat3.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat3.JPG" alt="Certificate 5"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Career</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Industry Project Completion</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Corporate Sponsor</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Advanced Studies 6" data-cert-img="images/sertifikat4.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat4.JPG" alt="Certificate 6"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Expertise</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Expert Level Assessment</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Global Tech Leader</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Innovation Award 7" data-cert-img="images/sertifikat5.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat5.JPG" alt="Certificate 7"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Award</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Innovation Challenge Winner</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Regional Tech Hub</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Strategic Thinking 8" data-cert-img="images/sertifikat6.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat6.JPG" alt="Certificate 8"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Strategic</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Strategic Management Course</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Business Institute</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 9 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Digital Skills 9" data-cert-img="images/sertifikat7.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat7.JPG" alt="Certificate 9"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Digital</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Digital Marketing Professional</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Marketing Hub</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 10 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="App Development 10" data-cert-img="images/sertifikat8.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat8.JPG" alt="Certificate 10"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Dev</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Full Stack Web Development</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Coding Academy</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 11 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="UI Design 11" data-cert-img="images/sertifikat9.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat9.JPG" alt="Certificate 11"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Design</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">UI/UX Design Specialization</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Creative School</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 12 -->
+        <div class="flex-none w-[85vw] sm:w-[400px] snap-center">
+          <div
+            class="group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="Final Project 12" data-cert-img="images/sertifikat10.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat10.JPG" alt="Certificate 12"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block">Final</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">Capstone Project Completion</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Institution Partners</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   </section>
 
