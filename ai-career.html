@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Advisor — Muhammad Hafiz Fassya</title>
+    <meta name="description"
+        content="AI-powered career insights for Data Engineer, Fullstack Developer, and ML Engineer tracks.">
+    <link rel="icon" type="image/png" href="images/wanhanger.jpg">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Isolated cyberpunk stylesheet -->
+    <link rel="stylesheet" href="css/ai-career.css">
+</head>
+
+<body class="ai-career-page">
+
+    <!-- Top animated gradient line -->
+    <div class="cyber-topline"></div>
+
+    <div class="cyber-container">
+
+        <!-- Back link -->
+        <a href="index.html" class="cyber-back">← Kembali ke Portfolio</a>
+
+        <!-- Header -->
+        <header class="cyber-header">
+            <h1>AI Insights By Hafiz</h1>
+            <p class="subtitle">Analisis aktivitas coding Muhammad Hafiz Fassya</p>
+            <span class="last-generated" id="lastGenerated"></span>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="cyber-grid">
+
+            <!-- LEFT: Insights Panel -->
+            <div class="cyber-card" id="insightsCard">
+                <h2><span class="icon">🧠</span> AI Insights</h2>
+                <div id="insightsPanel">
+                    <div class="cyber-empty">
+                        <div class="empty-icon"></div>
+                        <h3>Siap Menganalisis</h3>
+                        <p>Klik "Generate Insights" untuk mendapatkan Aktivitas Muhammad Hafiz Fassya</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Controls Panel -->
+            <div>
+                <!-- Mobile accordion toggle (hidden on desktop) -->
+                <button class="accordion-toggle" id="accordionToggle">
+                    ⚙️ Pengaturan & Kontrol
+                    <span class="chevron">▼</span>
+                </button>
+
+                <div class="accordion-content open" id="accordionContent">
+                    <div class="cyber-card">
+                        <h2><span class="icon">⚙️</span> Kontrol</h2>
+
+                        <!-- Time Range -->
+                        <div class="control-group">
+                            <label>Rentang Waktu</label>
+                            <div class="range-toggle">
+                                <button class="range-btn active" data-range="7d">7 Hari</button>
+                                <button class="range-btn" data-range="30d">30 Hari</button>
+                            </div>
+                        </div>
+
+                        <!-- Generate Button -->
+                        <div class="control-group" style="margin-top: 24px;">
+                            <button class="cyber-btn-generate" id="generateBtn">
+                                <span id="btnLabel">Generate Insights</span>
+                                <span class="countdown" id="btnCountdown"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats Card -->
+                    <div class="cyber-card" style="margin-top: 24px;">
+                        <h2><span class="icon">📈</span> Quick Stats</h2>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">14h</div>
+                                <div class="stat-label">Coding Time</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">5d</div>
+                                <div class="stat-label">Active Days</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">4</div>
+                                <div class="stat-label">Languages</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">4</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts: metrics payload first, then main logic -->
+    <script src="js/buildMetricsPayload.js"></script>
+    <script src="js/ai-career.js"></script>
+
+</body>
+
+</html>

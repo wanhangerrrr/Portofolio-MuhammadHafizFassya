@@ -3529,3 +3529,27 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ===== AI Advisor Nav Button (scoped) ===== */
+.nav-link.ai-advisor-btn {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(168, 85, 247, 0.15));
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: #00f0ff !important;
+  font-weight: 600;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.nav-link.ai-advisor-btn:hover {
+  border-color: rgba(0, 240, 255, 0.6);
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.25);
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(168, 85, 247, 0.22));
+  color: #00f0ff !important;
+}
+
+.nav-link.ai-advisor-btn.active {
+  background: linear-gradient(135deg, #00f0ff, #a855f7) !important;
+  color: #000 !important;
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+}
