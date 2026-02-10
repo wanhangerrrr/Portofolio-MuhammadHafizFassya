@@ -11,7 +11,8 @@
     'use strict';
 
     // ── Config ──
-    const API_BASE = 'http://localhost:5174';
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const API_BASE = isLocal ? 'http://localhost:5174' : window.location.origin;
     const LOCKOUT_SECONDS = 30;
     const LS_PREFIX = 'ai_career_';
 

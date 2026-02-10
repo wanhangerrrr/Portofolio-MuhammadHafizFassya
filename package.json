@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:server": "npx tsx server/index.ts",
-    "dev": "npx concurrently \"npx tsx server/index.ts\" \"echo Frontend: open ai-career.html in browser\""
+    "dev": "npx concurrently \"npx tsx server/index.ts\" \"echo Frontend: open ai-career.html in browser\"",
+    "build": "tsc -p server/tsconfig.json"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +18,8 @@
     "@types/express": "^5.0.6",
     "autoprefixer": "^10.4.24",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.7.3"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

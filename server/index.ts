@@ -27,9 +27,13 @@ app.get('/api/health', (_req: express.Request, res: express.Response) => {
 // Routes
 app.use('/api/ai-insights', aiInsightsRouter);
 
-// Start
-app.listen(PORT, () => {
-    console.log(`✅ Server running on http://localhost:${PORT}`);
-    console.log(`   LLM Provider: ${process.env.LLM_PROVIDER || 'gemini'}`);
-    console.log(`   Rate limit: 5 requests per 10 minutes per IP`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`✅ Server running on http://localhost:${PORT}`);
+        console.log(`   LLM Provider: ${process.env.LLM_PROVIDER || 'openai'}`);
+        console.log(`   Rate limit: 5 requests per 10 minutes per IP`);
+    });
+}
+
+export default app;
