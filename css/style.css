@@ -2517,6 +2517,87 @@ body::after {
   box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
 }
 
+/* AI Advisor Button - Premium Effect */
+.btn-ai-advisor {
+  position: relative !important;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  color: #00ff88 !important;
+  border: 1px solid rgba(0, 255, 136, 0.4) !important;
+  overflow: visible !important;
+  /* Allow badge to overflow */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  padding: 12px 25px !important;
+  font-weight: 700 !important;
+  z-index: 10;
+}
+
+.btn-ai-advisor:hover {
+  transform: translateY(-4px) scale(1.03) !important;
+  border-color: #00ff88 !important;
+  color: #fff !important;
+  box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3),
+    0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.btn-ai-advisor i {
+  color: #00ff88 !important;
+  font-size: 0.9rem;
+  margin-right: 8px;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 136, 0.5));
+}
+
+.btn-ai-advisor:hover i {
+  animation: sparkle-rotate 0.6s ease-in-out;
+}
+
+@keyframes sparkle-rotate {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+
+  50% {
+    transform: scale(1.4) rotate(180deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.ai-badge {
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  background: #00ff88;
+  color: #000;
+  font-size: 9px;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+  z-index: 20;
+}
+
+@keyframes pulse-badge-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+  }
+}
+
+.ai-badge {
+  animation: pulse-badge-glow 2s infinite ease-in-out;
+}
+
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
   .nav-menu {
