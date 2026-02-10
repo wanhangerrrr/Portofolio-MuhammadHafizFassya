@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import aiInsightsRouter from './routes/aiInsights.js';
+import aiInsightsRouter from '../server/routes/aiInsights.js';
 
 const app = express();
 const PORT = parseInt(process.env.PORT || '5174', 10);
@@ -13,11 +13,6 @@ app.use(cors({
     allowedHeaders: ['Content-Type'],
 }));
 app.use(express.json());
-
-// Log all requests
-app.use((req: express.Request, _res: express.Response, next: express.NextFunction) => {
-    next();
-});
 
 // Health check
 app.get('/api/health', (_req: express.Request, res: express.Response) => {

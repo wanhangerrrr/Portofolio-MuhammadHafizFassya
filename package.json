@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:server": "npx tsx server/index.ts",
-    "dev": "npx concurrently \"npx tsx server/index.ts\" \"echo Frontend: open ai-career.html in browser\"",
+    "dev:server": "npx tsx api/index.ts",
+    "dev": "npx concurrently \"npx tsx api/index.ts\" \"echo Frontend: open ai-career.html in browser\"",
     "build": "tsc -p server/tsconfig.json"
   },
   "keywords": [],
