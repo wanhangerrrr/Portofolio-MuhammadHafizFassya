@@ -1,0 +1,175 @@
+/* REACT ISLAND LOGO LOOP - ISOLATED STYLES */
+/* Menggunakan namespace react-island untuk menghindari conflict total */
+
+#skills-logo-loop {
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* Container utama */
+.react-island-container {
+    width: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 2rem 0 !important;
+    display: block !important;
+}
+
+/* Baris logo */
+.react-island-row {
+    position: relative !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    margin-bottom: 1.5rem !important;
+    display: block !important;
+
+    /* Fade mask kiri-kanan */
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 8%,
+            black 92%,
+            transparent 100%) !important;
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 8%,
+            black 92%,
+            transparent 100%) !important;
+}
+
+.react-island-row:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Track untuk animasi - FORCE HORIZONTAL */
+.react-island-track {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+    width: fit-content !important;
+    will-change: transform !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+}
+
+/* Animasi Row 1 - Ke Kiri */
+.react-island-row-left .react-island-track {
+    animation: reactIslandScrollLeft 25s linear infinite !important;
+}
+
+/* Animasi Row 2 - Ke Kanan */
+.react-island-row-right .react-island-track {
+    animation: reactIslandScrollRight 30s linear infinite !important;
+}
+
+/* Hover pause - Desktop only */
+@media (hover: hover) and (pointer: fine) {
+    .react-island-row:hover .react-island-track {
+        animation-play-state: paused !important;
+    }
+}
+
+/* Logo Card - NO GAP, COMPACT */
+.react-island-card {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    width: 90px !important;
+    height: 90px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(26, 31, 46, 0.5) !important;
+    border: 1px solid rgba(51, 65, 85, 0.6) !important;
+    border-radius: 1rem !important;
+    padding: 1.25rem !important;
+    margin: 0 0.5rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.react-island-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(0, 255, 136, 0.6) !important;
+    background: rgba(0, 255, 136, 0.08) !important;
+    box-shadow: 0 8px 24px rgba(0, 255, 136, 0.2) !important;
+}
+
+.react-island-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+    pointer-events: none !important;
+}
+
+/* Keyframe Animations dengan nama unik */
+@keyframes reactIslandScrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+@keyframes reactIslandScrollRight {
+    0% {
+        transform: translateX(-33.333%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .react-island-track {
+        animation: none !important;
+    }
+
+    .react-island-container {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
+        gap: 1rem !important;
+        padding: 2rem !important;
+    }
+
+    .react-island-row {
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+        margin-bottom: 0 !important;
+    }
+
+    .react-island-track {
+        display: contents !important;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .react-island-card {
+        width: 75px !important;
+        height: 75px !important;
+        padding: 1rem !important;
+        margin: 0 0.35rem !important;
+    }
+
+    .react-island-row {
+        -webkit-mask-image: linear-gradient(to right,
+                transparent 0%,
+                black 5%,
+                black 95%,
+                transparent 100%) !important;
+        mask-image: linear-gradient(to right,
+                transparent 0%,
+                black 5%,
+                black 95%,
+                transparent 100%) !important;
+    }
+}

@@ -1,22 +1,44 @@
-// ===== Mobile Menu Toggle =====
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
+// ===== Sidebar Logic =====
+const sidebar = document.getElementById('sidebar');
+const mobileOverlay = document.getElementById('mobile-overlay');
 
-if (hamburger && navMenu) {
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-  });
+// Global toggle function
+window.toggleSidebar = function () {
+  if (sidebar && mobileOverlay) {
+    const isClosed = sidebar.classList.contains('-translate-x-full');
 
-  // Close menu when clicking a link (mobile)
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-    });
+    if (isClosed) {
+      // Open
+      sidebar.classList.remove('-translate-x-full');
+      mobileOverlay.classList.remove('hidden');
+      setTimeout(() => {
+        mobileOverlay.classList.remove('opacity-0');
+      }, 10);
+    } else {
+      // Close
+      sidebar.classList.add('-translate-x-full');
+      mobileOverlay.classList.add('opacity-0');
+      setTimeout(() => {
+        mobileOverlay.classList.add('hidden');
+      }, 300);
+    }
+  }
+};
+
+// Close sidebar when clicking a link on mobile
+const navLinks = document.querySelectorAll('.nav-item');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 1024) { // Close on mobile and tablet
+      // Manual close call to ensure correct state
+      sidebar.classList.add('-translate-x-full');
+      mobileOverlay.classList.add('opacity-0');
+      setTimeout(() => {
+        mobileOverlay.classList.add('hidden');
+      }, 300);
+    }
   });
-}
+});
 
 // ===== Smooth Scrolling =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -33,21 +55,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
   let current = '';
+  const offset = 100; // Adjustment for scroll offset
+
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    if (window.scrollY >= (sectionTop - 120)) current = section.getAttribute('id') || '';
+    // const sectionHeight = section.clientHeight; // Unused
+    if (window.scrollY >= (sectionTop - offset)) {
+      current = section.getAttribute('id');
+    }
   });
 
   navLinks.forEach(link => {
-    link.classList.remove('active');
-    const href = link.getAttribute('href') || '';
-    if (current && href.includes(current)) link.classList.add('active');
-  });
+    // Basic state reset
+    link.classList.remove('active-nav', 'bg-[#1a1f2e]', 'text-[#00ff88]');
+    link.classList.add('text-[#94a3b8]');
 
-  const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  }
+    // Icon scale reset
+    const icon = link.querySelector('i');
+    if (icon) icon.classList.remove('scale-110');
+
+    // Indicator reset
+    const indicator = link.querySelector('div.absolute'); // The green bar
+    if (indicator) indicator.classList.remove('opacity-100');
+
+    const href = link.getAttribute('href');
+    if (current && href === `#${current}`) {
+      // Active state
+      link.classList.add('active-nav', 'bg-[#1a1f2e]', 'text-[#00ff88]');
+      link.classList.remove('text-[#94a3b8]');
+      if (icon) icon.classList.add('scale-110');
+      if (indicator) indicator.classList.add('opacity-100');
+    }
+  });
 });
 
 // ===== Scroll Reveal Animation =====
@@ -116,17 +155,17 @@ if (contactForm && successMessage && errorMessage) {
       });
 
       if (res.ok) {
-        successMessage.style.display = 'block';
+        successMessage.style.display = 'flex';
         contactForm.reset();
         successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         setTimeout(() => { successMessage.style.display = 'none'; }, 8000);
       } else {
-        errorMessage.style.display = 'block';
+        errorMessage.style.display = 'flex';
         errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         setTimeout(() => { errorMessage.style.display = 'none'; }, 8000);
       }
     } catch (err) {
-      errorMessage.style.display = 'block';
+      errorMessage.style.display = 'flex';
       errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       console.error('Error:', err);
       setTimeout(() => { errorMessage.style.display = 'none'; }, 8000);
@@ -236,25 +275,24 @@ if (fadeItems.length) {
   fadeItems.forEach(item => itemObserver.observe(item));
 }
 
-// ===== Auto-loop Tools & Skills =====
-document.addEventListener('DOMContentLoaded', () => {
-  const track = document.querySelector('.skills-track');
-  if (!track) return;
-
-  if (track.dataset.cloned === '1') return;
-  track.dataset.cloned = '1';
-
-  const cards = Array.from(track.children);
-  cards.forEach(card => track.appendChild(card.cloneNode(true)));
-});
 
 // ===== Live Clock =====
+// ===== Live Clock =====
 function updateClock() {
-  const el = document.getElementById('live-clock');
-  if (!el) return;
+  const clockEl = document.getElementById('digital-clock');
+  const dateEl = document.getElementById('date-display');
+
+  if (!clockEl || !dateEl) return;
+
   const now = new Date();
-  const opt = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
-  el.textContent = now.toLocaleTimeString('id-ID', opt) + ' WIB';
+
+  // Time: 00:00:00
+  const timeOpt = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+  clockEl.textContent = now.toLocaleTimeString('en-US', timeOpt);
+
+  // Date: MON, JAN 01
+  const dateOpt = { weekday: 'short', month: 'short', day: '2-digit' };
+  dateEl.textContent = now.toLocaleDateString('en-US', dateOpt).toUpperCase();
 }
 updateClock();
 setInterval(updateClock, 1000);
