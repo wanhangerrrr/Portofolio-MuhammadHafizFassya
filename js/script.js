@@ -412,6 +412,18 @@ const projectData = {
     tech: ['Flutter', 'Dart', 'Firebase', 'Provider'],
     github: 'https://github.com/wanhangerrrr',
     demo: null
+  },
+  'dashboard-traffic': {
+    title: 'Personal Portfolio Analytics Dashboard',
+    description: 'Real-time analytics dashboard to track portfolio engagement and project activity with dynamic data visualization.',
+    features: [
+      'Real-time visitor tracking',
+      'Interactive charts & data visualization',
+      'Project engagement metrics'
+    ],
+    tech: ['JavaScript', 'Tailwind CSS', 'Node.js'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'https://dashboard-portofolio-ten.vercel.app/dashboard'
   }
 };
 
