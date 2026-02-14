@@ -3930,3 +3930,10 @@ html {
     padding: 1.25rem;
   }
 }
+
+/* ===== Language Switcher ===== */
+#langSelect option {
+  background-color: #0b0f14;
+  color: white;
+  padding: 5px;
+}
