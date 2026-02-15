@@ -774,9 +774,7 @@
 
           <!-- Project 4: UMKM App -->
           <article
-            class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
-            style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Mobile">
-
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 ...">
             <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
               <img src="images/UMKM1.png" alt="UMKM Management App"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -787,7 +785,7 @@
               </span>
             </div>
 
-            <div class="p-5 space-y-4">
+            <div class="p-5 flex flex-col flex-1 gap-4">
               <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.umkm.title">
                 UMKM Management App
               </h3>
@@ -804,13 +802,14 @@
                   style="background-color: #0b0f14; color: #94a3b8;">Dart</span>
               </div>
 
-              <div class="flex gap-3 pt-2">
+              <div class="project-actions mt-auto flex gap-3 pt-2">
                 <button
                   class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
                   style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('umkm-app')"
                   data-i18n="btn.details">
                   Details
                 </button>
+
                 <a href="https://github.com/wanhangerrrr" target="_blank"
                   class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
                   style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
@@ -1932,6 +1931,84 @@
             class="flex-1 py-2.5 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f14] font-bold rounded-xl shadow-lg transition-all transform active:scale-95">Simpan</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- Live Demo Modal -->
+  <div id="liveDemoModal" class="live-demo-modal">
+    <div class="demo-modal-container">
+      <div class="demo-header">
+        <div class="demo-title">
+          <i class="fas fa-mobile-alt"></i>
+          <span id="demoProjectTitle">Live Demo</span>
+        </div>
+        <button class="demo-close" onclick="closeLiveDemo()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="demo-body">
+        <!-- Phone 1: Grid View -->
+        <div class="phone-frame active" id="phoneGrid">
+          <div class="phone-notch"></div>
+          <div class="phone-ui">
+            <div class="app-header">
+              <div class="app-logo">F</div>
+              <div class="text-sm font-bold ml-2">FoodieApp</div>
+              <div class="flex-1"></div>
+              <i class="fas fa-bell text-gray-400"></i>
+            </div>
+
+            <div class="app-search">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Cari menu buka disini..." oninput="filterDemoItems(this.value)">
+            </div>
+
+            <div class="app-section-title">Our Menu</div>
+            <div class="app-grid" id="demoGridContent">
+              <!-- Content rendered via JS -->
+            </div>
+
+            <div class="app-nav">
+              <div class="nav-icon active"><i class="fas fa-home"></i></div>
+              <div class="nav-icon"><i class="fas fa-search"></i></div>
+              <div class="nav-icon"><i class="fas fa-shopping-cart"></i></div>
+              <div class="nav-icon"><i class="fas fa-user"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 2: List View -->
+        <div class="phone-frame" id="phoneList">
+          <div class="phone-notch"></div>
+          <div class="phone-ui">
+            <div class="app-header">
+              <div class="text-lg font-bold">Pesanan Anda</div>
+            </div>
+
+            <div class="app-list" id="demoListContent">
+              <!-- Content rendered via JS -->
+            </div>
+
+            <button class="app-fab" onclick="addDemoItem()">
+              <i class="fas fa-plus"></i>
+            </button>
+
+            <div class="app-nav">
+              <div class="nav-icon"><i class="fas fa-home"></i></div>
+              <div class="nav-icon"><i class="fas fa-search"></i></div>
+              <div class="nav-icon"><i class="fas fa-shopping-cart"></i></div>
+              <div class="nav-icon active"><i class="fas fa-user"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Controls (Tabs) -->
+        <div class="mobile-controls">
+          <button class="control-tab active" onclick="switchDemoScreen(0)">Browse</button>
+          <button class="control-tab" onclick="switchDemoScreen(1)">Manage</button>
+        </div>
+      </div>
     </div>
   </div>
 

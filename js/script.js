@@ -388,7 +388,8 @@ const projectData = {
     ],
     tech: ['Flutter', 'Dart', 'Firebase', 'SQLite'],
     github: 'https://github.com/wanhangerrrr',
-    demo: null
+    demo: null,
+    isLiveDemo: true
   },
   'tomato-web': {
     title: 'Tomato Leaf Classification Web',
@@ -474,7 +475,14 @@ function openProjectModal(projectId) {
         style="background-color: #00ff88; color: #0b0f14;">
         <i class="fab fa-github mr-2"></i>View on GitHub
       </a>
-      ${project.isSimulator ? `
+      ${project.isLiveDemo ? `
+        <button 
+          onclick="openLiveDemo('${projectId}')" 
+          class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 hover:bg-[#00ff88] hover:text-[#0b0f14] group"
+          style="background-color: transparent; color: #00ff88; border: 1px solid #00ff88;">
+          <i class="fas fa-play mr-2 group-hover:animate-pulse"></i>Live Demo
+        </button>
+      ` : project.isSimulator ? `
         <button 
           onclick="openSimulator()" 
           class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 hover:bg-[#00ff88] hover:text-[#0b0f14] group"
@@ -1315,4 +1323,128 @@ function deleteStudent(id) {
     students = students.filter(s => s.id !== id);
     renderStudents(document.getElementById('crudSearch').value);
   }
+}
+
+// ===== Live Demo Feature =====
+const demoData = [
+  { id: 1, name: "Ayam Geprek Komplit", price: "20.000", img: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=150" },
+  { id: 2, name: "Es Teh Manis Jumbo", price: "8.000", img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=150" },
+  { id: 3, name: "Nasi Goreng Spesial", price: "25.000", img: "https://images.unsplash.com/photo-1603133872878-684f5c9322f5?w=150" },
+  { id: 4, name: "Dimsum Mentai", price: "18.000", img: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=150" },
+  { id: 5, name: "Kopi Susu Gula Aren", price: "15.000", img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=150" },
+  { id: 6, name: "Roti Bakar Coklat", price: "12.000", img: "https://images.unsplash.com/photo-1588619461332-445105e19199?w=150" }
+];
+
+let currentDemoRef = [...demoData]; // Local state for demo manipulation
+
+function openLiveDemo(projectId) {
+  const modal = document.getElementById('liveDemoModal');
+  const projectTitle = document.getElementById('demoProjectTitle');
+
+  if (projectId === 'umkm-app') {
+    projectTitle.textContent = "UMKM Management App Demo";
+    renderDemoGrid(demoData);
+    renderDemoList(currentDemoRef);
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeLiveDemo() {
+  const modal = document.getElementById('liveDemoModal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('liveDemoModal')?.addEventListener('click', (e) => {
+  if (e.target.classList.contains('live-demo-modal')) closeLiveDemo();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.getElementById('liveDemoModal')?.classList.contains('open')) {
+    closeLiveDemo();
+  }
+});
+
+// Render Functions
+function renderDemoGrid(items) {
+  const container = document.getElementById('demoGridContent');
+  if (!container) return;
+
+  container.innerHTML = items.map(item => `
+    <div class="app-card">
+      <img src="${item.img}" class="app-card-img" alt="${item.name}">
+      <div class="app-card-title">${item.name}</div>
+      <div class="app-card-price">Rp ${item.price}</div>
+    </div>
+  `).join('');
+}
+
+function renderDemoList(items) {
+  const container = document.getElementById('demoListContent');
+  if (!container) return;
+
+  if (items.length === 0) {
+    container.innerHTML = '<div class="text-center text-gray-400 py-10">Belum ada item</div>';
+    return;
+  }
+
+  container.innerHTML = items.map(item => `
+    <div class="app-list-item">
+      <img src="${item.img}" class="app-list-img" alt="${item.name}">
+      <div class="app-list-info">
+        <div class="font-bold text-sm text-gray-800">${item.name}</div>
+        <div class="text-xs text-gray-500">Rp ${item.price}</div>
+      </div>
+      <div class="app-list-actions">
+        <button class="action-btn btn-edit"><i class="fas fa-pen"></i></button>
+        <button class="action-btn btn-delete" onclick="deleteDemoItem(${item.id})"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Logic Interactions
+function filterDemoItems(query) {
+  const filtered = demoData.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
+  renderDemoGrid(filtered);
+}
+
+function addDemoItem() {
+  const newItem = {
+    id: Date.now(),
+    name: "Menu Baru " + (currentDemoRef.length + 1),
+    price: "10.000",
+    img: "https://via.placeholder.com/150/e2e8f0/94a3b8?text=New"
+  };
+  currentDemoRef.push(newItem);
+  renderDemoList(currentDemoRef);
+
+  // Scroll to bottom
+  const container = document.getElementById('demoListContent');
+  setTimeout(() => container.scrollTop = container.scrollHeight, 10);
+}
+
+function deleteDemoItem(id) {
+  if (confirm('Hapus item ini dari demo?')) {
+    currentDemoRef = currentDemoRef.filter(item => item.id !== id);
+    renderDemoList(currentDemoRef);
+  }
+}
+
+// Mobile Tab Switching
+function switchDemoScreen(index) {
+  const phones = [document.getElementById('phoneGrid'), document.getElementById('phoneList')];
+  const tabs = document.querySelectorAll('.control-tab');
+
+  phones.forEach((p, i) => {
+    if (i === index) p.classList.add('active');
+    else p.classList.remove('active');
+  });
+
+  tabs.forEach((t, i) => {
+    if (i === index) t.classList.add('active');
+    else t.classList.remove('active');
+  });
 }
