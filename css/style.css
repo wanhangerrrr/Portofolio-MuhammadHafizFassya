@@ -6,12 +6,56 @@
 }
 
 :root {
+  /* ===== CSS Variables for Theme Support ===== */
+
+  /* Core Brand Colors (Constant) */
   --primary-color: #00ff88;
   --secondary-color: #00d9ff;
-  --dark-bg: #0a0a0a;
-  --card-bg: #1a1a1a;
+
+  /* Theme Semantic Colors (Default/Dark) */
+  --bg-body: #050810;
+  --bg-sidebar: #0b0f14;
+  --bg-panel: #1a1f2e;
+  --bg-card: rgba(26, 31, 46, 0.6);
+  --bg-card-hover: rgba(17, 24, 39, 0.72);
+
   --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
+  --text-secondary: #94a3b8;
+  /* Was #a0a0a0 or #94a3b8 */
+  --text-muted: #64748b;
+
+  --border-color: #334155;
+  /* Slate-700 */
+  --border-light: rgba(148, 163, 184, 0.22);
+
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+  --bg-body: #f8fafc;
+  /* Slate-50 */
+  --bg-sidebar: #ffffff;
+  /* White */
+  --bg-panel: #e2e8f0;
+  /* Slate-200 */
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-hover: #ffffff;
+
+  --text-primary: #0f172a;
+  /* Slate-900 */
+  --text-secondary: #475569;
+  /* Slate-600 */
+  --text-muted: #94a3b8;
+  /* Slate-400 */
+
+  --border-color: #cbd5e1;
+  /* Slate-300 */
+  --border-light: rgba(148, 163, 184, 0.4);
+
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --glass-border: rgba(0, 0, 0, 0.05);
 }
 
 html,
@@ -24,7 +68,7 @@ body {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #050810;
+  background: var(--bg-body);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -196,7 +240,7 @@ body::after {
 
 .btn-secondary:hover {
   background: var(--text-primary);
-  color: #000;
+  color: var(--bg-body);
 }
 
 .social-links h4 {
@@ -441,6 +485,7 @@ body::after {
   height: 95%;
   object-fit: cover;
   border-radius: 50%;
+  /* Optional border for definition in light mode */
 }
 
 /* Opsional efek hover ringan */
@@ -497,12 +542,12 @@ body::after {
 /* ===== Modern Skills Section & Marquee ===== */
 .skills-section {
   position: relative;
-  background: #050810 !important;
+  background: var(--bg-body) !important;
 }
 
 /* Subtitle style */
 .skills-section p {
-  color: #94a3b8;
+  color: var(--text-secondary);
 }
 
 /* ===== TRUE INFINITE MARQUEE ===== 
@@ -578,10 +623,10 @@ body::after {
 /* Card Design (Existing Modern UI) */
 .skill-card {
   width: 200px;
-  background: rgba(26, 31, 46, 0.6);
+  background: var(--bg-card);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid #334155;
+  border: 1px solid var(--border-color);
   border-radius: 1.25rem;
   /* Using padding shortcut from tailwind-like naming if preferred, but explicit is better */
   padding: 1.5rem;
@@ -614,7 +659,7 @@ body::after {
 .skill-label {
   font-size: 0.65rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.4rem;
@@ -622,7 +667,7 @@ body::after {
 }
 
 .skill-name {
-  color: #f8fafc;
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -659,7 +704,7 @@ body::after {
   text-align: center;
   font-size: 2.5rem;
   font-family: 'Poppins', sans-serif;
-  color: #f8fafc;
+  color: var(--text-primary);
   font-weight: 700;
   position: relative;
   display: inline-block;
@@ -679,6 +724,7 @@ body::after {
 }
 
 
+/* ===== About Section ===== */
 /* ===== About Section ===== */
 .about {
   padding: 80px 0;
@@ -727,8 +773,8 @@ body::after {
 .project-card--v2 {
   border-radius: 22px;
   overflow: hidden;
-  background: rgba(17, 24, 39, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-light);
   backdrop-filter: blur(12px);
   position: relative;
   transition: transform 0.22s ease, border-color 0.22s ease;
@@ -986,13 +1032,13 @@ body::after {
 .portfolio-info h3 {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #f9fafb;
+  color: var(--text-primary);
   margin-bottom: 4px;
 }
 
 .portfolio-info p {
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: var(--text-secondary);
   margin-bottom: 6px;
 }
 
@@ -1169,9 +1215,10 @@ body::after {
 /* 1. Style umum tombol – DI LUAR media query */
 .cert-nav-btn {
   border: none;
+  border: none;
   border-radius: 999px;
-  background: rgba(16, 185, 129, 0.12);
-  color: #e5e7eb;
+  background: var(--bg-panel);
+  color: var(--text-primary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1238,10 +1285,11 @@ body::after {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 10px;
+  gap: 10px;
   padding: 6px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-light);
   margin: 0 auto 30px;
 }
 
@@ -1309,14 +1357,14 @@ body::after {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: rgba(148, 163, 184, 0.9);
+  color: var(--text-muted);
 }
 
 .cert-tag {
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-light);
 }
 
 .cert-title {
@@ -1339,7 +1387,7 @@ body::after {
 
 .cert-date {
   font-size: 0.8rem;
-  color: rgba(148, 163, 184, 0.95);
+  color: var(--text-muted);
 }
 
 /* View button */
@@ -1414,7 +1462,10 @@ body::after {
 .cert-modal-backdrop {
   position: absolute;
   inset: 0;
+  background: var(--bg-body);
+  /* Fallback */
   background: rgba(15, 23, 42, 0.82);
+  /* Keep dark for modal backdrop? Probably yes */
   backdrop-filter: blur(10px);
 }
 
@@ -1428,8 +1479,8 @@ body::after {
   border-radius: 20px;
   padding: 20px 20px 18px;
   box-shadow:
-    0 28px 80px rgba(0, 0, 0, 0.95),
-    0 0 0 1px rgba(15, 23, 42, 1);
+    0 28px 80px var(--shadow-color),
+    0 0 0 1px var(--border-color);
   overflow: hidden;
   z-index: 61;
   display: flex;
@@ -1445,8 +1496,8 @@ body::after {
   width: 32px;
   height: 32px;
   font-size: 1rem;
-  background: rgba(15, 23, 42, 0.9);
-  color: #e5e7eb;
+  background: var(--bg-panel);
+  color: var(--text-primary);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1464,7 +1515,7 @@ body::after {
   font-size: 1rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.9);
+  color: var(--text-primary);
 }
 
 .cert-modal-img {
@@ -2304,7 +2355,7 @@ body::after {
     transform: translateX(0px);
     top: 80px;
     flex-direction: column;
-    background: rgba(10, 10, 10, 0.98);
+    background: var(--bg-sidebar);
     width: 100%;
     text-align: center;
     transition: 0.3s;
@@ -2408,8 +2459,8 @@ body::after {
 }
 
 .project-detail-body {
-  background: #050810;
-  color: #f9fafb;
+  background: var(--bg-body);
+  color: var(--text-primary);
 }
 
 .project-detail-header {
@@ -2456,15 +2507,15 @@ body::after {
 
 .project-detail-content p,
 .project-detail-content li {
-  color: #d1d5db;
+  color: var(--text-secondary);
 }
 
 .project-detail-card {
-  background: #111827;
+  background: var(--bg-panel);
   border-radius: 14px;
   padding: 20px 22px;
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-light);
 }
 
 .project-detail-card h3 {
@@ -2478,7 +2529,7 @@ body::after {
 
 .project-detail-card li {
   font-size: 0.95rem;
-  color: #e5e7eb;
+  color: var(--text-primary);
   margin-bottom: 6px;
 }
 
@@ -2974,11 +3025,11 @@ html {
 
 /* Card utama */
 .project-card {
-  background: #020617;
+  background: var(--bg-card);
   border-radius: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  border: 1px solid var(--border-light);
   overflow: hidden;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+  box-shadow: 0 18px 45px var(--shadow-color);
 }
 
 /* 3. Hilangkan gap visual di grid */
@@ -3002,8 +3053,8 @@ html {
   /* tinggi area frame */
   padding: 26px;
   /* INI yang bikin gambar terlihat lebih kecil */
-  background: #fff;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  background: var(--bg-card-hover);
+  border-bottom: 1px solid var(--border-light);
   overflow: visible;
   position: relative;
   display: block;
@@ -3433,8 +3484,8 @@ html {
 }
 
 .edu-card {
-  background: rgba(17, 24, 39, 0.6);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 2rem;
   position: relative;

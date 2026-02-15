@@ -541,7 +541,8 @@ const translations = {
       projects: "Projects",
       certificates: "Certificates",
       contact: "Contact",
-      dashboard: "Dashboard"
+      dashboard: "Dashboard",
+      hiring: "Technical Summary"
     },
     hero: {
       greeting: "Hello Everyone",
@@ -629,6 +630,17 @@ const translations = {
         desc: "Real-time analytics dashboard to track portfolio engagement and project activity with dynamic data visualization."
       }
     },
+    hiring: {
+      title: "Technical Summary",
+      subtitle: "A concise summary of my qualifications, focus, and value proposition.",
+      summaryTitle: "Professional Summary",
+      summaryText: "Data Science & Engineering undergraduate with a strong foundation in building scalable data pipelines, ETL processes, and machine learning models. Proficient in Python, SQL, and cloud technologies, with hands-on experience in real-world projects ranging from fraud detection to agricultural AI solutions. Passionate about transforming raw data into actionable insights and optimizing infrastructure for performance and reliability.",
+      competenciesTitle: "Core Competencies",
+      quickFacts: "Quick Facts",
+      ctaTitle: "Ready to hire?",
+      ctaText: "Download my CV or schedule a chat.",
+      topProjects: "Top Relevant Projects"
+    },
     cert: {
       tag: {
         onlineCourse: "ONLINE COURSE",
@@ -653,7 +665,8 @@ const translations = {
       projects: "Proyek",
       certificates: "Sertifikat",
       contact: "Kontak",
-      dashboard: "Dasbor"
+      dashboard: "Dasbor",
+      hiring: "Ringkasan Teknis"
     },
     hero: {
       greeting: "Halo Semuanya",
@@ -740,6 +753,17 @@ const translations = {
         title: "Dasbor Analitik Portofolio Pribadi",
         desc: "Dasbor analitik real-time untuk melacak keterlibatan portofolio dan aktivitas proyek dengan visualisasi data dinamis."
       }
+    },
+    hiring: {
+      title: "Ringkasan Teknis",
+      subtitle: "Ringkasan kualifikasi, fokus, dan nilai tambah saya secara singkat.",
+      summaryTitle: "Ringkasan Profesional",
+      summaryText: "Mahasiswa Data Science & Engineering dengan fondasi kuat dalam membangun pipeline data yang scalable, proses ETL, dan model machine learning. Mahir dalam Python, SQL, dan teknologi cloud, dengan pengalaman langsung dalam proyek nyata mulai dari deteksi penipuan hingga solusi AI pertanian. Bersemangat mengubah data mentah menjadi wawasan yang dapat ditindaklanjuti dan mengoptimalkan infrastruktur untuk performa dan keandalan.",
+      competenciesTitle: "Kompetensi Inti",
+      quickFacts: "Fakta Singkat",
+      ctaTitle: "Siap merekrut?",
+      ctaText: "Unduh CV saya atau jadwalkan obrolan.",
+      topProjects: "Proyek Relevan Teratas"
     },
     cert: {
       tag: {
@@ -852,29 +876,92 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Apply translation
     const t = translations[lang];
     if (!t) return;
 
+    // Update text
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      const keys = key.split('.');
-      let text = t;
-      for (const k of keys) {
-        text = text[k];
-      }
-      if (text) el.textContent = text;
+      const val = key.split('.').reduce((obj, k) => obj && obj[k], t);
+      if (val) el.textContent = val;
     });
 
+    // Update placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
-      const keys = key.split('.');
-      let text = t;
-      for (const k of keys) {
-        text = text[k];
-      }
-      if (text) el.setAttribute('placeholder', text);
+      const val = key.split('.').reduce((obj, k) => obj && obj[k], t);
+      if (val) el.setAttribute('placeholder', val);
     });
+  }
+
+  // ===== Theme Switcher Logic =====
+  const themeToggle = document.getElementById('themeToggle');
+  const themeMenu = document.getElementById('themeMenu');
+  const themeOptions = document.querySelectorAll('.theme-option');
+
+  if (themeToggle && themeMenu) {
+    // 1. Initialize Theme
+    const savedTheme = localStorage.getItem('themePreference') || 'default';
+    applyTheme(savedTheme);
+    updateThemeUI(savedTheme);
+
+    // 2. Toggle Menu
+    themeToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themeMenu.classList.toggle('scale-0');
+      themeMenu.classList.toggle('opacity-0');
+      // Close lang menu if open
+      if (langMenu && !langMenu.classList.contains('scale-0')) {
+        langMenu.classList.add('scale-0');
+        langMenu.classList.add('opacity-0');
+      }
+    });
+
+    // 3. Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!themeToggle.contains(e.target) && !themeMenu.contains(e.target)) {
+        themeMenu.classList.add('scale-0');
+        themeMenu.classList.add('opacity-0');
+      }
+    });
+
+    // 4. Handle Selection
+    themeOptions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.getAttribute('data-theme');
+        localStorage.setItem('themePreference', theme);
+        applyTheme(theme);
+        updateThemeUI(theme);
+
+        // Close menu
+        themeMenu.classList.add('scale-0');
+        themeMenu.classList.add('opacity-0');
+      });
+    });
+
+    function applyTheme(theme) {
+      if (theme === 'default') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    }
+
+    function updateThemeUI(theme) {
+      themeOptions.forEach(btn => {
+        const value = btn.getAttribute('data-theme');
+        const icon = btn.querySelector('i'); // The icon inside the button
+
+        if (value === theme) {
+          btn.classList.add('text-[#00ff88]', 'bg-[#0b0f14]');
+          btn.classList.remove('text-[#94a3b8]');
+          // Optional: Add active indicator/glow if needed, but color change is good
+        } else {
+          btn.classList.remove('text-[#00ff88]', 'bg-[#0b0f14]');
+          btn.classList.add('text-[#94a3b8]');
+        }
+      });
+    }
   }
 });
 

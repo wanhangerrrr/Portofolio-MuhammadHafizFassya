@@ -30,7 +30,7 @@
     <!-- Top Section -->
     <div>
       <!-- Profile Header -->
-      <div class="p-4 flex flex-col items-center border-b border-[#1f2937]/50 relative">
+      <div class="p-3 flex flex-col items-center border-b border-[#1f2937]/50 relative">
         <!-- Live Clock -->
         <div id="live-clock-container" class="absolute top-2 left-3 flex flex-col items-start z-20">
           <div id="digital-clock" class="text-[#00ff88] text-xs font-mono font-bold tracking-wider"
@@ -42,8 +42,10 @@
           </div>
         </div>
 
-        <!-- Language Switcher -->
-        <div class="absolute top-2 right-3 z-50">
+        <!-- Top Right Controls (Lang + Theme) -->
+        <div class="absolute top-2 right-3 z-50 flex flex-col gap-2 items-end">
+
+          <!-- Language Switcher -->
           <div class="relative" id="language-switcher">
             <button id="langToggle"
               class="flex items-center justify-center w-8 h-8 bg-[#0b0f14]/80 backdrop-blur-sm border border-[#334155] rounded-full text-white hover:border-[#00ff88] hover:text-[#00ff88] transition-all duration-300 group shadow-lg"
@@ -78,6 +80,40 @@
               </button>
             </div>
           </div>
+
+          <!-- Theme Switcher -->
+          <div class="relative" id="theme-switcher">
+            <button id="themeToggle"
+              class="flex items-center justify-center w-8 h-8 bg-[#0b0f14]/80 backdrop-blur-sm border border-[#334155] rounded-full text-white hover:border-[#00ff88] hover:text-[#00ff88] transition-all duration-300 group shadow-lg"
+              aria-label="Select Theme">
+              <i
+                class="fas fa-adjust text-[#00ff88] group-hover:rotate-180 transition-transform duration-500 text-sm"></i>
+            </button>
+
+            <!-- Theme Menu -->
+            <div id="themeMenu"
+              class="absolute right-0 mt-2 w-32 bg-[#1a1f2e] border border-[#334155] rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden transform origin-top-right scale-0 opacity-0 transition-all duration-200 z-50">
+              <button
+                class="theme-option w-full text-left px-4 py-2.5 text-[10px] text-[#94a3b8] hover:bg-[#0b0f14] hover:text-[#00ff88] transition-colors flex items-center gap-3 border-b border-[#334155]/50 last:border-0 group"
+                data-theme="default">
+                <i class="fas fa-desktop text-xs w-3 text-center"></i>
+                <span class="font-medium">Default</span>
+              </button>
+              <button
+                class="theme-option w-full text-left px-4 py-2.5 text-[10px] text-[#94a3b8] hover:bg-[#0b0f14] hover:text-[#00ff88] transition-colors flex items-center gap-3 border-b border-[#334155]/50 last:border-0 group"
+                data-theme="dark">
+                <i class="fas fa-moon text-xs w-3 text-center"></i>
+                <span class="font-medium">Dark</span>
+              </button>
+              <button
+                class="theme-option w-full text-left px-4 py-2.5 text-[10px] text-[#94a3b8] hover:bg-[#0b0f14] hover:text-[#00ff88] transition-colors flex items-center gap-3 group"
+                data-theme="light">
+                <i class="fas fa-sun text-xs w-3 text-center"></i>
+                <span class="font-medium">Light</span>
+              </button>
+            </div>
+          </div>
+
         </div>
 
         <div
@@ -98,9 +134,9 @@
       </div>
 
       <!-- Navigation -->
-      <nav class="flex-1 overflow-y-auto no-scrollbar scroll-smooth min-h-0 p-3 space-y-1 mt-1">
+      <nav class="flex-1 overflow-y-auto no-scrollbar scroll-smooth min-h-0 p-2 space-y-1 mt-1">
         <a href="#home"
-          class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden active-nav">
+          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden active-nav">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -108,7 +144,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.home">Home</span>
         </a>
         <a href="#about"
-          class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -117,7 +153,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.about">About</span>
         </a>
         <a href="#education"
-          class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -126,7 +162,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.education">Education</span>
         </a>
         <a href="#portfolio"
-          class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -135,7 +171,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.projects">Projects</span>
         </a>
         <a href="#certificates"
-          class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -143,8 +179,17 @@
             class="fas fa-award text-base w-5 text-center group-hover:scale-110 transition-transform relative z-10"></i>
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.certificates">Certificates</span>
         </a>
+        <a href="#hiring-manager"
+          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          <div
+            class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
+          </div>
+          <i
+            class="fas fa-user-tie text-base w-5 text-center group-hover:scale-110 transition-transform relative z-10"></i>
+          <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.hiring">Technical Summary</span>
+        </a>
         <a href="#contact"
-          class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -1218,6 +1263,238 @@
     </div>
 
 
+
+    <!-- Hiring Manager Mode Section -->
+    <section id="hiring-manager" class="py-24 relative overflow-hidden" style="background: var(--bg-body);">
+      <div class="container mx-auto px-4 relative z-10">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-brand text-xs font-medium mb-4"
+            style="">
+          </div>
+          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-primary);"
+            data-i18n="hiring.title">Technical Summary</h2>
+          <p class="max-w-2xl mx-auto" style="color: var(--text-secondary);" data-i18n="hiring.subtitle">A concise
+            summary of my qualifications, focus, and value proposition.</p>
+        </div>
+
+        <!-- Layout Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+          <!-- col-span-2: Summary & Competencies -->
+          <div class="lg:col-span-2 space-y-8">
+            <!-- Professional Summary -->
+            <div class="rounded-2xl p-6 md:p-8"
+              style="background: var(--bg-card); border: 1px solid var(--border-light);">
+              <h3 class="text-xl font-bold mb-4 flex items-center gap-3" style="color: var(--text-primary);">
+                <i class="fas fa-user-astronaut text-brand"></i> <span data-i18n="hiring.summaryTitle">Professional
+                  Summary</span>
+              </h3>
+              <p class="leading-relaxed text-sm md:text-base space-y-3" style="color: var(--text-secondary);"
+                data-i18n="hiring.summaryText">
+                Data Science & Engineering undergraduate with a strong foundation in building scalable data pipelines,
+                ETL processes, and machine learning models.
+                Proficient in Python, SQL, and cloud technologies, with hands-on experience in real-world projects
+                ranging from fraud detection to agricultural AI solutions.
+                Passionate about transforming raw data into actionable insights and optimizing infrastructure for
+                performance and reliability.
+              </p>
+            </div>
+
+            <!-- Core Competencies -->
+            <div class="rounded-2xl p-6 md:p-8"
+              style="background: var(--bg-card); border: 1px solid var(--border-light);">
+              <h3 class="text-xl font-bold mb-6 flex items-center gap-3" style="color: var(--text-primary);">
+                <i class="fas fa-bolt text-brand"></i> <span data-i18n="hiring.competenciesTitle">Core
+                  Competencies</span>
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Group 1 -->
+                <div>
+                  <h4 class="font-semibold mb-3 text-sm uppercase tracking-wider pb-2"
+                    style="color: var(--text-primary); border-bottom: 1px solid var(--border-light);">Data Engineering
+                  </h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
+                        class="fas fa-check text-brand text-xs"></i> ETL Pipeline Development</li>
+                    <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
+                        class="fas fa-check text-brand text-xs"></i> SQL & Database Management</li>
+                    <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
+                        class="fas fa-check text-brand text-xs"></i> Data Warehousing Concepts</li>
+                  </ul>
+                </div>
+                <!-- Group 2 -->
+                <div>
+                  <h4 class="font-semibold mb-3 text-sm uppercase tracking-wider pb-2"
+                    style="color: var(--text-primary); border-bottom: 1px solid var(--border-light);">Data Science & ML
+                  </h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
+                        class="fas fa-check text-brand text-xs"></i> Machine Learning (XGBoost)</li>
+                    <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
+                        class="fas fa-check text-brand text-xs"></i> Data Visualization & Analytics</li>
+                    <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
+                        class="fas fa-check text-brand text-xs"></i> Model Deployment</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- col-span-1: Quick Facts & CTA -->
+          <div class="space-y-8">
+            <!-- Quick Facts Card -->
+            <div class="rounded-2xl p-6 relative overflow-hidden group"
+              style="background: var(--bg-card); border: 1px solid var(--border-light);">
+              <div
+                class="absolute top-0 right-0 w-24 h-24 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"
+                style="background: var(--glow-primary);"></div>
+
+              <h3 class="text-lg font-bold mb-5" style="color: var(--text-primary);" data-i18n="hiring.quickFacts">Quick
+                Facts</h3>
+
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">
+                    <i class="fas fa-graduation-cap text-xs"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);">Role</p>
+                    <p class="font-medium text-sm" style="color: var(--text-primary);">Data Engineering Student</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">
+                    <i class="fas fa-map-marker-alt text-xs"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);">Location</p>
+                    <p class="font-medium text-sm" style="color: var(--text-primary);">Indonesia (Remote OK)</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">
+                    <i class="fas fa-clock text-xs"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);">Availability</p>
+                    <p class="font-medium text-sm text-brand">Open for Opportunities</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-6 flex gap-3" style="border-top: 1px solid var(--border-light);">
+                <a href="https://github.com/wanhangerrrr" target="_blank"
+                  class="flex-1 py-2 rounded-lg text-center text-sm transition-all text-sec hover:text-brand"
+                  style="background: var(--bg-panel); border: 1px solid var(--border-light);">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/muhammadhafizfassya21/" target="_blank"
+                  class="flex-1 py-2 rounded-lg text-center text-sm transition-all text-sec hover:text-brand"
+                  style="background: var(--bg-panel); border: 1px solid var(--border-light);">
+                  <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="border rounded-2xl p-6 text-center"
+              style="background: linear-gradient(to bottom right, var(--glow-primary), transparent); border-color: var(--glow-secondary);">
+              <h3 class="font-bold mb-2" style="color: var(--text-primary);" data-i18n="hiring.ctaTitle">Ready to hire?
+              </h3>
+              <p class="text-xs mb-4" style="color: var(--text-secondary);" data-i18n="hiring.ctaText">Download my CV or
+                schedule a chat.</p>
+              <div class="flex flex-col gap-3">
+                <a href="assets/Cv_MuhammadHafizFassya.pdf" download="Cv_MuhammadHafizFassya.pdf"
+                  class="w-full py-2.5 rounded-xl text-[#0b0f14] font-bold text-sm hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] transition-all"
+                  style="background: var(--primary-color);">
+                  <i class="fas fa-download mr-2"></i> Download CV
+                </a>
+                <a href="https://wa.me/6289697477196" target="_blank"
+                  class="w-full py-2.5 rounded-xl border font-bold text-sm transition-all text-brand"
+                  style="border-color: var(--primary-color);">
+                  <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Projects (Highlight) -->
+        <div class="mt-12">
+          <h3 class="text-xl font-bold mb-6 flex items-center gap-3 pl-4"
+            style="color: var(--text-primary); border-left: 4px solid var(--primary-color);">
+            <span data-i18n="hiring.topProjects">Top Relevant Projects</span>
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Project 1 -->
+            <a href="#portfolio" class="block group">
+              <div class="rounded-xl p-5 transition-all h-full flex flex-col hover:border-brand"
+                style="background: var(--bg-card); border: 1px solid var(--border-light);">
+                <div class="flex justify-between items-start mb-3">
+                  <h4 class="font-bold transition-colors group-hover:text-brand" style="color: var(--text-primary);">
+                    Fraud Detection Pipeline</h4>
+                  <i class="fas fa-external-link-alt text-xs" style="color: var(--text-muted);"></i>
+                </div>
+                <p class="text-xs mb-4 flex-1" style="color: var(--text-secondary);">End-to-end ML pipeline for
+                  detecting fraudulent transactions using XGBoost with automated preprocessing.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">Python</span>
+                  <span class="px-2 py-1 rounded text-[10px] text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">XGBoost</span>
+                  <span class="px-2 py-1 rounded text-[10px] text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">Pandas</span>
+                </div>
+              </div>
+            </a>
+            <!-- Project 2 -->
+            <a href="#portfolio" class="block group">
+              <div class="rounded-xl p-5 transition-all h-full flex flex-col hover:border-brand"
+                style="background: var(--bg-card); border: 1px solid var(--border-light);">
+                <div class="flex justify-between items-start mb-3">
+                  <h4 class="font-bold transition-colors group-hover:text-brand" style="color: var(--text-primary);">
+                    Tomato Leaf Classification</h4>
+                  <i class="fas fa-external-link-alt text-xs" style="color: var(--text-muted);"></i>
+                </div>
+                <p class="text-xs mb-4 flex-1" style="color: var(--text-secondary);">Mobile-optimized image
+                  classification system using Transfer Learning, deployed on Android.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">TensorFlow</span>
+                  <span class="px-2 py-1 rounded text-[10px] text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">MobileNetV2</span>
+                </div>
+              </div>
+            </a>
+            <!-- Project 3 -->
+            <a href="#portfolio" class="block group">
+              <div class="rounded-xl p-5 transition-all h-full flex flex-col hover:border-brand"
+                style="background: var(--bg-card); border: 1px solid var(--border-light);">
+                <div class="flex justify-between items-start mb-3">
+                  <h4 class="font-bold transition-colors group-hover:text-brand" style="color: var(--text-primary);">
+                    Analytics Dashboard</h4>
+                  <i class="fas fa-external-link-alt text-xs" style="color: var(--text-muted);"></i>
+                </div>
+                <p class="text-xs mb-4 flex-1" style="color: var(--text-secondary);">Real-time portfolio tracking
+                  dashboard with dynamic data visualization and user engagement metrics.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">React</span>
+                  <span class="px-2 py-1 rounded text-[10px] text-brand"
+                    style="background: var(--bg-panel); border: 1px solid var(--border-light);">Vercel</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact py-24">
