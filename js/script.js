@@ -352,7 +352,30 @@ const projectData = {
     tech: ['Python', 'XGBoost', 'Pandas', 'Scikit-learn', 'Matplotlib'],
     github: 'https://github.com/wanhangerrrr',
     demo: null,
-    isSimulator: true
+    isSimulator: true,
+    architecture: {
+      diagram: [
+        { name: 'Mobile App', icon: 'fas fa-mobile-alt', tech: 'Client' },
+        { name: 'Preprocessing', icon: 'fas fa-cogs', tech: 'Python Pipeline' },
+        { name: 'XGBoost Model', icon: 'fas fa-brain', tech: 'Inference' },
+        { name: 'Fraud Score', icon: 'fas fa-chart-line', tech: 'Output' }
+      ],
+      dataFlow: [
+        'User initiates transaction via Mobile App',
+        'Transaction data sent to Python Preprocessing Pipeline',
+        'Cleaned features fed into XGBoost Model',
+        'Model returns Fraud Probability Score',
+        'App allows or blocks transaction based on threshold'
+      ],
+      techDecisions: {
+        why: [
+          'chosen XGBoost for its high performance on structured data',
+          'Python used for rich data science ecosystem'
+        ],
+        tradeOff: 'Latency slightly higher due to complex preprocessing',
+        next: 'Implement real-time streaming with Kafka'
+      }
+    }
   },
   'ai-notebook': {
     title: 'Aplikasi Mobile Notebook Berbasis AI',
@@ -364,7 +387,30 @@ const projectData = {
     ],
     tech: ['JavaScript', 'React Native', 'OpenAI API', 'Firebase'],
     github: 'https://github.com/wanhangerrrr',
-    demo: null
+    demo: null,
+    architecture: {
+      diagram: [
+        { name: 'React Native', icon: 'fab fa-react', tech: 'Mobile App' },
+        { name: 'Node.js API', icon: 'fab fa-node-js', tech: 'Backend' },
+        { name: 'OpenAI API', icon: 'fas fa-robot', tech: 'LLM Service' },
+        { name: 'Firebase', icon: 'fas fa-database', tech: 'Sync & Auth' }
+      ],
+      dataFlow: [
+        'User records voice/text note',
+        'App sends content to Node.js Middleware',
+        'Middleware requests summary from OpenAI API',
+        'Summary stored in Firebase Realtime DB',
+        'Synced across user devices'
+      ],
+      techDecisions: {
+        why: [
+          'React Native for cross-platform support',
+          'Firebase for effortless real-time sync'
+        ],
+        tradeOff: 'Dependent on internet connection for AI features',
+        next: 'Add offline mode with local smaller LLM'
+      }
+    }
   },
   'tomato-leaf': {
     title: 'Tomato Leaf Classification (Transfer Learning)',
@@ -376,7 +422,29 @@ const projectData = {
     ],
     tech: ['TensorFlow', 'MobileNetV2', 'Keras', 'Flutter'],
     github: 'https://github.com/wanhangerrrr',
-    demo: null
+    demo: null,
+    architecture: {
+      diagram: [
+        { name: 'Flutter App', icon: 'fas fa-mobile-alt', tech: 'UI/Camera' },
+        { name: 'TFLite Model', icon: 'fas fa-microchip', tech: 'On-device AI' },
+        { name: 'SQLite', icon: 'fas fa-database', tech: 'Local History' }
+      ],
+      dataFlow: [
+        'User captures tomato leaf image',
+        'Image resized and normalized locally',
+        'Passed to MobileNetV2 (TFLite) for inference',
+        'Prediction result displayed immediately',
+        'Result saved to SQLite history'
+      ],
+      techDecisions: {
+        why: [
+          'On-device inference for offline capability',
+          'MobileNetV2 balanced speed and accuracy'
+        ],
+        tradeOff: 'Model size impacts app download size',
+        next: 'Add cloud sync for expert validation'
+      }
+    }
   },
   'umkm-app': {
     title: 'UMKM Management App',
@@ -389,7 +457,28 @@ const projectData = {
     tech: ['Flutter', 'Dart', 'Firebase', 'SQLite'],
     github: 'https://github.com/wanhangerrrr',
     demo: null,
-    isLiveDemo: true
+    isLiveDemo: true,
+    architecture: {
+      diagram: [
+        { name: 'Flutter UI', icon: 'fas fa-mobile-alt', tech: 'Client' },
+        { name: 'Provider', icon: 'fas fa-code-branch', tech: 'State Mgmt' },
+        { name: 'Firebase', icon: 'fas fa-cloud', tech: 'Backend/DB' }
+      ],
+      dataFlow: [
+        'Merchant inputs product stock',
+        'Provider updates local app state',
+        'Data synced to Firestore in background',
+        'Orders update inventory naturally'
+      ],
+      techDecisions: {
+        why: [
+          'Flutter for rapid UI development',
+          'Firebase for scalable backend without maintenance'
+        ],
+        tradeOff: 'No complex relational queries in NoSQL',
+        next: 'Add offline-first architecture with local DB sync'
+      }
+    }
   },
   'tomato-web': {
     title: 'Tomato Leaf Classification Web',
@@ -401,7 +490,28 @@ const projectData = {
     ],
     tech: ['HTML', 'Tailwind CSS', 'JavaScript', 'TensorFlow.js'],
     github: 'https://github.com/wanhangerrrr',
-    demo: null
+    demo: null,
+    architecture: {
+      diagram: [
+        { name: 'Browser', icon: 'fab fa-chrome', tech: 'HTML/Tailwind' },
+        { name: 'TensorFlow.js', icon: 'fas fa-brain', tech: 'In-browser AI' },
+        { name: 'DOM', icon: 'fas fa-code', tech: 'Updates' }
+      ],
+      dataFlow: [
+        'User drops image in browser',
+        'TensorFlow.js processes image in client RAM',
+        'Prediction generated without server upload',
+        'DOM updated with results'
+      ],
+      techDecisions: {
+        why: [
+          'Privacy-first (image never leaves device)',
+          'Zero server cost for inference'
+        ],
+        tradeOff: 'Performance depends on user device hardware',
+        next: 'Support more disease types'
+      }
+    }
   },
   'crud-flutter': {
     title: 'Student CRUD App (Flutter)',
@@ -414,7 +524,28 @@ const projectData = {
     tech: ['Flutter', 'Dart', 'Firebase', 'Provider'],
     github: 'https://github.com/wanhangerrrr',
     demo: null,
-    isCrudSimulator: true
+    isCrudSimulator: true,
+    architecture: {
+      diagram: [
+        { name: 'Flutter App', icon: 'fas fa-mobile-alt', tech: 'UI' },
+        { name: 'Controller', icon: 'fas fa-cog', tech: 'Logic' },
+        { name: 'Firebase', icon: 'fas fa-fire', tech: 'Firestore' }
+      ],
+      dataFlow: [
+        'User submits student form',
+        'Controller validates input',
+        'Data sent to Firestore collection',
+        'StreamBuilder updates UI automatically'
+      ],
+      techDecisions: {
+        why: [
+          'Real-time updates via Firestore Streams',
+          'Simple MVC separation'
+        ],
+        tradeOff: 'Tightly coupled to Firebase SDK',
+        next: 'Refactor to Clean Architecture'
+      }
+    }
   },
   'dashboard-traffic': {
     title: 'Personal Portfolio Analytics Dashboard',
@@ -426,7 +557,28 @@ const projectData = {
     ],
     tech: ['JavaScript', 'Tailwind CSS', 'Node.js'],
     github: 'https://github.com/wanhangerrrr',
-    demo: 'https://dashboard-portofolio-ten.vercel.app/dashboard'
+    demo: 'https://dashboard-portofolio-ten.vercel.app/dashboard',
+    architecture: {
+      diagram: [
+        { name: 'React Client', icon: 'fab fa-react', tech: 'Frontend' },
+        { name: 'Next.js API', icon: 'fas fa-server', tech: 'Serverless' },
+        { name: 'Database', icon: 'fas fa-database', tech: 'Vercel KV/Postgres' }
+      ],
+      dataFlow: [
+        'Visitor views portfolio project',
+        'Frontend sends beacon event',
+        'Serverless function aggregates stats',
+        'Dashboard fetches live metrics via SWR'
+      ],
+      techDecisions: {
+        why: [
+          'Next.js for unified frontend/backend',
+          'Vercel for zero-config deployment'
+        ],
+        tradeOff: 'Cold starts on serverless functions',
+        next: 'Add specialized analytics for user journey'
+      }
+    }
   }
 };
 
@@ -437,74 +589,174 @@ function openProjectModal(projectId) {
 
   if (!project) return;
 
-  // Build modal content
-  let html = `
-    <h3 class="text-2xl sm:text-3xl font-bold mb-4" style="color: #f8fafc;">${project.title}</h3>
-    <p class="text-base mb-6" style="color: #94a3b8;">${project.description}</p>
-    
-    <div class="mb-6">
-      <h4 class="text-lg font-semibold mb-3" style="color: #f8fafc;">Key Features</h4>
-      <ul class="space-y-2">
-        ${project.features.map(feature => `
-          <li class="flex items-start gap-2">
-            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: #00ff88;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            <span style="color: #94a3b8;">${feature}</span>
-          </li>
-        `).join('')}
-      </ul>
-    </div>
-    
-    <div class="mb-6">
-      <h4 class="text-lg font-semibold mb-3" style="color: #f8fafc;">Tech Stack</h4>
-      <div class="flex flex-wrap gap-2">
-        ${project.tech.map(tech => `
-          <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
-            ${tech}
-          </span>
-        `).join('')}
+  // Get current language and texts
+  const currentLang = localStorage.getItem('siteLang') || 'default';
+  const t = translations[currentLang === 'default' ? 'en' : currentLang] || translations['en'];
+
+  // Helper for safe translation
+  const getText = (key, defaultText) => {
+    // Traverse object: 'modal.tabs.overview' -> t['modal']['tabs']['overview']
+    return key.split('.').reduce((obj, k) => (obj || {})[k], t) || defaultText;
+  };
+
+  const textOverview = getText('tabs.overview', 'Overview');
+  const textArch = getText('tabs.architecture', 'Architecture');
+
+  // Status Badge Logic
+  const status = projectStatus[projectId];
+  let badgeHtml = '';
+  if (status) {
+    const badgeText = t.badge && t.badge[status] ? t.badge[status] : status;
+    badgeHtml = `<span class="health-badge-modal health-badge-${status}">${badgeText}</span>`;
+  }
+
+  // Build Architecture HTML if data exists
+  let archHtml = '';
+  if (project.architecture) {
+    const arch = project.architecture;
+
+    // 1. Diagram
+    const diagramHtml = arch.diagram.map(node => `
+      <div class="arch-node">
+        <i class="${node.icon} arch-node-icon"></i>
+        <span class="arch-node-title">${node.name}</span>
+        <span class="arch-node-tech">${node.tech}</span>
       </div>
-    </div>
+    `).join('<div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>');
+
+    // 2. Data Flow
+    const dataFlowHtml = arch.dataFlow.map(step => `
+      <li class="arch-list-item">${step}</li>
+    `).join('');
+
+    // 3. Tech Decisions
+    const decisionHtml = `
+      <div class="decision-card">
+        <h5><i class="fas fa-check-circle"></i> Why this stack?</h5>
+        <div class="space-y-1">
+          ${arch.techDecisions.why.map(reason => `<p>• ${reason}</p>`).join('')}
+        </div>
+      </div>
+      <div class="decision-card tradeoff">
+        <h5><i class="fas fa-exclamation-triangle"></i> Trade-offs</h5>
+        <p>${arch.techDecisions.tradeOff}</p>
+      </div>
+       <div class="decision-card">
+        <h5><i class="fas fa-rocket"></i> ${getText('arch.nextSteps', 'Next Steps')}</h5>
+        <p>${arch.techDecisions.next}</p>
+      </div>
+    `;
+
+    archHtml = `
+      <div class="arch-grid">
+        <div class="arch-diagram-container">
+           <h4 class="arch-section-title"><i class="fas fa-sitemap"></i> High-Level Architecture</h4>
+           ${diagramHtml}
+        </div>
+        <div class="arch-details">
+          <div>
+            <h4 class="arch-section-title"><i class="fas fa-stream"></i> ${getText('arch.dataFlow', 'Data Flow')}</h4>
+            <ul class="arch-list">
+              ${dataFlowHtml}
+            </ul>
+          </div>
+          <div>
+             <h4 class="arch-section-title"><i class="fas fa-lightbulb"></i> ${getText('arch.keyDecisions', 'Key Decisions')}</h4>
+             ${decisionHtml}
+          </div>
+        </div>
+      </div>
+    `;
+  } else {
+    archHtml = `<div class="text-center text-slate-400 py-10">Architecture details not available for this project.</div>`;
+  }
+
+  // Build Modal Content (Tabs + Views)
+  let html = `
+    <h3 class="text-2xl sm:text-3xl font-bold mb-2 flex items-center gap-2" style="color: #f8fafc;">
+      ${project.title}
+      ${badgeHtml}
+    </h3>
     
-    <div class="flex gap-3">
-      <a 
-        href="${project.github}" 
-        target="_blank"
-        class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
-        style="background-color: #00ff88; color: #0b0f14;">
-        <i class="fab fa-github mr-2"></i>View on GitHub
-      </a>
-      ${project.isLiveDemo ? `
-        <button 
-          onclick="openLiveDemo('${projectId}')" 
-          class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 hover:bg-[#00ff88] hover:text-[#0b0f14] group"
-          style="background-color: transparent; color: #00ff88; border: 1px solid #00ff88;">
-          <i class="fas fa-play mr-2 group-hover:animate-pulse"></i>Live Demo
-        </button>
-      ` : project.isSimulator ? `
-        <button 
-          onclick="openSimulator()" 
-          class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 hover:bg-[#00ff88] hover:text-[#0b0f14] group"
-          style="background-color: transparent; color: #00ff88; border: 1px solid #00ff88;">
-          <i class="fas fa-bolt mr-2 group-hover:animate-pulse"></i>Live Demo
-        </button>
-      ` : project.isCrudSimulator ? `
-        <button 
-          onclick="openCrudSimulator()" 
-          class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 hover:bg-[#38bdf8] hover:text-[#0b0f14] group"
-          style="background-color: transparent; color: #38bdf8; border: 1px solid #38bdf8;">
-          <i class="fas fa-users-cog mr-2 group-hover:animate-pulse"></i>Live Demo
-        </button>
-      ` : project.demo ? `
+    <!-- Tabs -->
+    <div class="tab-container">
+      <button class="tab-btn active" onclick="switchModalTab('overview')">${textOverview}</button>
+      <button class="tab-btn" onclick="switchModalTab('architecture')">${textArch}</button>
+    </div>
+
+    <!-- Overview Content -->
+    <div id="modal-tab-overview" class="tab-content block animate-fade-in">
+      <p class="text-base mb-6" style="color: #94a3b8;">${project.description}</p>
+      
+      <div class="mb-6">
+        <h4 class="text-lg font-semibold mb-3" style="color: #f8fafc;">Key Features</h4>
+        <ul class="space-y-2">
+          ${project.features.map(feature => `
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: #00ff88;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span style="color: #94a3b8;">${feature}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+      
+      <div class="mb-6">
+        <h4 class="text-lg font-semibold mb-3" style="color: #f8fafc;">Tech Stack</h4>
+        <div class="flex flex-wrap gap-2">
+          ${project.tech.map(tech => `
+            <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+              ${tech}
+            </span>
+          `).join('')}
+        </div>
+      </div>
+      
+      <div class="flex gap-3">
         <a 
-          href="${project.demo}" 
+          href="${project.github}" 
           target="_blank"
           class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
-          style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
-          <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+          style="background-color: #00ff88; color: #0b0f14;">
+          <i class="fab fa-github mr-2"></i>View on GitHub
         </a>
-      ` : ''}
+        ${project.isLiveDemo ? `
+          <button 
+            onclick="openLiveDemo('${projectId}')" 
+            class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 hover:bg-[#00ff88] hover:text-[#0b0f14] group"
+            style="background-color: transparent; color: #00ff88; border: 1px solid #00ff88;">
+            <i class="fas fa-play mr-2 group-hover:animate-pulse"></i>Live Demo
+          </button>
+        ` : project.isSimulator ? `
+          <button 
+            onclick="openSimulator()" 
+            class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 hover:bg-[#00ff88] hover:text-[#0b0f14] group"
+            style="background-color: transparent; color: #00ff88; border: 1px solid #00ff88;">
+            <i class="fas fa-bolt mr-2 group-hover:animate-pulse"></i>Live Demo
+          </button>
+        ` : project.isCrudSimulator ? `
+          <button 
+            onclick="openCrudSimulator()" 
+            class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 hover:bg-[#38bdf8] hover:text-[#0b0f14] group"
+            style="background-color: transparent; color: #38bdf8; border: 1px solid #38bdf8;">
+            <i class="fas fa-users-cog mr-2 group-hover:animate-pulse"></i>Live Demo
+          </button>
+        ` : project.demo ? `
+          <a 
+            href="${project.demo}" 
+            target="_blank"
+            class="flex-1 px-6 py-3 rounded-lg text-center font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+            style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+            <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+          </a>
+        ` : ''}
+      </div>
+    </div>
+
+    <!-- Architecture Content -->
+    <div id="modal-tab-architecture" class="tab-content hidden animate-fade-in">
+       ${archHtml}
     </div>
   `;
 
@@ -513,6 +765,31 @@ function openProjectModal(projectId) {
   modal.classList.add('flex');
   document.body.style.overflow = 'hidden';
 }
+
+// Tab Switching Logic
+window.switchModalTab = function (tabName) {
+  // 1. Update Buttons
+  const btns = document.querySelectorAll('.tab-btn');
+  btns.forEach(btn => {
+    if (btn.getAttribute('onclick').includes(tabName)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  // 2. Update Content
+  const contents = document.querySelectorAll('.tab-content');
+  contents.forEach(content => {
+    if (content.id === `modal-tab-${tabName}`) {
+      content.classList.remove('hidden');
+      content.classList.add('block');
+    } else {
+      content.classList.remove('block');
+      content.classList.add('hidden');
+    }
+  });
+};
 
 function closeProjectModal() {
   const modal = document.getElementById('projectModal');
@@ -539,6 +816,17 @@ if (projectModal) {
 }
 
 // ===== Language Switcher Logic =====
+// Project Status Data
+const projectStatus = {
+  'fraud-detection': 'experimental',
+  'ai-notebook': 'active',
+  'tomato-leaf': 'maintained',
+  'umkm-app': 'active',
+  'tomato-web': 'maintained',
+  'crud-flutter': 'archived',
+  'dashboard-traffic': 'active'
+};
+
 const translations = {
   en: {
     role: "Data Engineer Enthusiast",
@@ -656,14 +944,152 @@ const translations = {
         industry: "INDUSTRY EVENT",
         workshop: "WORKSHOP",
         practicum: "ACADEMIC PRACTICUM"
+      },
+      tabs: {
+        overview: "Overview",
+        architecture: "Architecture"
+      },
+      arch: {
+        dataFlow: "Data Flow",
+        keyDecisions: "Key Decisions",
+        tradeOffs: "Trade-offs",
+        nextSteps: "Next Improvements"
+      },
+      badge: {
+        active: "Active",
+        maintained: "Maintained",
+        experimental: "Experimental",
+        archived: "Archived"
+      },
+    },
+    pipeline: {
+      title: "Data Pipeline Simulation",
+      desc: "Experience an end-to-end data engineering pipeline simulation. Watch as data flows from ingestion to serving with real-time logs and metrics.",
+      infoPanel: {
+        title: "About this demo",
+        item1: "Simulates a real-time data ingestion & processing flow.",
+        item2: "Demonstrates observability with live logs & metrics.",
+        item3: "Includes automated quality checks and error handling.",
+        item4: "Try 'Simulate Failure' to see self-healing/retry logic."
+      },
+      node: {
+        ingest: "Ingest",
+        transform: "Transform",
+        validate: "Validate",
+        load: "Load",
+        serve: "Serve"
+      },
+      controls: "Controls",
+      simulateFail: "Simulate Failure",
+      btn: {
+        run: "Run Pipeline",
+        retry: "Retry"
+      },
+      metric: {
+        rows: "Rows Processed",
+        latency: "Latency",
+        rejected: "Rejected Rows",
+        quality: "Quality Score"
+      },
+      logs: {
+        start: "Starting pipeline execution...",
+        ingest: "Connecting to Kafka source 'events-topic'...",
+        ingestSuccess: "Ingested {val} raw events.",
+        transform: "Running transformations (dedup, normalize)...",
+        transformWarn: "Detected {val} duplicate keys. Dropping...",
+        transformSuccess: "Transformation complete. {val} rows ready.",
+        validate: "Running quality checks (schema, nulls, types)...",
+        validateTest1: "TEST: not_null(user_id) PASS (null_rate=0.0%)",
+        validateTest2: "TEST: foreign_key(product_id) PASS",
+        validateSuccess: "All quality checks passed. Score: {val}",
+        validateFail: "Quality Check Failed: null_rate > 5% on 'transaction_amount'.",
+        load: "Loading data to Snowflake warehouse...",
+        loadSuccess: "Upserted {val} rows to 'FACT_TRANSACTIONS'.",
+        loadFail: "Connection timeout: Warehouse unreachable.",
+        serve: "Refreshing Looker dashboard cache...",
+        serveSuccess: "Dashboard updated. Latency: {val}ms",
+        done: "Pipeline run completed successfully."
+      },
+      summary: {
+        success: "Pipeline Success",
+        failed: "Pipeline Failed",
+        reason: "Failure at step: {step}",
+        stat: "{rows} rows loaded · {latency}ms latency"
       }
     },
+    // Placeholders
     ph: {
       name: "Your Name",
       email: "Your Email",
       message: "Your Message"
+    },
+    // Hiring / Technical Summary Extended
+    hiring: {
+      title: "Technical Summary",
+      subtitle: "A concise summary of my qualifications, focus, and value proposition.",
+      summaryTitle: "Professional Summary",
+      summaryText: "Data Science & Engineering undergraduate with a strong foundation in building scalable data pipelines, ETL processes, and machine learning models. Proficient in Python, SQL, and cloud technologies, with hands-on experience in real-world projects ranging from fraud detection to agricultural AI solutions. Passionate about transforming raw data into actionable insights and optimizing infrastructure for performance and reliability.",
+      competenciesTitle: "Core Competencies",
+      quickFacts: "Quick Facts",
+      ctaTitle: "Ready to hire?",
+      ctaText: "Download my CV or schedule a chat.",
+      topProjects: "Top Relevant Projects",
+      comp: {
+        de: "Data Engineering",
+        etl: "ETL Pipeline Development",
+        sql: "SQL & Database Management",
+        dw: "Data Warehousing Concepts",
+        ds: "Data Science & ML",
+        ml: "Machine Learning (XGBoost)",
+        viz: "Data Visualization & Analytics",
+        deploy: "Model Deployment"
+      },
+      facts: {
+        role: "Role",
+        roleVal: "Data Engineering Student",
+        loc: "Location",
+        locVal: "Indonesia (Remote OK)",
+        avail: "Availability",
+        availVal: "Open for Opportunities"
+      },
+      btn: {
+        github: "GitHub",
+        linkedin: "LinkedIn",
+        download: "Download CV",
+        whatsapp: "WhatsApp"
+      }
+    },
+    principles: {
+      title: "Engineering Operating Principles",
+      subtitle: "How I approach building production-ready systems",
+      items: {
+        observability: {
+          title: "I Design for Observability",
+          desc: "I track logs, metrics, and system states to make debugging predictable."
+        },
+        validate: {
+          title: "I Validate Before I Trust",
+          desc: "Data quality checks and schema validation come before downstream usage."
+        },
+        measure: {
+          title: "I Optimize After Measuring",
+          desc: "Performance decisions are driven by metrics, not assumptions."
+        },
+        failure: {
+          title: "I Handle Failure Explicitly",
+          desc: "Systems include controlled error handling and retry logic."
+        },
+        clarity: {
+          title: "I Prefer Clarity Over Complexity",
+          desc: "Readable architecture and maintainability come before clever shortcuts."
+        },
+        systems: {
+          title: "I Think in Systems, Not Scripts",
+          desc: "I design for lifecycle, scalability, and long-term reliability."
+        }
+      }
     }
-  },
+  }, // Close en
   id: {
     role: "Data Engineer Enthusiast",
     nav: {
@@ -674,7 +1100,9 @@ const translations = {
       certificates: "Sertifikat",
       contact: "Kontak",
       dashboard: "Dasbor",
-      hiring: "Ringkasan Teknis"
+      dashboard: "Dasbor",
+      hiring: "Ringkasan Teknis",
+      principles: "Prinsip Engineering"
     },
     hero: {
       greeting: "Halo Semuanya",
@@ -771,7 +1199,31 @@ const translations = {
       quickFacts: "Fakta Singkat",
       ctaTitle: "Siap merekrut?",
       ctaText: "Unduh CV saya atau jadwalkan obrolan.",
-      topProjects: "Proyek Relevan Teratas"
+      topProjects: "Proyek Relevan Teratas",
+      comp: {
+        de: "Data Engineering",
+        etl: "Pengembangan Pipeline ETL",
+        sql: "SQL & Manajemen Database",
+        dw: "Konsep Data Warehousing",
+        ds: "Data Science & ML",
+        ml: "Machine Learning (XGBoost)",
+        viz: "Visualisasi Data & Analitik",
+        deploy: "Deployment Model"
+      },
+      facts: {
+        role: "Peran",
+        roleVal: "Mahasiswa Data Engineering",
+        loc: "Lokasi",
+        locVal: "Indonesia (Remote OK)",
+        avail: "Ketersediaan",
+        availVal: "Terbuka untuk Peluang"
+      },
+      btn: {
+        github: "GitHub",
+        linkedin: "LinkedIn",
+        download: "Unduh CV",
+        whatsapp: "WhatsApp"
+      }
     },
     cert: {
       tag: {
@@ -780,12 +1232,148 @@ const translations = {
         industry: "ACARA INDUSTRI",
         workshop: "LOKAKARYA",
         practicum: "PRAKTIKUM AKADEMIK"
+      },
+      tabs: {
+        overview: "Ringkasan",
+        architecture: "Arsitektur"
+      },
+      arch: {
+        dataFlow: "Alur Data",
+        keyDecisions: "Keputusan Utama",
+        tradeOffs: "Kompromi (Trade-offs)",
+        nextSteps: "Pengembangan Selanjutnya"
+      },
+      badge: {
+        active: "Aktif",
+        maintained: "Dirawat",
+        experimental: "Eksperimental",
+        archived: "Diarsipkan"
+      },
+    }, // Close cert
+    pipeline: {
+      title: "Simulasi Data Pipeline",
+      desc: "Rasakan simulasi data engineering pipeline dari ujung ke ujung. Lihat bagaimana data mengalir dari ingestion hingga serving dengan log dan metrik realtime.",
+      infoPanel: {
+        title: "Tentang demo ini",
+        item1: "Simulasi alur ingestion & pemrosesan data realtime.",
+        item2: "Menunjukkan observabilitas dengan log & metrik live.",
+        item3: "Termasuk quality checks otomatis dan penanganan error.",
+        item4: "Coba 'Simulasi Error' untuk melihat logika retry."
+      },
+      node: {
+        ingest: "Ingest",
+        transform: "Transformasi",
+        validate: "Validasi",
+        load: "Load",
+        serve: "Serve"
+      },
+      controls: "Kontrol",
+      simulateFail: "Simulasi Error",
+      btn: {
+        run: "Jalankan Pipeline",
+        retry: "Coba Lagi"
+      },
+      metric: {
+        rows: "Baris Data",
+        latency: "Latensi",
+        rejected: "Data Ditolak",
+        quality: "Skor Kualitas"
+      },
+      logs: {
+        start: "Memulai eksekusi pipeline...",
+        ingest: "Menghubungkan ke source Kafka 'events-topic'...",
+        ingestSuccess: "Berhasil ingest {val} event mentah.",
+        transform: "Menjalankan transformasi (dedup, normalisasi)...",
+        transformWarn: "Terdeteksi {val} kunci duplikat. Menghapus...",
+        transformSuccess: "Transformasi selesai. {val} data siap.",
+        validate: "Menjalankan quality checks (skema, nulls, tipe)...",
+        validateTest1: "TEST: not_null(user_id) PASS (null_rate=0.0%)",
+        validateTest2: "TEST: foreign_key(product_id) PASS",
+        validateSuccess: "Semua cek kualitas lulus. Skor: {val}",
+        validateFail: "Quality Check Gagal: null_rate > 5% pada 'transaction_amount'.",
+        load: "Memuat data ke warehouse Snowflake...",
+        loadSuccess: "Upsert {val} baris ke 'FACT_TRANSACTIONS'.",
+        loadFail: "Koneksi timeout: Warehouse tidak dapat dijangkau.",
+        serve: "Refresh cache dashboard Looker...",
+        serveSuccess: "Dashboard diperbarui. Latensi: {val}ms",
+        done: "Pipeline selesai dengan sukses."
+      },
+      summary: {
+        success: "Pipeline Sukses",
+        failed: "Pipeline Gagal",
+        reason: "Gagal pada tahap: {step}",
+        stat: "{rows} baris dimuat · latensi {latency}ms"
       }
     },
     ph: {
       name: "Nama Anda",
       email: "Email Anda",
       message: "Pesan Anda"
+    },
+    hiring: {
+      title: "Ringkasan Teknis",
+      subtitle: "Ringkasan kualifikasi, fokus, dan nilai tambah saya secara singkat.",
+      summaryTitle: "Ringkasan Profesional",
+      summaryText: "Mahasiswa Data Science & Engineering dengan fondasi kuat dalam membangun pipeline data yang scalable, proses ETL, dan model machine learning. Mahir dalam Python, SQL, dan teknologi cloud, dengan pengalaman langsung dalam proyek nyata mulai dari deteksi penipuan hingga solusi AI pertanian. Bersemangat mengubah data mentah menjadi wawasan yang dapat ditindaklanjuti dan mengoptimalkan infrastruktur untuk performa dan keandalan.",
+      competenciesTitle: "Kompetensi Inti",
+      quickFacts: "Fakta Singkat",
+      ctaTitle: "Siap merekrut?",
+      ctaText: "Unduh CV saya atau jadwalkan obrolan.",
+      topProjects: "Proyek Relevan Teratas",
+      comp: {
+        de: "Data Engineering",
+        etl: "Pengembangan Pipeline ETL",
+        sql: "SQL & Manajemen Database",
+        dw: "Konsep Data Warehousing",
+        ds: "Data Science & ML",
+        ml: "Machine Learning (XGBoost)",
+        viz: "Visualisasi Data & Analitik",
+        deploy: "Deployment Model"
+      },
+      facts: {
+        role: "Peran",
+        roleVal: "Mahasiswa Data Engineering",
+        loc: "Lokasi",
+        locVal: "Indonesia (Remote OK)",
+        avail: "Ketersediaan",
+        availVal: "Terbuka untuk Peluang"
+      },
+      btn: {
+        github: "GitHub",
+        linkedin: "LinkedIn",
+        download: "Unduh CV",
+        whatsapp: "WhatsApp"
+      }
+    },
+    principles: {
+      title: "Prinsip Operasional Engineering",
+      subtitle: "Pendekatan saya dalam membangun sistem siap produksi",
+      items: {
+        observability: {
+          title: "Desain untuk Observabilitas",
+          desc: "Saya melacak log, metrik, dan status sistem agar debugging lebih terprediksi."
+        },
+        validate: {
+          title: "Validasi Sebelum Percaya",
+          desc: "Pemeriksaan kualitas data dan validasi skema dilakukan sebelum penggunaan lebih lanjut."
+        },
+        measure: {
+          title: "Optimasi Setelah Pengukuran",
+          desc: "Keputusan performa didasarkan pada metrik, bukan asumsi tebakan."
+        },
+        failure: {
+          title: "Tangani Kegagalan secara Eksplisit",
+          desc: "Sistem mencakup penanganan error terkontrol dan logika retry."
+        },
+        clarity: {
+          title: "Kejelasan di Atas Kompleksitas",
+          desc: "Arsitektur yang mudah dibaca dan maintainability lebih utama daripada shortcut cerdas."
+        },
+        systems: {
+          title: "Berpikir Sistem, Bukan Sekadar Skrip",
+          desc: "Saya merancang untuk siklus hidup, skalabilitas, dan keandalan angka panjang."
+        }
+      }
     }
   }
 };
@@ -816,6 +1404,9 @@ document.addEventListener('DOMContentLoaded', () => {
   updateDropdownUI(savedLang);
   applyLanguage(savedLang);
 
+  // Render Project Badges
+  renderProjectBadges(savedLang);
+
   // Toggle Menu
   langToggle.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -838,6 +1429,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('siteLang', lang);
       updateDropdownUI(lang);
       applyLanguage(lang);
+      renderProjectBadges(lang);
 
       // Close menu
       langMenu.classList.add('scale-0');
@@ -1448,3 +2040,442 @@ function switchDemoScreen(index) {
     else t.classList.remove('active');
   });
 }
+
+// ===== Project Health Badges Logic =====
+function renderProjectBadges(lang) {
+  const t = translations[lang === 'default' ? 'en' : lang] || translations['en'];
+
+  // Find project cards based on onclick attribute
+  // Selector looks for onclick="openProjectModal('...')"
+  const cards = document.querySelectorAll('[onclick^="openProjectModal"]');
+
+  cards.forEach(btn => {
+    // Extract projectId from onclick string: openProjectModal('id')
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    if (!match) return;
+
+    const projectId = match[1];
+    const status = projectStatus[projectId];
+
+    if (!status) return;
+
+    // Find image container to inject badge
+    const cardArticle = btn.closest('.project-card');
+    if (!cardArticle) return;
+
+    const imgContainer = cardArticle.querySelector('.aspect-video');
+    if (!imgContainer) return;
+
+    // Check if badge already exists
+    let badge = imgContainer.querySelector('.health-badge');
+
+    // If not, create it
+    if (!badge) {
+      badge = document.createElement('span');
+      // Append badge to container
+      imgContainer.appendChild(badge);
+    }
+
+    // Set class and text
+    badge.className = `health-badge health-badge-${status}`;
+    const badgeText = t.badge && t.badge[status] ? t.badge[status] : status;
+    badge.textContent = badgeText;
+  });
+}
+
+// ===== Mini Data Pipeline Simulation Logic =====
+const pipelineState = {
+  isRunning: false,
+  nodes: ['ingest', 'transform', 'validate', 'load', 'serve'],
+  currentRowCount: 0,
+  currentLatency: 0,
+  rejectedRows: 0,
+  qualityScore: 0,
+  timer: null
+};
+
+// Global Safety Net
+window.addEventListener("error", function (event) {
+  console.error("Global pipeline error caught:", event.error);
+  // Do not show to UI to keep it clean, just log
+});
+
+// ===== Pipeline Button State Machine =====
+const btnConfig = {
+  idle: {
+    textKey: 'run',
+    icon: 'fa-play',
+    classAdd: ['bg-[#00ff88]', 'text-[#0b0f14]'],
+    classRemove: ['bg-[#ef4444]', 'text-white', 'opacity-80', 'cursor-not-allowed'],
+    disabled: false
+  },
+  running: {
+    textKey: 'running', // Special handling for ID/EN
+    icon: 'fa-spinner fa-spin',
+    classAdd: ['bg-[#00ff88]', 'text-[#0b0f14]', 'opacity-80', 'cursor-not-allowed'],
+    classRemove: ['bg-[#ef4444]', 'text-white'],
+    disabled: true
+  },
+  success: {
+    textKey: 'run',
+    icon: 'fa-play',
+    classAdd: ['bg-[#00ff88]', 'text-[#0b0f14]'],
+    classRemove: ['bg-[#ef4444]', 'text-white', 'opacity-80', 'cursor-not-allowed'],
+    disabled: false
+  },
+  failed: {
+    textKey: 'retry',
+    icon: 'fa-redo',
+    classAdd: ['bg-[#ef4444]', 'text-white'],
+    classRemove: ['bg-[#00ff88]', 'text-[#0b0f14]', 'opacity-80', 'cursor-not-allowed'],
+    disabled: false
+  }
+};
+
+function updateRunButton(status) {
+  const btn = document.getElementById('btnRunPipeline');
+  if (!btn) return;
+
+  const config = btnConfig[status];
+  if (!config) return;
+
+  // 1. Get Translation
+  const lang = localStorage.getItem('siteLang') || 'en';
+  const t = translations[lang === 'default' ? 'en' : lang] || translations['en'];
+
+  let label = "";
+  if (status === 'running') {
+    label = lang === 'id' ? 'Berjalan...' : 'Running...';
+  } else {
+    label = t?.pipeline?.btn?.[config.textKey] || (status === 'failed' ? 'Retry' : 'Run Pipeline');
+  }
+
+  // 2. Update Content
+  btn.innerHTML = `<i class="fas ${config.icon}"></i> ${label}`;
+
+  // 3. Update Classes
+  btn.classList.remove(...config.classRemove);
+  btn.classList.add(...config.classAdd);
+
+  // 4. Update Disabled State
+  btn.disabled = config.disabled;
+}
+
+async function runPipeline() {
+  console.log("Run Pipeline Triggered. Status:", pipelineState.isRunning ? "Running" : "Idle");
+
+  const btn = document.getElementById('btnRunPipeline');
+  if (!btn) return;
+
+  // STRICT GUARD: Only block if actually running
+  if (pipelineState.isRunning) return;
+
+  try {
+    await internalRunPipeline(btn);
+  } catch (err) {
+    handleSystemError(err);
+    // Force fail state on clean error
+    endPipeline(false, localStorage.getItem('siteLang') || 'en', err.step || 'System');
+  }
+}
+
+async function internalRunPipeline(btn) {
+  const simulateFail = document.getElementById('simulateFailure')?.checked || false;
+  const lang = localStorage.getItem('siteLang') || 'en';
+  const t = (typeof translations !== 'undefined' && translations[lang === 'default' ? 'en' : lang])
+    ? translations[lang === 'default' ? 'en' : lang]
+    : (typeof translations !== 'undefined' ? translations['en'] : null);
+
+  if (!t) throw new Error("Translations missing");
+
+  // 1. Set State & UI -> RUNNING
+  pipelineState.isRunning = true;
+  updateRunButton('running');
+
+  // Reset logs & metrics visual only (state reset happens in resetPipeline, but we want to keep current invocation context)
+  resetPipeline(true);
+
+  addLog(t.pipeline?.logs?.start || "Starting...", 'info');
+
+  const rawRows = Math.floor(Math.random() * 45000) + 5000;
+  const rejected = Math.floor(rawRows * (Math.random() * 0.05));
+  const cleanRows = rawRows - rejected;
+
+  pipelineState.rejectedRows = 0;
+
+  // --- Step 1: Ingest ---
+  const ingestMsg = t.pipeline?.logs?.ingest;
+  const ingestSuccess = safeReplace(t.pipeline?.logs?.ingestSuccess, '{val}', rawRows.toLocaleString());
+
+  if (!await executeStep('ingest', 800, ingestMsg, ingestSuccess)) {
+    throw new Error("Pipeline stopped at Ingest"); // Should not happen in this logic normally
+  }
+
+  pipelineState.currentRowCount = rawRows;
+  updateMetrics(pipelineState.currentRowCount, pipelineState.currentLatency, 0, '-');
+
+  // --- Step 2: Transform ---
+  const transformMsg = t.pipeline?.logs?.transform;
+  const transformWarn = safeReplace(t.pipeline?.logs?.transformWarn, '{val}', rejected.toLocaleString());
+  const transformSuccess = safeReplace(t.pipeline?.logs?.transformSuccess, '{val}', cleanRows.toLocaleString());
+
+  setTimeout(() => addLog(transformWarn, 'warn'), 600);
+
+  if (!await executeStep('transform', 1500, transformMsg, transformSuccess)) {
+    throw new Error("Pipeline stopped at Transform");
+  }
+
+  pipelineState.currentRowCount = cleanRows;
+  pipelineState.rejectedRows = rejected;
+  updateMetrics(cleanRows, pipelineState.currentLatency, rejected, '-');
+
+  // --- Step 3: Validate ---
+  const validateMsg = t.pipeline?.logs?.validate;
+
+  // DETERMINISTIC FAILURE
+  if (simulateFail) {
+    setTimeout(() => addLog("TEST: not_null(user_id) FAILED (null_rate=100%)", 'error'), 800);
+    const validateFailMsg = t.pipeline?.logs?.validateFail || "Validation Failed";
+
+    // Execute step but force fail
+    await executeStep('validate', 1200, validateMsg, null, true, validateFailMsg);
+
+    // Throw Domain Error
+    const error = new Error(validateFailMsg);
+    error.isDomainError = true;
+    error.step = 'Validate';
+    throw error;
+  }
+
+  // Normal Flow
+  setTimeout(() => addLog(t.pipeline?.logs?.validateTest1, 'test'), 400);
+  setTimeout(() => addLog(t.pipeline?.logs?.validateTest2, 'test'), 700);
+
+  const qualityScore = Math.floor(Math.random() * (100 - 92 + 1) + 92);
+  const validateSuccess = safeReplace(t.pipeline?.logs?.validateSuccess, '{val}', qualityScore + '%');
+
+  if (!await executeStep('validate', 1500, validateMsg, validateSuccess)) {
+    const error = new Error("Validation Failed Unknown");
+    error.isDomainError = true;
+    error.step = 'Validate';
+    throw error;
+  }
+
+  pipelineState.qualityScore = qualityScore;
+  updateMetrics(cleanRows, pipelineState.currentLatency, rejected, qualityScore + '%');
+
+  // --- Step 4: Load ---
+  const loadMsg = t.pipeline?.logs?.load;
+  const loadSuccess = safeReplace(t.pipeline?.logs?.loadSuccess, '{val}', cleanRows.toLocaleString());
+
+  if (!await executeStep('load', 1500, loadMsg, loadSuccess)) {
+    // Could simulate load failure here if desired, but we focus on validate for now
+    const error = new Error("Load Failed");
+    error.isDomainError = true;
+    error.step = 'Load';
+    throw error;
+  }
+
+  // --- Step 5: Serve ---
+  const serveMsg = t.pipeline?.logs?.serve;
+  const serveSuccess = safeReplace(t.pipeline?.logs?.serveSuccess, '{val}', pipelineState.currentLatency);
+
+  if (!await executeStep('serve', 800, serveMsg, serveSuccess)) {
+    const error = new Error("Serve Failed");
+    error.isDomainError = true;
+    error.step = 'Serve';
+    throw error;
+  }
+
+  addLog(t.pipeline?.logs?.done, 'success');
+  // SUCCESS END
+  endPipeline(true, lang, null);
+}
+
+function handleSystemError(err) {
+  if (err.isDomainError) {
+    // Controlled failure (Simulated)
+    // Log is already handled in executeStep(forceFail=true) usually,
+    // but if thrown manually, ensure it's logged.
+    // In our logic, executeStep handles the UI update for failed node.
+    // The endPipeline call in runPipeline's catch block will handle the final UI state.
+    console.warn("Domain Error:", err.message, "at step:", err.step);
+  } else {
+    // Unexpected Bug
+    console.error("System Error:", err);
+    addLog("ERROR: Check console.", 'error'); // Keep UI clean
+  }
+}
+
+// Helper for safe string replacement
+function safeReplace(str, search, replacement) {
+  if (typeof str !== 'string') return "";
+  return str.replace(search, replacement);
+}
+
+async function executeStep(nodeId, duration, startMsg, successMsg, forceFail = false, failMsg = "") {
+  const node = document.getElementById(`node-${nodeId}`);
+  if (!node) return true;
+
+  node.classList.add('active');
+  if (startMsg) addLog(startMsg, 'info');
+
+  const startTime = Date.now();
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const elapsed = Date.now() - startTime;
+      pipelineState.currentLatency += elapsed;
+      updateMetrics(pipelineState.currentRowCount, pipelineState.currentLatency, pipelineState.rejectedRows, pipelineState.qualityScore || '-');
+
+      node.classList.remove('active');
+
+      if (forceFail) {
+        node.classList.add('failed');
+        if (failMsg) addLog(failMsg, 'error');
+        resolve(false);
+      } else {
+        node.classList.add('success');
+        if (successMsg) addLog(successMsg, 'success');
+        resolve(true);
+      }
+    }, duration);
+  });
+}
+
+function endPipeline(success, lang, failedStep) {
+  pipelineState.isRunning = false;
+
+  // Update Button UI based on Result
+  updateRunButton(success ? 'success' : 'failed');
+
+  // Show Summary
+  const t = translations[lang === 'default' ? 'en' : lang] || translations['en'];
+  showRunSummary(success, t, lang, failedStep);
+}
+
+function showRunSummary(success, t, lang, failedStep) {
+  const summary = document.getElementById('pipeline-summary');
+  if (!summary) return;
+
+  summary.classList.remove('hidden');
+
+  const reasonText = safeReplace(t?.pipeline?.summary?.reason, '{step}', failedStep || 'Unknown');
+  const statText = safeReplace(safeReplace(t?.pipeline?.summary?.stat, '{rows}', pipelineState.currentRowCount.toLocaleString()), '{latency}', pipelineState.currentLatency);
+
+  summary.innerHTML = `
+        <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 rounded-full ${success ? 'bg-[#00ff88]/20 text-[#00ff88]' : 'bg-[#ef4444]/20 text-[#ef4444]'} flex items-center justify-center">
+                <i class="fas ${success ? 'fa-check' : 'fa-times'}"></i>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white">${success ? t?.pipeline?.summary?.success : t?.pipeline?.summary?.failed}</h4>
+                <p class="text-xs text-[#94a3b8]">${success ? statText : reasonText}</p>
+            </div>
+        </div>
+    `;
+}
+
+function resetPipeline(internalRequest = false) {
+  // If external click, check if running
+  if (!internalRequest && pipelineState.isRunning) {
+    console.warn("Cannot reset while running");
+    return;
+  }
+
+  // 1. Reset State
+  pipelineState.currentRowCount = 0;
+  pipelineState.currentLatency = 0;
+  pipelineState.rejectedRows = 0;
+  pipelineState.qualityScore = 0;
+
+  // 2. Reset Visuals
+  document.querySelectorAll('.pipeline-node').forEach(n => {
+    n.classList.remove('active', 'success', 'failed');
+    const iconBox = n.querySelector('.w-16');
+    if (iconBox) iconBox.style.borderColor = '';
+  });
+
+  document.getElementById('pipeline-logs').innerHTML = '<div class="opacity-50 text-center py-8">Waiting to start...</div>';
+  updateMetrics(0, 0, 0, '-');
+
+  const summary = document.getElementById('pipeline-summary');
+  if (summary) summary.classList.add('hidden');
+
+  // 3. Reset Button (Only if external click or Init)
+  if (!internalRequest) {
+    updateRunButton('idle');
+  }
+}
+
+function addLog(msg, type = 'info') {
+  if (!msg) return; // Guard empty messages
+  const logPanel = document.getElementById('pipeline-logs');
+  if (!logPanel) return;
+
+  if (logPanel.children[0]?.classList.contains('text-center')) {
+    logPanel.innerHTML = '';
+  }
+
+  const now = new Date().toLocaleTimeString('en-US', { hour12: false });
+  const div = document.createElement('div');
+
+  // Map types to classes
+  let colorClass = 'text-[#94a3b8]'; // Default info
+  if (type === 'success') colorClass = 'text-[#00ff88]';
+  if (type === 'error') colorClass = 'text-[#ef4444]';
+  if (type === 'warn') colorClass = 'text-[#f59e0b]';
+  if (type === 'test') colorClass = 'text-[#38bdf8]';
+
+  div.className = `log-entry mb-1 ${colorClass} text-[10px] sm:text-xs font-mono`;
+  div.innerHTML = `<span class="opacity-40 mr-2">[${now}]</span><span class="${type === 'test' || type === 'warn' ? 'font-semibold' : ''}">${msg}</span>`;
+
+  logPanel.appendChild(div);
+  logPanel.scrollTop = logPanel.scrollHeight;
+}
+
+function updateMetrics(rows, latency, rejected = 0, quality = '-') {
+  const rowEl = document.getElementById('metric-rows');
+  if (rowEl) rowEl.textContent = rows.toLocaleString();
+
+  const latEl = document.getElementById('metric-latency');
+  if (latEl) latEl.textContent = latency + 'ms';
+
+  const rejEl = document.getElementById('metric-rejected');
+  if (rejEl) rejEl.textContent = rejected.toLocaleString();
+
+  const qualEl = document.getElementById('metric-quality');
+  if (qualEl) qualEl.textContent = quality;
+}
+
+// ===== Initialization =====
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Attach Run Listener
+  const btnRun = document.getElementById('btnRunPipeline');
+  if (btnRun) {
+    // Avoid duplicates if any
+    btnRun.onclick = null;
+    btnRun.addEventListener('click', (e) => {
+      e.preventDefault();
+      runPipeline();
+    });
+  }
+
+  // 2. Attach Reset Listener
+  const btnReset = document.getElementById('btnResetPipeline');
+  if (btnReset) {
+    btnReset.onclick = null;
+    btnReset.addEventListener('click', (e) => {
+      e.preventDefault();
+      resetPipeline(); // external call
+    });
+  }
+
+  // 3. Force Initial State (Idle)
+  resetPipeline(false);
+});
+
+// Expose to Global Window
+window.runPipeline = runPipeline;
+window.resetPipeline = resetPipeline;
+window.pipelineState = pipelineState;

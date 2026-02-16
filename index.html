@@ -188,6 +188,15 @@
             class="fas fa-user-tie text-base w-5 text-center group-hover:scale-110 transition-transform relative z-10"></i>
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.hiring">Technical Summary</span>
         </a>
+        <a href="#engineering-principles"
+          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          <div
+            class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
+          </div>
+          <i class="fas fa-cogs text-base w-5 text-center group-hover:scale-110 transition-transform relative z-10"></i>
+          <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.principles">Engineering
+            Principles</span>
+        </a>
         <a href="#contact"
           class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
@@ -994,6 +1003,225 @@
 
 
 
+
+    <!-- Mini Data Pipeline Simulation -->
+    <section id="pipeline-demo" class="py-20 relative overflow-hidden" style="background-color: #0b0f14;">
+      <!-- Background Elements -->
+      <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#334155] to-transparent">
+      </div>
+
+      <div class="container mx-auto px-4 max-w-6xl relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="section-title font-bold mb-4" style="font-family: 'Poppins', sans-serif;"
+            data-i18n="pipeline.title">
+            Data Pipeline Simulation
+          </h2>
+          <p class="text-[#94a3b8] max-w-2xl mx-auto" data-i18n="pipeline.desc">
+            Experience an end-to-end data engineering pipeline simulation. Watch as data flows from ingestion to serving
+            with real-time logs and metrics.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+          <!-- Left Col: Pipeline Diagram & Info -->
+          <div class="lg:col-span-7 space-y-6">
+
+            <!-- Diagram Card -->
+            <div class="bg-[#1a1f2e] border border-[#334155] rounded-xl p-6 sm:p-8 relative overflow-hidden">
+              <div class="absolute top-0 right-0 p-4 opacity-50">
+                <i class="fas fa-network-wired text-6xl text-[#1e293b]"></i>
+              </div>
+
+              <!-- Diagram Container -->
+              <div
+                class="relative flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-2 my-8 pipeline-diagram">
+
+                <!-- Node 1: Ingest -->
+                <div id="node-ingest" class="pipeline-node group relative z-10">
+                  <div
+                    class="w-16 h-16 rounded-xl bg-[#0b0f14] border border-[#334155] flex items-center justify-center mb-3 transition-all duration-300 shadow-lg group-hover:border-[#00ff88]/50">
+                    <i
+                      class="fas fa-file-import text-xl text-[#94a3b8] transition-colors group-hover:text-[#00ff88]"></i>
+                  </div>
+                  <span class="text-xs font-semibold text-[#94a3b8] block text-center"
+                    data-i18n="pipeline.node.ingest">Ingest</span>
+                  <!-- Connector -->
+                  <div
+                    class="hidden sm:block absolute top-8 left-full w-full h-0.5 bg-[#334155] -z-10 transform translate-x-0"
+                    style="width: 100px;"></div>
+                </div>
+
+                <!-- Node 2: Transform -->
+                <div id="node-transform" class="pipeline-node group relative z-10 mt-8 sm:mt-0">
+                  <div
+                    class="connector-vertical sm:hidden h-8 w-0.5 bg-[#334155] absolute bottom-full left-1/2 -translate-x-1/2">
+                  </div>
+
+                  <div
+                    class="w-16 h-16 rounded-xl bg-[#0b0f14] border border-[#334155] flex items-center justify-center mb-3 transition-all duration-300 shadow-lg group-hover:border-[#38bdf8]/50">
+                    <i class="fas fa-cogs text-xl text-[#94a3b8] transition-colors group-hover:text-[#38bdf8]"></i>
+                  </div>
+                  <span class="text-xs font-semibold text-[#94a3b8] block text-center"
+                    data-i18n="pipeline.node.transform">Transform</span>
+                </div>
+
+                <!-- Node 3: Validate -->
+                <div id="node-validate" class="pipeline-node group relative z-10 mt-8 sm:mt-0">
+                  <div
+                    class="connector-vertical sm:hidden h-8 w-0.5 bg-[#334155] absolute bottom-full left-1/2 -translate-x-1/2">
+                  </div>
+
+                  <div
+                    class="w-16 h-16 rounded-xl bg-[#0b0f14] border border-[#334155] flex items-center justify-center mb-3 transition-all duration-300 shadow-lg group-hover:border-[#f59e0b]/50">
+                    <i
+                      class="fas fa-check-double text-xl text-[#94a3b8] transition-colors group-hover:text-[#f59e0b]"></i>
+                  </div>
+                  <span class="text-xs font-semibold text-[#94a3b8] block text-center"
+                    data-i18n="pipeline.node.validate">Validate</span>
+                </div>
+
+                <!-- Node 4: Load -->
+                <div id="node-load" class="pipeline-node group relative z-10 mt-8 sm:mt-0">
+                  <div
+                    class="connector-vertical sm:hidden h-8 w-0.5 bg-[#334155] absolute bottom-full left-1/2 -translate-x-1/2">
+                  </div>
+
+                  <div
+                    class="w-16 h-16 rounded-xl bg-[#0b0f14] border border-[#334155] flex items-center justify-center mb-3 transition-all duration-300 shadow-lg group-hover:border-[#a855f7]/50">
+                    <i class="fas fa-database text-xl text-[#94a3b8] transition-colors group-hover:text-[#a855f7]"></i>
+                  </div>
+                  <span class="text-xs font-semibold text-[#94a3b8] block text-center"
+                    data-i18n="pipeline.node.load">Load</span>
+                </div>
+
+                <!-- Node 5: Serve -->
+                <div id="node-serve" class="pipeline-node group relative z-10 mt-8 sm:mt-0">
+                  <div
+                    class="connector-vertical sm:hidden h-8 w-0.5 bg-[#334155] absolute bottom-full left-1/2 -translate-x-1/2">
+                  </div>
+
+                  <div
+                    class="w-16 h-16 rounded-xl bg-[#0b0f14] border border-[#334155] flex items-center justify-center mb-3 transition-all duration-300 shadow-lg group-hover:border-[#ec4899]/50">
+                    <i class="fas fa-chart-pie text-xl text-[#94a3b8] transition-colors group-hover:text-[#ec4899]"></i>
+                  </div>
+                  <span class="text-xs font-semibold text-[#94a3b8] block text-center"
+                    data-i18n="pipeline.node.serve">Serve</span>
+                </div>
+
+              </div>
+
+              <div
+                class="mt-8 pt-6 border-t border-[#334155] flex flex-wrap gap-4 justify-center text-xs text-[#94a3b8]">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#94a3b8]"></span> Idle
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse"></span> Running
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#00ff88]"></span> Success
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#ef4444]"></span> Failed
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Info Panel -->
+            <div class="bg-[#0b0f14]/50 border border-[#334155] rounded-xl p-4">
+              <h4 class="text-sm font-semibold text-[#f8fafc] mb-2 flex items-center gap-2">
+                <i class="fas fa-info-circle text-[#38bdf8]"></i>
+                <span data-i18n="pipeline.infoPanel.title">About this demo</span>
+              </h4>
+              <ul class="text-xs text-[#94a3b8] space-y-1.5 list-disc list-inside">
+                <li data-i18n="pipeline.infoPanel.item1">Simulates a real-time data ingestion & processing flow.</li>
+                <li data-i18n="pipeline.infoPanel.item2">Demonstrates observability with live logs & metrics.</li>
+                <li data-i18n="pipeline.infoPanel.item3">Includes automated quality checks and error handling.</li>
+                <li data-i18n="pipeline.infoPanel.item4">Try "Simulate Failure" to see self-healing/retry logic.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Col: Controls & Logs -->
+          <div class="lg:col-span-5 space-y-4">
+
+            <!-- Controls Card -->
+            <div class="bg-[#1a1f2e] border border-[#334155] rounded-xl p-5">
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-[#f8fafc]" data-i18n="pipeline.controls">Controls</h3>
+                <label class="flex items-center gap-2 cursor-pointer text-xs text-[#94a3b8] select-none">
+                  <input type="checkbox" id="simulateFailure"
+                    class="form-checkbox bg-[#0b0f14] border-[#334155] text-[#ef4444] rounded focus:ring-0">
+                  <span data-i18n="pipeline.simulateFail">Simulate Failure</span>
+                </label>
+              </div>
+              <div class="flex gap-3">
+                <button id="btnRunPipeline" onclick="runPipeline()"
+                  class="flex-1 bg-[#00ff88] text-[#0b0f14] font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-all focus:ring-2 focus:ring-[#00ff88]/50 flex items-center justify-center gap-2">
+                  <i class="fas fa-play"></i> <span data-i18n="pipeline.btn.run">Run Pipeline</span>
+                </button>
+                <button id="btnResetPipeline" onclick="resetPipeline()"
+                  class="px-4 py-2.5 rounded-lg border border-[#334155] text-[#94a3b8] hover:bg-[#334155]/30 transition-all">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Metrics Grid (Upgraded 2x2) -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-[#0b0f14] border border-[#334155] rounded-lg p-3">
+                <div class="text-[10px] text-[#94a3b8] uppercase tracking-wider mb-1" data-i18n="pipeline.metric.rows">
+                  Rows Processed</div>
+                <div id="metric-rows" class="text-lg sm:text-xl font-mono text-[#f8fafc]">0</div>
+              </div>
+              <div class="bg-[#0b0f14] border border-[#334155] rounded-lg p-3">
+                <div class="text-[10px] text-[#94a3b8] uppercase tracking-wider mb-1"
+                  data-i18n="pipeline.metric.latency">Latency</div>
+                <div id="metric-latency" class="text-lg sm:text-xl font-mono text-[#f8fafc]">0ms</div>
+              </div>
+
+              <!-- New Metrics -->
+              <div class="bg-[#0b0f14] border border-[#334155] rounded-lg p-3">
+                <div class="text-[10px] text-[#94a3b8] uppercase tracking-wider mb-1 text-red-400"
+                  data-i18n="pipeline.metric.rejected">Rejected</div>
+                <div id="metric-rejected" class="text-lg sm:text-xl font-mono text-[#f8fafc]">0</div>
+              </div>
+              <div class="bg-[#0b0f14] border border-[#334155] rounded-lg p-3">
+                <div class="text-[10px] text-[#94a3b8] uppercase tracking-wider mb-1 text-blue-400"
+                  data-i18n="pipeline.metric.quality">Quality Score</div>
+                <div id="metric-quality" class="text-lg sm:text-xl font-mono text-[#f8fafc]">-</div>
+              </div>
+            </div>
+
+            <!-- Run Summary (Hidden by default) -->
+            <div id="pipeline-summary"
+              class="hidden bg-[#1e293b] border border-[#334155] rounded-lg p-3 mb-3 animate-fade-in">
+              <!-- Content injected via JS -->
+            </div>
+
+            <!-- Logs Panel -->
+            <div class="bg-[#0b0f14] border border-[#334155] rounded-xl overflow-hidden flex flex-col h-[220px]">
+              <div class="bg-[#1e293b] px-4 py-2 border-b border-[#334155] flex justify-between items-center">
+                <span class="text-xs font-mono text-[#94a3b8]"><i class="fas fa-terminal mr-2"></i>Pipeline Logs</span>
+                <span class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444]"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#00ff88]"></span>
+                </span>
+              </div>
+              <div id="pipeline-logs"
+                class="p-4 font-mono text-xs text-[#94a3b8] overflow-y-auto flex-1 space-y-1 scrollbar-thin">
+                <div class="opacity-50 text-center py-8">Waiting to start...</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Certificates Section -->
     <section id="certificates" class="py-20 overflow-hidden">
       <div class="container mx-auto px-4 max-w-6xl relative">
@@ -1312,29 +1540,37 @@
                 <!-- Group 1 -->
                 <div>
                   <h4 class="font-semibold mb-3 text-sm uppercase tracking-wider pb-2"
-                    style="color: var(--text-primary); border-bottom: 1px solid var(--border-light);">Data Engineering
+                    style="color: var(--text-primary); border-bottom: 1px solid var(--border-light);"
+                    data-i18n="hiring.comp.de">Data Engineering
                   </h4>
                   <ul class="space-y-2">
                     <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
-                        class="fas fa-check text-brand text-xs"></i> ETL Pipeline Development</li>
+                        class="fas fa-check text-brand text-xs"></i> <span data-i18n="hiring.comp.etl">ETL Pipeline
+                        Development</span></li>
                     <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
-                        class="fas fa-check text-brand text-xs"></i> SQL & Database Management</li>
+                        class="fas fa-check text-brand text-xs"></i> <span data-i18n="hiring.comp.sql">SQL & Database
+                        Management</span></li>
                     <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
-                        class="fas fa-check text-brand text-xs"></i> Data Warehousing Concepts</li>
+                        class="fas fa-check text-brand text-xs"></i> <span data-i18n="hiring.comp.dw">Data Warehousing
+                        Concepts</span></li>
                   </ul>
                 </div>
                 <!-- Group 2 -->
                 <div>
                   <h4 class="font-semibold mb-3 text-sm uppercase tracking-wider pb-2"
-                    style="color: var(--text-primary); border-bottom: 1px solid var(--border-light);">Data Science & ML
+                    style="color: var(--text-primary); border-bottom: 1px solid var(--border-light);"
+                    data-i18n="hiring.comp.ds">Data Science & ML
                   </h4>
                   <ul class="space-y-2">
                     <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
-                        class="fas fa-check text-brand text-xs"></i> Machine Learning (XGBoost)</li>
+                        class="fas fa-check text-brand text-xs"></i> <span data-i18n="hiring.comp.ml">Machine Learning
+                        (XGBoost)</span></li>
                     <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
-                        class="fas fa-check text-brand text-xs"></i> Data Visualization & Analytics</li>
+                        class="fas fa-check text-brand text-xs"></i> <span data-i18n="hiring.comp.viz">Data
+                        Visualization & Analytics</span></li>
                     <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);"><i
-                        class="fas fa-check text-brand text-xs"></i> Model Deployment</li>
+                        class="fas fa-check text-brand text-xs"></i> <span data-i18n="hiring.comp.deploy">Model
+                        Deployment</span></li>
                   </ul>
                 </div>
               </div>
@@ -1360,8 +1596,10 @@
                     <i class="fas fa-graduation-cap text-xs"></i>
                   </div>
                   <div>
-                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);">Role</p>
-                    <p class="font-medium text-sm" style="color: var(--text-primary);">Data Engineering Student</p>
+                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);"
+                      data-i18n="hiring.facts.role">Role</p>
+                    <p class="font-medium text-sm" style="color: var(--text-primary);" data-i18n="hiring.facts.roleVal">
+                      Data Engineering Student</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
@@ -1370,8 +1608,10 @@
                     <i class="fas fa-map-marker-alt text-xs"></i>
                   </div>
                   <div>
-                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);">Location</p>
-                    <p class="font-medium text-sm" style="color: var(--text-primary);">Indonesia (Remote OK)</p>
+                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);"
+                      data-i18n="hiring.facts.loc">Location</p>
+                    <p class="font-medium text-sm" style="color: var(--text-primary);" data-i18n="hiring.facts.locVal">
+                      Indonesia (Remote OK)</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
@@ -1380,8 +1620,10 @@
                     <i class="fas fa-clock text-xs"></i>
                   </div>
                   <div>
-                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);">Availability</p>
-                    <p class="font-medium text-sm text-brand">Open for Opportunities</p>
+                    <p class="text-xs uppercase tracking-wide" style="color: var(--text-muted);"
+                      data-i18n="hiring.facts.avail">Availability</p>
+                    <p class="font-medium text-sm text-brand" data-i18n="hiring.facts.availVal">Open for Opportunities
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1390,12 +1632,12 @@
                 <a href="https://github.com/wanhangerrrr" target="_blank"
                   class="flex-1 py-2 rounded-lg text-center text-sm transition-all text-sec hover:text-brand"
                   style="background: var(--bg-panel); border: 1px solid var(--border-light);">
-                  <i class="fab fa-github"></i> GitHub
+                  <i class="fab fa-github"></i> <span data-i18n="hiring.btn.github">GitHub</span>
                 </a>
                 <a href="https://www.linkedin.com/in/muhammadhafizfassya21/" target="_blank"
                   class="flex-1 py-2 rounded-lg text-center text-sm transition-all text-sec hover:text-brand"
                   style="background: var(--bg-panel); border: 1px solid var(--border-light);">
-                  <i class="fab fa-linkedin"></i> LinkedIn
+                  <i class="fab fa-linkedin"></i> <span data-i18n="hiring.btn.linkedin">LinkedIn</span>
                 </a>
               </div>
             </div>
@@ -1411,12 +1653,12 @@
                 <a href="assets/Cv_MuhammadHafizFassya.pdf" download="Cv_MuhammadHafizFassya.pdf"
                   class="w-full py-2.5 rounded-xl text-[#0b0f14] font-bold text-sm hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] transition-all"
                   style="background: var(--primary-color);">
-                  <i class="fas fa-download mr-2"></i> Download CV
+                  <i class="fas fa-download mr-2"></i> <span data-i18n="hiring.btn.download">Download CV</span>
                 </a>
                 <a href="https://wa.me/6289697477196" target="_blank"
                   class="w-full py-2.5 rounded-xl border font-bold text-sm transition-all text-brand"
                   style="border-color: var(--primary-color);">
-                  <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                  <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="hiring.btn.whatsapp">WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -1492,6 +1734,146 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- Engineering Operating Principles Section -->
+    <section id="engineering-principles" class="py-24 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-[#00ff88]/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="section-title text-3xl md:text-4xl font-bold text-[#f8fafc] mb-4"
+            style="font-family: 'Poppins', sans-serif;" data-i18n="principles.title">
+            Engineering Operating Principles
+          </h2>
+          <p class="text-[#94a3b8] max-w-2xl mx-auto" data-i18n="principles.subtitle">
+            How I approach building production-ready systems
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <!-- Principle 1 -->
+          <div
+            class="group p-6 rounded-xl border border-[#334155]/50 bg-[#0b0f14]/80 hover:border-[#00ff88]/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00ff88]/10 flex items-center justify-center shrink-0 group-hover:bg-[#00ff88]/20 transition-colors">
+                <i class="fas fa-eye text-[#00ff88]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-[#f8fafc] mb-2 group-hover:text-[#00ff88] transition-colors"
+                  data-i18n="principles.items.observability.title">
+                  I Design for Observability
+                </h3>
+                <p class="text-sm text-[#94a3b8] leading-relaxed" data-i18n="principles.items.observability.desc">
+                  I track logs, metrics, and system states to make debugging predictable.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principle 2 -->
+          <div
+            class="group p-6 rounded-xl border border-[#334155]/50 bg-[#0b0f14]/80 hover:border-[#00ff88]/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00ff88]/10 flex items-center justify-center shrink-0 group-hover:bg-[#00ff88]/20 transition-colors">
+                <i class="fas fa-shield-alt text-[#00ff88]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-[#f8fafc] mb-2 group-hover:text-[#00ff88] transition-colors"
+                  data-i18n="principles.items.validate.title">
+                  I Validate Before I Trust
+                </h3>
+                <p class="text-sm text-[#94a3b8] leading-relaxed" data-i18n="principles.items.validate.desc">
+                  Data quality checks and schema validation come before downstream usage.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principle 3 -->
+          <div
+            class="group p-6 rounded-xl border border-[#334155]/50 bg-[#0b0f14]/80 hover:border-[#00ff88]/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00ff88]/10 flex items-center justify-center shrink-0 group-hover:bg-[#00ff88]/20 transition-colors">
+                <i class="fas fa-chart-line text-[#00ff88]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-[#f8fafc] mb-2 group-hover:text-[#00ff88] transition-colors"
+                  data-i18n="principles.items.measure.title">
+                  I Optimize After Measuring
+                </h3>
+                <p class="text-sm text-[#94a3b8] leading-relaxed" data-i18n="principles.items.measure.desc">
+                  Performance decisions are driven by metrics, not assumptions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principle 4 -->
+          <div
+            class="group p-6 rounded-xl border border-[#334155]/50 bg-[#0b0f14]/80 hover:border-[#00ff88]/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00ff88]/10 flex items-center justify-center shrink-0 group-hover:bg-[#00ff88]/20 transition-colors">
+                <i class="fas fa-undo text-[#00ff88]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-[#f8fafc] mb-2 group-hover:text-[#00ff88] transition-colors"
+                  data-i18n="principles.items.failure.title">
+                  I Handle Failure Explicitly
+                </h3>
+                <p class="text-sm text-[#94a3b8] leading-relaxed" data-i18n="principles.items.failure.desc">
+                  Systems include controlled error handling and retry logic.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principle 5 -->
+          <div
+            class="group p-6 rounded-xl border border-[#334155]/50 bg-[#0b0f14]/80 hover:border-[#00ff88]/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00ff88]/10 flex items-center justify-center shrink-0 group-hover:bg-[#00ff88]/20 transition-colors">
+                <i class="fas fa-code text-[#00ff88]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-[#f8fafc] mb-2 group-hover:text-[#00ff88] transition-colors"
+                  data-i18n="principles.items.clarity.title">
+                  I Prefer Clarity Over Complexity
+                </h3>
+                <p class="text-sm text-[#94a3b8] leading-relaxed" data-i18n="principles.items.clarity.desc">
+                  Readable architecture and maintainability come before clever shortcuts.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principle 6 -->
+          <div
+            class="group p-6 rounded-xl border border-[#334155]/50 bg-[#0b0f14]/80 hover:border-[#00ff88]/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00ff88]/10 flex items-center justify-center shrink-0 group-hover:bg-[#00ff88]/20 transition-colors">
+                <i class="fas fa-project-diagram text-[#00ff88]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-[#f8fafc] mb-2 group-hover:text-[#00ff88] transition-colors"
+                  data-i18n="principles.items.systems.title">
+                  I Think in Systems, Not Scripts
+                </h3>
+                <p class="text-sm text-[#94a3b8] leading-relaxed" data-i18n="principles.items.systems.desc">
+                  I design for lifecycle, scalability, and long-term reliability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
