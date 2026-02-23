@@ -372,6 +372,42 @@ body::after {
     0 0 60px rgba(139, 92, 246, 0.4);
 }
 
+/* LinkedIn */
+.social-icons a:nth-child(5) {
+  box-shadow: 0 0 20px rgba(0, 119, 181, 0.4),
+    0 0 40px rgba(0, 119, 181, 0.2),
+    inset 0 0 15px rgba(0, 119, 181, 0.1);
+  border: 1px solid rgba(0, 119, 181, 0.4);
+}
+
+.social-icons a:nth-child(5)::before {
+  background: linear-gradient(45deg, #0077B5, #005885);
+}
+
+.social-icons a:nth-child(5):hover {
+  background: #0077B5;
+  box-shadow: 0 0 30px rgba(0, 119, 181, 0.6),
+    0 0 60px rgba(0, 119, 181, 0.4);
+}
+
+/* YouTube */
+.social-icons a:nth-child(6) {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4),
+    0 0 40px rgba(255, 0, 0, 0.2),
+    inset 0 0 15px rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.4);
+}
+
+.social-icons a:nth-child(6)::before {
+  background: linear-gradient(45deg, #FF0000, #cc0000);
+}
+
+.social-icons a:nth-child(6):hover {
+  background: #FF0000;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.6),
+    0 0 60px rgba(255, 0, 0, 0.4);
+}
+
 /* ===== Hero Image ===== */
 .hero-image {
   display: flex;
@@ -3054,6 +3090,42 @@ body::after {
     0 0 60px rgba(0, 119, 181, 0.4);
 }
 
+/* YouTube */
+.footer-social a:nth-child(4) {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4),
+    0 0 40px rgba(255, 0, 0, 0.2),
+    inset 0 0 15px rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.4);
+}
+
+.footer-social a:nth-child(4)::before {
+  background: linear-gradient(45deg, #FF0000, #cc0000);
+}
+
+.footer-social a:nth-child(4):hover {
+  background: #FF0000;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.6),
+    0 0 60px rgba(255, 0, 0, 0.4);
+}
+
+/* Email */
+.footer-social a:nth-child(5) {
+  box-shadow: 0 0 20px rgba(234, 67, 53, 0.4),
+    0 0 40px rgba(234, 67, 53, 0.2),
+    inset 0 0 15px rgba(234, 67, 53, 0.1);
+  border: 1px solid rgba(234, 67, 53, 0.4);
+}
+
+.footer-social a:nth-child(5)::before {
+  background: linear-gradient(45deg, #EA4335, #c5221f);
+}
+
+.footer-social a:nth-child(5):hover {
+  background: #EA4335;
+  box-shadow: 0 0 30px rgba(234, 67, 53, 0.6),
+    0 0 60px rgba(234, 67, 53, 0.4);
+}
+
 /* ===== Button CV Styles ===== */
 .btn-cv {
   background: transparent;
@@ -4805,4 +4877,26 @@ html {
   background-color: #0b0f14;
   color: white;
   padding: 5px;
+}
+
+/* ===== Project Cards Alignment Fix ===== */
+.project-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.project-card .flex-1 {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+.project-card .mt-auto {
+  margin-top: auto !important;
+}
+
+.project-card .project-actions {
+  margin-top: auto !important;
+  display: flex !important;
 }

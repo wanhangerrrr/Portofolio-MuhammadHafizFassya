@@ -380,6 +380,55 @@ body.ai-career-page::before {
 }
 
 /* Responsive */
+/* Pipeline Architecture */
+.arch-overview-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.arch-step {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background: var(--p-surface-muted);
+    border: 1px solid var(--p-border);
+    border-radius: 16px;
+    transition: transform 0.3s;
+}
+
+.arch-step:hover {
+    transform: translateY(-5px);
+    border-color: var(--p-border-hover);
+}
+
+.arch-step-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.arch-step h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: var(--p-primary);
+}
+
+.arch-step p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--p-text-muted);
+    margin: 0;
+}
+
+.arch-arrow-right {
+    font-size: 1.5rem;
+    color: var(--p-border-hover);
+    opacity: 0.5;
+}
+
 @media (max-width: 850px) {
     .cyber-grid {
         grid-template-columns: 1fr;
@@ -391,5 +440,19 @@ body.ai-career-page::before {
 
     .cyber-container {
         padding-top: 20px;
+    }
+
+    .arch-overview-grid {
+        flex-direction: column;
+    }
+
+    .arch-arrow-right {
+        transform: rotate(90deg);
+        margin: 8px 0;
+    }
+
+    .arch-step {
+        width: 100%;
+        box-sizing: border-box;
     }
 }

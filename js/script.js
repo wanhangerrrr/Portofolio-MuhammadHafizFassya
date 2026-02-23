@@ -378,37 +378,39 @@ const projectData = {
     }
   },
   'ai-notebook': {
-    title: 'Aplikasi Mobile Notebook Berbasis AI',
-    description: 'An intelligent note-taking mobile application powered by AI to help users summarize ideas, organize notes, and boost productivity.',
+    title: 'AI Smart Notebook',
+    description: 'An intelligent mobile productivity suite that utilizes Large Language Models (LLM) to transform raw meeting notes and ideas into structured summaries, actionable tasks, and organized categories.',
     features: [
-      'AI-powered text summarization',
-      'Smart note organization and categorization',
-      'Cross-platform synchronization'
+      'Neural Text Summarization (OpenAI GPT-4o)',
+      'Context-Aware Smart Categorization',
+      'Real-time Cloud Synchronization',
+      'Multi-modal Input (Voice & Text)',
+      'End-to-end Encrypted Note Storage'
     ],
-    tech: ['JavaScript', 'React Native', 'OpenAI API', 'Firebase'],
+    tech: ['React Native', 'TypeScript', 'Node.js', 'OpenAI SDK', 'Firebase Firestore'],
     github: 'https://github.com/wanhangerrrr',
     demo: null,
     architecture: {
       diagram: [
-        { name: 'React Native', icon: 'fab fa-react', tech: 'Mobile App' },
-        { name: 'Node.js API', icon: 'fab fa-node-js', tech: 'Backend' },
-        { name: 'OpenAI API', icon: 'fas fa-robot', tech: 'LLM Service' },
-        { name: 'Firebase', icon: 'fas fa-database', tech: 'Sync & Auth' }
+        { name: 'React Native', icon: 'fab fa-react', tech: 'Mobile UI' },
+        { name: 'API Gateway', icon: 'fas fa-door-open', tech: 'Node.js' },
+        { name: 'LLM Engine', icon: 'fas fa-brain', tech: 'GPT-4o-mini' },
+        { name: 'Cloud Store', icon: 'fas fa-cloud', tech: 'Firebase DB' }
       ],
       dataFlow: [
-        'User records voice/text note',
-        'App sends content to Node.js Middleware',
-        'Middleware requests summary from OpenAI API',
-        'Summary stored in Firebase Realtime DB',
-        'Synced across user devices'
+        'User captures voice/text via Mobile Interface',
+        'Payload securely transmitted to Node.js Middleware',
+        'Engine processes content via OpenAI Completion API',
+        'Structured JSON response stored in Firebase Firestore',
+        'Real-time listeners update UI across all active devices'
       ],
       techDecisions: {
         why: [
-          'React Native for cross-platform support',
-          'Firebase for effortless real-time sync'
+          'React Native chosen for 95% code reuse across OS',
+          'Firebase provides instant real-time sync without sockets'
         ],
-        tradeOff: 'Dependent on internet connection for AI features',
-        next: 'Add offline mode with local smaller LLM'
+        tradeOff: 'Token consumption management vs latency',
+        next: 'Implement local on-device LLM (LLama 3) for offline support'
       }
     }
   },
@@ -579,6 +581,120 @@ const projectData = {
         next: 'Add specialized analytics for user journey'
       }
     }
+  },
+  'ai-insight': {
+    title: 'AI Insights & Activity Analytics',
+    description: 'A cutting-edge AI engine that transforms raw development data into actionable engineering insights. It analyzes GitHub event streams to summarize coding patterns, detect focus areas, and provide strategic career growth recommendations.',
+    features: [
+      'Activity Synthesis via Gemini 1.5 Pro/Flash',
+      'Automated Technical Contribution Analysis',
+      'Topic Clustering (Frontend, DevOps, AI)',
+      'Dynamic Cyberpunk Analytics Dashboard',
+      'Time-Series Filtering (7-Day & 30-Day Windows)'
+    ],
+    tech: ['Google Gemini API', 'Node.js Serverless', 'GitHub REST API', 'Cyberpunk UI', 'JSON-LD'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'ai-career.html',
+    architecture: {
+      diagram: [
+        { name: 'GitHub SDK', icon: 'fab fa-github', tech: 'Data Ingestion' },
+        { name: 'Edge Worker', icon: 'fas fa-microchip', tech: 'Node.js / API' },
+        { name: 'Gemini 1.5', icon: 'fas fa-brain', tech: 'Cognitive Engine' },
+        { name: 'Cyberpunk UI', icon: 'fas fa-rocket', tech: 'Analytics Hub' }
+      ],
+      dataFlow: [
+        'Results rendered with specialized cyberpunk-theme controls'
+      ],
+      techDecisions: {
+        why: [
+          'Gemini 1.5 Pro for long-context analysis of developer history',
+          'Cyberpunk UI for high-visibility dashboard aesthetics'
+        ],
+        tradeOff: 'Real-time API latency vs data synthesis depth',
+        next: 'Add multi-platform activity sync (GitLab/Bitbucket)'
+      }
+    }
+  },
+  'aurev-store': {
+    title: 'AUREV Store',
+    description: 'Modern clothing store website concept with curated product catalog, lookbook, and TikTok-style brand storytelling.',
+    features: [
+      'Responsive layout (desktop/mobile)',
+      'Home hero + brand identity section',
+      'Product catalog grid with preview',
+      'Lookbook / Gallery showcase',
+      'TikTok / Social brand storytelling CTA',
+      'Contact & Newsletter integration',
+      'Premium hover effects & micro-interactions'
+    ],
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'https://aurev-store.vercel.app/',
+    isLiveDemo: true,
+    architecture: {
+      diagram: [
+        { name: 'Navbar', icon: 'fas fa-bars', tech: 'Structure' },
+        { name: 'Hero Section', icon: 'fas fa-star', tech: 'Identity' },
+        { name: 'Product Grid', icon: 'fas fa-tshirt', tech: 'Catalog' },
+        { name: 'Footer', icon: 'fas fa-shoe-prints', tech: 'Info' }
+      ],
+      dataFlow: [
+        'User lands on brand identity hero section',
+        'Product catalog displays items via grid component',
+        'Gallery section handles brand lookbook imagery',
+        'CTA components bridge user to social platforms',
+        'Contact logic handles user engagement'
+      ],
+      techDecisions: {
+        why: [
+          'Vanilla JS for high-speed interaction overhead',
+          'CSS Flex/Grid for responsive layout without heavy frameworks'
+        ],
+        tradeOff: 'Static catalog requires manual updates',
+        next: 'Integrate dynamic product API'
+      }
+    }
+  },
+  'ramadhan-planner': {
+    title: 'Ramadhan Planner',
+    description: 'A dedicated Ramadan productivity suite designed to help users maximize their spiritual journey. It features a holistic approach to productivity with integrated planning, Qur’an tracking, and community features.',
+    features: [
+      'Ramadhan homepage with daily motivation & quotes',
+      'Interactive daily ibadah checklist & planner',
+      'Integrated Qur’an reading section with easy navigation',
+      'Dynamic Khatam tracker (target vs completed)',
+      'Simplified donation section interface',
+      'User settings for theme and layout preferences',
+      'Fully responsive mobile-first architecture',
+      'High-performance UI with smooth transitions'
+    ],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Vercel'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'https://ramadhan-plan.vercel.app/',
+    isLiveDemo: true,
+    architecture: {
+      diagram: [
+        { name: 'Fixed Sidebar', icon: 'fas fa-bars', tech: 'Navigation' },
+        { name: 'Core Modules', icon: 'fas fa-th-large', tech: 'Planner/Quran' },
+        { name: 'Local Engine', icon: 'fas fa-database', tech: 'Storage/State' },
+        { name: 'Vercel Edge', icon: 'fas fa-cloud', tech: 'Deployment' }
+      ],
+      dataFlow: [
+        'Users interact with various feature modules (Planner, Quran, etc.)',
+        'Checklist and progress data persist in localStorage',
+        'State management synchronizes updates across UI components',
+        'Vercel handles optimized asset delivery and hosting',
+        'Mobile-first layout ensures consistency across all devices'
+      ],
+      techDecisions: {
+        why: [
+          'Vanilla tech stack for zero-dependency performance',
+          'Vercel chosen for seamless CI/CD and edge performance'
+        ],
+        tradeOff: 'Manual state management vs reactive frameworks',
+        next: 'Implement server-side sync for multi-device support'
+      }
+    }
   }
 };
 
@@ -599,14 +715,14 @@ function openProjectModal(projectId) {
     return key.split('.').reduce((obj, k) => (obj || {})[k], t) || defaultText;
   };
 
-  const textOverview = getText('tabs.overview', 'Overview');
-  const textArch = getText('tabs.architecture', 'Architecture');
+  const textOverview = getText('cert.tabs.overview', 'Overview');
+  const textArch = getText('cert.tabs.architecture', 'Architecture');
 
   // Status Badge Logic
   const status = projectStatus[projectId];
   let badgeHtml = '';
   if (status) {
-    const badgeText = t.badge && t.badge[status] ? t.badge[status] : status;
+    const badgeText = t.cert && t.cert.badge && t.cert.badge[status] ? t.cert.badge[status] : status;
     badgeHtml = `<span class="health-badge-modal health-badge-${status}">${badgeText}</span>`;
   }
 
@@ -642,7 +758,7 @@ function openProjectModal(projectId) {
         <p>${arch.techDecisions.tradeOff}</p>
       </div>
        <div class="decision-card">
-        <h5><i class="fas fa-rocket"></i> ${getText('arch.nextSteps', 'Next Steps')}</h5>
+         <h5><i class="fas fa-rocket"></i> ${getText('cert.arch.nextSteps', 'Next Steps')}</h5>
         <p>${arch.techDecisions.next}</p>
       </div>
     `;
@@ -655,13 +771,13 @@ function openProjectModal(projectId) {
         </div>
         <div class="arch-details">
           <div>
-            <h4 class="arch-section-title"><i class="fas fa-stream"></i> ${getText('arch.dataFlow', 'Data Flow')}</h4>
+            <h4 class="arch-section-title"><i class="fas fa-stream"></i> ${getText('cert.arch.dataFlow', 'Data Flow')}</h4>
             <ul class="arch-list">
               ${dataFlowHtml}
             </ul>
           </div>
           <div>
-             <h4 class="arch-section-title"><i class="fas fa-lightbulb"></i> ${getText('arch.keyDecisions', 'Key Decisions')}</h4>
+             <h4 class="arch-section-title"><i class="fas fa-lightbulb"></i> ${getText('cert.arch.keyDecisions', 'Key Decisions')}</h4>
              ${decisionHtml}
           </div>
         </div>
@@ -824,7 +940,10 @@ const projectStatus = {
   'umkm-app': 'active',
   'tomato-web': 'maintained',
   'crud-flutter': 'archived',
-  'dashboard-traffic': 'active'
+  'dashboard-traffic': 'active',
+  'ai-insight': 'active',
+  'aurev-store': 'active',
+  'ramadhan-planner': 'active'
 };
 
 const translations = {
@@ -924,6 +1043,18 @@ const translations = {
       dashboard: {
         title: "Personal Portfolio Analytics Dashboard",
         desc: "Real-time analytics dashboard to track portfolio engagement and project activity with dynamic data visualization."
+      },
+      aiInsight: {
+        title: "AI Advisor — Insights Dashboard",
+        desc: "AI-powered analytics system integrated into the portfolio that transforms coding activity into professional highlights."
+      },
+      aurev: {
+        title: "AUREV Store (Clothing E-Commerce Landing + Catalog)",
+        desc: "Modern clothing store website concept with curated product catalog, lookbook, and TikTok-style brand storytelling."
+      },
+      ramadhan: {
+        title: "Ramadhan Planner",
+        desc: "A Ramadan productivity web app with planner, Qur’an reading, khatam tracker, and donation features in a calm dark UI."
       }
     },
     hiring: {
@@ -1188,6 +1319,18 @@ const translations = {
       dashboard: {
         title: "Dasbor Analitik Portofolio Pribadi",
         desc: "Dasbor analitik real-time untuk melacak keterlibatan portofolio dan aktivitas proyek dengan visualisasi data dinamis."
+      },
+      aiInsight: {
+        title: "AI Advisor — Dasbor Analitik",
+        desc: "Sistem analisis bertenaga AI yang terintegrasi ke portofolio untuk mengubah aktivitas coding menjadi sorotan profesional."
+      },
+      aurev: {
+        title: "AUREV Store (Produk Katalog & Landing Page)",
+        desc: "Konsep website toko pakaian modern dengan katalog produk, lookbook, dan brand storytelling gaya TikTok."
+      },
+      ramadhan: {
+        title: "Ramadhan Planner",
+        desc: "Aplikasi produktivitas Ramadan dengan fitur planner, tadarus Al-Qur'an, pelacak khatam, dan donasi dalam UI gelap yang tenang."
       }
     },
     hiring: {
@@ -1939,6 +2082,8 @@ function openLiveDemo(projectId) {
     renderDemoList(currentDemoRef);
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+  } else if (projectId === 'aurev-store' || projectId === 'ramadhan-planner') {
+    window.open(projectData[projectId].demo, '_blank');
   }
 }
 

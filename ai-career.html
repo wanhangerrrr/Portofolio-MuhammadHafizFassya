@@ -106,6 +106,37 @@
             </div>
 
         </div>
+
+        <!-- BOTTOM: Architecture Overview -->
+        <div class="cyber-card" style="margin-top: 32px;">
+            <h2><span class="icon">🏗️</span> Pipeline Architecture</h2>
+            <div class="arch-overview-grid">
+                <div class="arch-step">
+                    <div class="arch-step-icon">📦</div>
+                    <h4>Ingestion</h4>
+                    <p>Aggregating real-time GitHub event streams (Commits, PRs, Pulls) via GitHub REST API.</p>
+                </div>
+                <div class="arch-arrow-right">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-icon">🧼</div>
+                    <h4>Normalization</h4>
+                    <p>Cleaning and structuring raw payloads into technical performance metrics and delta values.</p>
+                </div>
+                <div class="arch-arrow-right">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-icon">🤖</div>
+                    <h4>AI Analysis</h4>
+                    <p>Gemini 1.5 Pro processes context to generate human-readable summaries and growth strategies.</p>
+                </div>
+                <div class="arch-arrow-right">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-icon">🚀</div>
+                    <h4>Insight Hub</h4>
+                    <p>Rendering an interactive analytics interface with cyberpunk aesthetics and responsive controls.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts: metrics payload first, then main logic -->

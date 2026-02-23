@@ -306,6 +306,9 @@
               <a href="https://www.linkedin.com/in/muhammadhafizfassya21/" target="_blank">
                 <i class="fab fa-linkedin"></i>
               </a>
+              <a href="https://youtube.com/@muhammadhafizfassya?si=Df9CeSxGicrfy6oE" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -637,7 +640,7 @@
 
           <!-- Project 1: Fraud Detection -->
           <article
-            class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="ML">
 
             <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
@@ -650,7 +653,7 @@
               </span>
             </div>
 
-            <div class="p-5 space-y-4">
+            <div class="p-5 flex flex-col flex-1 space-y-4">
               <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.fraud.title">
                 Fraud Detection Mobile Banking (XGBoost)
               </h3>
@@ -669,7 +672,7 @@
                   style="background-color: #0b0f14; color: #94a3b8;">Pandas</span>
               </div>
 
-              <div class="flex gap-3 pt-2">
+              <div class="flex gap-3 pt-2 mt-auto">
                 <button
                   class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
                   style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('fraud-detection')"
@@ -687,7 +690,7 @@
 
           <!-- Project 2: AI Notebook -->
           <article
-            class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="AI">
 
             <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
@@ -700,7 +703,7 @@
               </span>
             </div>
 
-            <div class="p-5 space-y-4">
+            <div class="p-5 flex flex-col flex-1 space-y-4">
               <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.aiNotebook.title">
                 Aplikasi Mobile Notebook Berbasis AI
               </h3>
@@ -718,7 +721,7 @@
                   style="background-color: #0b0f14; color: #94a3b8;">Mobile</span>
               </div>
 
-              <div class="flex gap-3 pt-2">
+              <div class="flex gap-3 pt-2 mt-auto">
                 <button
                   class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
                   style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('ai-notebook')"
@@ -734,9 +737,66 @@
             </div>
           </article>
 
+          <!-- Project: AI Insight -->
+          <article
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="AI">
+
+            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+              <img src="images/AIinsight.JPG" alt="AI Insights Dashboard"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+                style="background-color: rgba(0, 217, 255, 0.2); color: #00d9ff;">
+                AI
+              </span>
+            </div>
+
+            <div class="p-5 flex flex-col flex-1 space-y-4">
+              <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.aiInsight.title">
+                AI Insights Dashboard
+              </h3>
+
+              <p class="text-sm line-clamp-2" style="color: #94a3b8;" data-i18n="project.aiInsight.desc">
+                AI-powered GitHub activity analysis dashboard that generates automated summaries, highlights, and
+                technical insights based on commit activity and coding patterns.
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">JavaScript</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">Serverless API</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">LLM Integration</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">GitHub API</span>
+              </div>
+
+              <div class="flex gap-3 pt-2 mt-auto">
+                <button
+                  class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                  style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('ai-insight')"
+                  data-i18n="btn.details">
+                  Details
+                </button>
+                <a href="https://github.com/wanhangerrrr" target="_blank"
+                  class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                  style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="ai-career.html"
+                  class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-[#00ff88]/10 hover:text-[#00ff88] focus:outline-none focus:ring-2"
+                  style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
           <!-- Project 3: Tomato Leaf Classification -->
           <article
-            class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="ML">
 
             <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
@@ -749,7 +809,7 @@
               </span>
             </div>
 
-            <div class="p-5 space-y-4">
+            <div class="p-5 flex flex-col flex-1 space-y-4">
               <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.tomatoMobile.title">
                 Tomato Leaf Classification (Transfer Learning)
               </h3>
@@ -765,7 +825,7 @@
                   style="background-color: #0b0f14; color: #94a3b8;">MobileNetV2</span>
               </div>
 
-              <div class="flex gap-3 pt-2">
+              <div class="flex gap-3 pt-2 mt-auto">
                 <button
                   class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
                   style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('tomato-leaf')"
@@ -783,7 +843,8 @@
 
           <!-- Project 4: UMKM App -->
           <article
-            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 ...">
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Mobile">
             <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
               <img src="images/UMKM1.png" alt="UMKM Management App"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -830,7 +891,7 @@
 
           <!-- Project 5: Tomato Leaf Web -->
           <article
-            class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
             <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
@@ -843,7 +904,7 @@
               </span>
             </div>
 
-            <div class="p-5 space-y-4">
+            <div class="p-5 flex flex-col flex-1 space-y-4">
               <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.tomatoWeb.title">
                 Tomato Leaf Classification Web
               </h3>
@@ -861,7 +922,7 @@
                   style="background-color: #0b0f14; color: #94a3b8;">JavaScript</span>
               </div>
 
-              <div class="flex gap-3 pt-2">
+              <div class="flex gap-3 pt-2 mt-auto">
                 <button
                   class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
                   style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('tomato-web')"
@@ -879,7 +940,7 @@
 
           <!-- Project 6: CRUD Flutter -->
           <article
-            class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
             <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
@@ -892,7 +953,7 @@
               </span>
             </div>
 
-            <div class="p-5 space-y-4">
+            <div class="p-5 flex flex-col flex-1 space-y-4">
               <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.crud.title">
                 Student CRUD App (Flutter)
               </h3>
@@ -910,7 +971,7 @@
                   style="background-color: #0b0f14; color: #94a3b8;">Firebase</span>
               </div>
 
-              <div class="flex gap-3 pt-2">
+              <div class="flex gap-3 pt-2 mt-auto">
                 <button
                   class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
                   style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('crud-flutter')"
@@ -928,7 +989,7 @@
 
           <!-- Project 7: Dashboard Traffic -->
           <article
-            class="project-card group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
             <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
@@ -941,7 +1002,7 @@
               </span>
             </div>
 
-            <div class="p-5 space-y-4">
+            <div class="p-5 flex flex-col flex-1 space-y-4">
               <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.dashboard.title">
                 Personal Portfolio Analytics Dashboard
               </h3>
@@ -960,7 +1021,7 @@
                   style="background-color: #0b0f14; color: #94a3b8;">Node.js</span>
               </div>
 
-              <div class="flex gap-3 pt-2">
+              <div class="flex gap-3 pt-2 mt-auto">
                 <button
                   class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
                   style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('dashboard-traffic')"
@@ -971,6 +1032,121 @@
                   class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
                   style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
                   <i class="fab fa-github"></i>
+                </a>
+                <a href="https://dashboard-portofolio-ten.vercel.app/dashboard" target="_blank"
+                  class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                  style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 8: AUREV Store -->
+          <article
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
+
+            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+              <img src="images/aurev.JPG" alt="AUREV Store"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+                style="background-color: rgba(0, 217, 255, 0.2); color: #00d9ff;">
+                Web
+              </span>
+            </div>
+
+            <div class="p-5 flex flex-col flex-1 space-y-4">
+              <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.aurev.title">
+                AUREV Store (Clothing E-Commerce Landing + Catalog)
+              </h3>
+
+              <p class="text-sm line-clamp-2" style="color: #94a3b8;" data-i18n="project.aurev.desc">
+                Modern clothing store website concept with curated product catalog, lookbook, and TikTok-style brand
+                storytelling.
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">HTML</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">CSS</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">JavaScript</span>
+              </div>
+
+              <div class="flex gap-3 pt-2 mt-auto">
+                <button
+                  class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                  style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('aurev-store')"
+                  data-i18n="btn.details">
+                  Details
+                </button>
+                <a href="https://github.com/wanhangerrrr" target="_blank"
+                  class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                  style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://aurev-store.vercel.app/" target="_blank"
+                  class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                  style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 9: Ramadhan Planner -->
+          <article
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
+
+            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+              <img src="images/ramadhanplan.JPG" alt="Ramadhan Planner"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+                style="background-color: rgba(0, 217, 255, 0.2); color: #00d9ff;">
+                Web
+              </span>
+            </div>
+
+            <div class="p-5 flex flex-col flex-1 space-y-4">
+              <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.ramadhan.title">
+                Ramadhan Planner
+              </h3>
+
+              <p class="text-sm line-clamp-2" style="color: #94a3b8;" data-i18n="project.ramadhan.desc">
+                A Ramadan productivity web app with planner, Qur’an reading, khatam tracker, and donation features in a
+                calm dark UI.
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">HTML</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">CSS</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">JavaScript</span>
+              </div>
+
+              <div class="flex gap-3 pt-2 mt-auto">
+                <button
+                  class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                  style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('ramadhan-planner')"
+                  data-i18n="btn.details">
+                  Details
+                </button>
+                <a href="https://github.com/wanhangerrrr" target="_blank"
+                  class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                  style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://ramadhan-plan.vercel.app/" target="_blank"
+                  class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                  style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                  <i class="fas fa-external-link-alt"></i>
                 </a>
               </div>
             </div>
@@ -1005,7 +1181,7 @@
 
 
     <!-- Mini Data Pipeline Simulation -->
-    <section id="pipeline-demo" class="py-20 relative overflow-hidden" style="background-color: #0b0f14;">
+    <section id="pipeline-demo" class="py-20 relative overflow-hidden" style="background: var(--bg-body);">
       <!-- Background Elements -->
       <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#334155] to-transparent">
       </div>
@@ -2072,6 +2248,8 @@
           <a href="https://github.com/wanhangerrrr" target="_blank"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/muhammadhafizfassya21/" target="_blank"><i
               class="fab fa-linkedin"></i></a>
+          <a href="https://youtube.com/@muhammadhafizfassya?si=Df9CeSxGicrfy6oE" target="_blank"><i
+              class="fab fa-youtube"></i></a>
           <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=mhafiz21032006@gmail.com" target="_blank"><i
               class="fas fa-envelope"></i></a>
         </div>
