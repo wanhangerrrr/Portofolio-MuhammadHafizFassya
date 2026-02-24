@@ -257,12 +257,41 @@
           </p>
 
           <div class="hero-buttons">
-            <a href="https://wa.me/6289697477196" target="_blank" class="btn btn-primary">
+            <a href="https://wa.me/6289697477196" target="_blank"
+              class="btn btn-primary min-w-[160px] flex-1 sm:flex-none">
               <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
             <!-- <a href="#portfolio" class="btn btn-secondary">View Portofolio Project</a> -->
-            <a href="assets/CV_MuhammadHafizFassya.pdf" download="CV_MuhammadHafizFassya.pdf" class="btn btn-cv">
-              <i class="fas fa-download"></i> <span data-i18n="btn.downloadCV">Download CV</span></a>
+            <!-- CV Dropdown Button -->
+            <div class="relative inline-block flex-1 sm:flex-none min-w-[160px]" id="cv-dropdown-container">
+              <button id="cv-dropdown-btn"
+                class="btn btn-cv w-full px-6 py-3 rounded-full border-2 transition-all flex items-center justify-center gap-2 group"
+                aria-expanded="false" aria-haspopup="true">
+                <i class="fas fa-file-pdf"></i>
+                <span data-i18n="btn.cv">CV</span>
+                <i class="fas fa-chevron-down text-[10px] transform transition-transform duration-300 group-aria-expanded:rotate-180"
+                  id="cv-chevron"></i>
+              </button>
+
+              <!-- Dropdown Menu -->
+              <div id="cv-dropdown-menu"
+                class="absolute left-0 mt-2 w-48 bg-[#0b0f14] border border-[#334155] rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] opacity-0 invisible scale-95 transition-all duration-200 transform origin-top-left z-[100] overflow-hidden"
+                role="menu">
+                <a href="assets/CV_MuhammadHafizFassya.pdf" target="_blank" rel="noopener"
+                  class="flex items-center gap-3 px-4 py-3 text-[#f8fafc] text-sm hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-colors"
+                  role="menuitem">
+                  <i class="fas fa-eye w-4 text-center"></i>
+                  <span data-i18n="btn.viewCV">View CV</span>
+                </a>
+                <div class="h-px bg-[#334155]/50 mx-2"></div>
+                <a href="assets/CV_MuhammadHafizFassya.pdf" download="CV_MuhammadHafizFassya.pdf"
+                  class="flex items-center gap-3 px-4 py-3 text-[#f8fafc] text-sm hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-colors"
+                  role="menuitem">
+                  <i class="fas fa-download w-4 text-center"></i>
+                  <span data-i18n="btn.downloadCV">Download CV</span>
+                </a>
+              </div>
+            </div>
             <!-- Dashboard Link -->
             <a href="https://dashboard-portofolio-ten.vercel.app/dashboard" target="_blank"
               class="dashboard-link btn sm:w-auto">
@@ -643,7 +672,9 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="ML">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="Fraud Detection Mobile Banking (XGBoost)"
+              data-cert-img="images/bank.JPG">
               <img src="images/bank.JPG" alt="Fraud Detection Mobile Banking"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -693,7 +724,8 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="AI">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="AI Smart Notebook" data-cert-img="images/notebook1.png">
               <img src="images/notebook1.png" alt="AI-Powered Mobile Notebook"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -742,7 +774,8 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="AI">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="AI Insights Dashboard" data-cert-img="images/AIinsight.JPG">
               <img src="images/AIinsight.JPG" alt="AI Insights Dashboard"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -799,7 +832,9 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="ML">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="Tomato Leaf Classification (ML)"
+              data-cert-img="images/aplikasidaun2.png">
               <img src="images/aplikasidaun2.png" alt="Tomato Leaf Classification"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -845,7 +880,8 @@
           <article
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Mobile">
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="UMKM Management App" data-cert-img="images/UMKM1.png">
               <img src="images/UMKM1.png" alt="UMKM Management App"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -894,7 +930,8 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="Tomato Leaf Classification Web" data-cert-img="images/WEB.jpeg">
               <img src="images/WEB.jpeg" alt="Tomato Leaf Classification Web"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -943,7 +980,9 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="Student CRUD App (Flutter)"
+              data-cert-img="images/Web and Aplikasi CRUD Sederhana.jpeg">
               <img src="images/Web and Aplikasi CRUD Sederhana.jpeg" alt="Student CRUD App"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -992,7 +1031,9 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="Personal Portfolio Analytics Dashboard"
+              data-cert-img="images/dashboardtraffic.JPG">
               <img src="images/dashboardtraffic.JPG" alt="Dashboard Traffic"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -1047,7 +1088,8 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="AUREV Store" data-cert-img="images/aurev.JPG">
               <img src="images/aurev.JPG" alt="AUREV Store"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -1102,7 +1144,8 @@
             class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
             style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="Web">
 
-            <div class="relative aspect-video overflow-hidden" style="background-color: #0b0f14;">
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="Ramadhan Planner" data-cert-img="images/ramadhanplan.JPG">
               <img src="images/ramadhanplan.JPG" alt="Ramadhan Planner"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy">
@@ -1409,10 +1452,30 @@
         </div>
 
         <div id="cert-grid" class="cert-grid pb-10">
+          <!-- NEW CARD (DEVCOACH 227) -->
+          <div
+            class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
+            data-cert-modal data-cert-title="DevCoach 227: Spotlight | Unlock Potensi Cuan Lewat Pengembangan Product"
+            data-cert-img="images/sertifikat14.JPG">
+            <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
+              <img src="images/sertifikat14.JPG" alt="DevCoach 227"
+                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
+                loading="lazy">
+            </div>
+            <div class="p-5 border-t border-[#334155] group-hover:border-[#00ff88]/20">
+              <span class="text-[#00ff88] text-[10px] font-bold uppercase tracking-widest mb-1 block"
+                data-i18n="cert.tag.industry">INDUSTRY
+                EVENT</span>
+              <h3 class="text-[#f8fafc] font-semibold text-base truncate">DevCoach 227: Spotlight | Unlock Potensi Cuan
+                Lewat Pengembangan Product</h3>
+              <p class="text-[#94a3b8] text-xs mt-1">Dicoding Indonesia</p>
+            </div>
+          </div>
+
           <!-- CARD 1 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 1" data-cert-img="images/sertifikat11.JPG">
+            data-cert-modal data-cert-title="Financial Literacy for Developers" data-cert-img="images/sertifikat11.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat11.JPG" alt="Certificate 1"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1430,7 +1493,8 @@
           <!-- CARD 2 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 2" data-cert-img="images/sertifikat12.JPG">
+            data-cert-modal data-cert-title="Full-Stack Development Industry Skillset"
+            data-cert-img="images/sertifikat12.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat12.JPG" alt="Certificate 3"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1447,7 +1511,8 @@
           <!-- CARD 3 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 3" data-cert-img="images/sertifikat13.JPG">
+            data-cert-modal data-cert-title="AI Web Development – Build Real Apps with
+                Lovable & Antigravity" data-cert-img="images/sertifikat13.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat13.JPG" alt="Certificate 2"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1466,7 +1531,7 @@
           <!-- CARD 4 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 4" data-cert-img="images/sertifikat1.jpeg">
+            data-cert-modal data-cert-title="Pendidikan Karakter Bangsa" data-cert-img="images/sertifikat1.jpeg">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat1.jpeg" alt="Certificate 4"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1483,7 +1548,7 @@
           <!-- CARD 4 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 5" data-cert-img="images/sertifikat2.JPG">
+            data-cert-modal data-cert-title="Specialized Skill Training" data-cert-img="images/sertifikat2.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat2.JPG" alt="Certificate 5"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1501,7 +1566,7 @@
           <!-- CARD 5 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 6" data-cert-img="images/sertifikat3.JPG">
+            data-cert-modal data-cert-title="Seminar Nasional Bela Negara" data-cert-img="images/sertifikat3.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat3.JPG" alt="Certificate 6"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1519,7 +1584,7 @@
           <!-- CARD 6 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 7" data-cert-img="images/sertifikat4.JPG">
+            data-cert-modal data-cert-title="Laboratorium Sistem Operasi" data-cert-img="images/sertifikat4.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat4.JPG" alt="Certificate 7"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1537,7 +1602,7 @@
           <!-- CARD 7 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 8" data-cert-img="images/sertifikat5.JPG">
+            data-cert-modal data-cert-title="Dasar-dasar Sistem Digital" data-cert-img="images/sertifikat5.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat5.JPG" alt="Certificate 8"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1555,7 +1620,7 @@
           <!-- CARD 8 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 9" data-cert-img="images/sertifikat6.JPG">
+            data-cert-modal data-cert-title="Pemrograman Berorientasi Objek" data-cert-img="images/sertifikat6.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat6.JPG" alt="Certificate 9"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1572,7 +1637,7 @@
           <!-- CARD 9 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 10" data-cert-img="images/sertifikat7.JPG">
+            data-cert-modal data-cert-title="Analisis Numerik" data-cert-img="images/sertifikat7.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat7.JPG" alt="Certificate 10"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1589,7 +1654,7 @@
           <!-- CARD 10 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 11" data-cert-img="images/sertifikat8.JPG">
+            data-cert-modal data-cert-title="Jaringan Komputer 1" data-cert-img="images/sertifikat8.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat8.JPG" alt="Certificate 11"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1606,7 +1671,8 @@
           <!-- CARD 11 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 12" data-cert-img="images/sertifikat9.JPG">
+            data-cert-modal data-cert-title="Junior Data Scientist – Competency Workshop"
+            data-cert-img="images/sertifikat9.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat9.JPG" alt="Certificate 12"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
@@ -1624,7 +1690,7 @@
           <!-- CARD 12 -->
           <div
             class="cert-card group relative bg-[#1a1f2e] border border-[#334155] rounded-2xl overflow-hidden hover:border-[#00ff88]/40 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer shadow-[0_18px_45px_rgba(15,23,42,0.8)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.95),0_0_30px_rgba(45,212,191,0.28)]"
-            data-cert-modal data-cert-title="Sertifikat 13" data-cert-img="images/sertifikat10.JPG">
+            data-cert-modal data-cert-title="Seminar Nasional Bela Negara 2023" data-cert-img="images/sertifikat10.JPG">
             <div class="aspect-[16/10] overflow-hidden bg-[#0b0f14]">
               <img src="images/sertifikat10.JPG" alt="Certificate 13"
                 class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"

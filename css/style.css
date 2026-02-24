@@ -3179,6 +3179,18 @@ body::after {
   box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
 }
 
+/* CV Dropdown Menu Visibility */
+#cv-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.cv-item-hover:hover {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+}
+
 .dashboard-link {
   color: #94a3b8 !important;
   border: 2px solid #4b5563 !important;
@@ -4937,4 +4949,9 @@ html {
 .project-card .project-actions {
   margin-top: auto !important;
   display: flex !important;
+}
+
+/* Force hide filtered projects even with !important on .project-card */
+.project-hidden {
+  display: none !important;
 }

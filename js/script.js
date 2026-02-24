@@ -2,6 +2,49 @@
 const sidebar = document.getElementById('sidebar');
 const mobileOverlay = document.getElementById('mobile-overlay');
 
+// ===== CV Dropdown Logic =====
+const cvDropdownBtn = document.getElementById('cv-dropdown-btn');
+const cvDropdownMenu = document.getElementById('cv-dropdown-menu');
+
+if (cvDropdownBtn && cvDropdownMenu) {
+  const toggleDropdown = (show) => {
+    const isExpanded = show ?? (cvDropdownBtn.getAttribute('aria-expanded') === 'true');
+    const nextState = !isExpanded;
+
+    cvDropdownBtn.setAttribute('aria-expanded', nextState);
+    cvDropdownMenu.classList.toggle('show', nextState);
+  };
+
+  cvDropdownBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleDropdown();
+  });
+
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    if (!cvDropdownBtn.contains(e.target) && !cvDropdownMenu.contains(e.target)) {
+      cvDropdownBtn.setAttribute('aria-expanded', 'false');
+      cvDropdownMenu.classList.remove('show');
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      cvDropdownBtn.setAttribute('aria-expanded', 'false');
+      cvDropdownMenu.classList.remove('show');
+    }
+  });
+
+  // Close after clicking an item
+  cvDropdownMenu.querySelectorAll('a').forEach(item => {
+    item.addEventListener('click', () => {
+      cvDropdownBtn.setAttribute('aria-expanded', 'false');
+      cvDropdownMenu.classList.remove('show');
+    });
+  });
+}
+
 // Global toggle function
 window.toggleSidebar = function () {
   if (sidebar && mobileOverlay) {
@@ -322,7 +365,7 @@ if (filterBtns.length > 0) {
       // Filter projects
       projectCards.forEach(card => {
         if (filter === 'all' || card.dataset.category === filter) {
-          card.style.display = 'block';
+          card.classList.remove('project-hidden');
           setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
@@ -331,7 +374,7 @@ if (filterBtns.length > 0) {
           card.style.opacity = '0';
           card.style.transform = 'translateY(20px)';
           setTimeout(() => {
-            card.style.display = 'none';
+            card.classList.add('project-hidden');
           }, 300);
         }
       });
@@ -981,7 +1024,10 @@ const translations = {
       projects: "Selected projects in ML, AI, and Data Engineering"
     },
     btn: {
+      cv: "CV",
+      viewCV: "View CV",
       downloadCv: "Download CV",
+      downloadCV: "Download CV",
       viewDashboard: "View Dashboard Traffic",
       details: "Details",
       send: "Send Message"
@@ -1257,7 +1303,10 @@ const translations = {
       projects: "Proyek pilihan dalam ML, AI, dan Data Engineering"
     },
     btn: {
+      cv: "CV",
+      viewCV: "Lihat CV",
       downloadCv: "Unduh CV",
+      downloadCV: "Unduh CV",
       viewDashboard: "Lihat Trafik Dasbor",
       details: "Detail",
       send: "Kirim Pesan"
