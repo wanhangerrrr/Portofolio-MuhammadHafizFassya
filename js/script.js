@@ -1265,6 +1265,20 @@ const translations = {
           desc: "I design for lifecycle, scalability, and long-term reliability."
         }
       }
+    },
+    target: {
+      title: "Target Companies",
+      subtitle: "Companies I’m aiming for after graduation (Data Engineer track).",
+      role: "Data Engineer",
+      google: {
+        reason: "Build large-scale data platforms and learn best-in-class engineering practices."
+      },
+      dana: {
+        reason: "Work on high-traffic fintech systems and real-time data pipelines."
+      },
+      bi: {
+        reason: "Contribute to national-scale data initiatives and financial stability analytics."
+      }
     }
   }, // Close en
   id: {
@@ -1565,6 +1579,20 @@ const translations = {
           title: "Berpikir Sistem, Bukan Sekadar Skrip",
           desc: "Saya merancang untuk siklus hidup, skalabilitas, dan keandalan angka panjang."
         }
+      }
+    },
+    target: {
+      title: "Perusahaan Target",
+      subtitle: "Perusahaan yang saya tuju setelah lulus (Jalur Data Engineer).",
+      role: "Data Engineer",
+      google: {
+        reason: "Membangun platform data skala besar dan mempelajari praktik engineering terbaik."
+      },
+      dana: {
+        reason: "Bekerja pada sistem fintech dengan trafik tinggi dan pipeline data real-time."
+      },
+      bi: {
+        reason: "Berkontribusi pada inisiatif data skala nasional dan analitik stabilitas keuangan."
       }
     }
   }
