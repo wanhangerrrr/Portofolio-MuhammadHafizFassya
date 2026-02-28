@@ -26,11 +26,11 @@
 
   <!-- Sidebar -->
   <aside id="sidebar"
-    class="fixed top-0 left-0 h-full w-64 md:w-20 lg:w-72 bg-[#0b0f14] border-r border-[#1f2937] z-50 transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-y-auto no-scrollbar shadow-2xl overscroll-contain">
+    class="fixed top-0 left-0 h-full w-64 md:w-20 lg:w-72 bg-[#0b0f14] border-r border-[#1f2937] z-50 transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out flex flex-col justify-between overflow-hidden shadow-2xl">
     <!-- Top Section -->
     <div>
       <!-- Profile Header -->
-      <div class="p-3 flex flex-col items-center border-b border-[#1f2937]/50 relative">
+      <div class="p-2.5 flex flex-col items-center border-b border-[#1f2937]/50 relative">
         <!-- Live Clock -->
         <div id="live-clock-container" class="absolute top-2 left-3 flex flex-col items-start z-20">
           <div id="digital-clock" class="text-[#00ff88] text-xs font-mono font-bold tracking-wider"
@@ -117,7 +117,7 @@
         </div>
 
         <div
-          class="relative w-20 h-20 md:w-10 md:h-10 lg:w-24 lg:h-24 mb-3 md:mb-0 lg:mb-3 transition-all duration-300 group cursor-pointer overflow-hidden rounded-full mt-4 md:mt-0 lg:mt-4">
+          class="relative w-20 h-20 md:w-10 md:h-10 lg:w-20 lg:h-20 mb-2 md:mb-0 lg:mb-2 transition-all duration-300 group cursor-pointer overflow-hidden rounded-full mt-4 md:mt-0 lg:mt-4">
           <div class="absolute inset-0 bg-[#00ff88]/10 rounded-full animate-pulse"></div>
           <img src="images/hafiz21.jpeg" alt="Profile"
             class="relative z-10 w-full h-full rounded-full object-cover border-2 border-[#00ff88] shadow-[0_0_20px_rgba(0,255,136,0.2)] group-hover:scale-105 transition-transform duration-500">
@@ -134,9 +134,9 @@
       </div>
 
       <!-- Navigation -->
-      <nav class="flex-1 overflow-y-auto no-scrollbar scroll-smooth min-h-0 p-2 space-y-1 mt-1">
+      <nav class="flex-1 overflow-hidden no-scrollbar scroll-smooth min-h-0 p-1.5 space-y-0.5 mt-0.5">
         <a href="#home"
-          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden active-nav">
+          class="nav-item flex items-center gap-3 px-3 py-1.5 rounded-xl text-[13px] text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden active-nav">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -144,7 +144,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.home">Home</span>
         </a>
         <a href="#about"
-          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-1.5 rounded-xl text-[13px] text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -153,7 +153,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.about">About</span>
         </a>
         <a href="#education"
-          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-1.5 rounded-xl text-[13px] text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -162,7 +162,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.education">Education</span>
         </a>
         <a href="#portfolio"
-          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-1.5 rounded-xl text-[13px] text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -171,7 +171,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.projects">Projects</span>
         </a>
         <a href="#certificates"
-          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-1.5 rounded-xl text-[13px] text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -180,7 +180,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.certificates">Certificates</span>
         </a>
         <a href="#hiring-manager"
-          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-1.5 rounded-xl text-[13px] text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -189,7 +189,7 @@
           <span class="font-medium md:hidden lg:inline relative z-10" data-i18n="nav.hiring">Technical Summary</span>
         </a>
         <a href="#engineering-principles"
-          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-1.5 rounded-xl text-[13px] text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -198,7 +198,7 @@
             Principles</span>
         </a>
         <a href="#contact"
-          class="nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
+          class="nav-item flex items-center gap-3 px-3 py-1.5 rounded-xl text-[13px] text-[#94a3b8] hover:bg-[#1a1f2e] hover:text-[#00ff88] transition-all duration-200 group relative overflow-hidden">
           <div
             class="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff88] opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
@@ -210,9 +210,9 @@
     </div>
 
     <!-- Bottom Actions -->
-    <div class="p-3 border-t border-[#1f2937]/50 bg-[#0f131a]">
+    <div class="p-2.5 border-t border-[#1f2937]/50 bg-[#0f131a]">
       <a href="https://dashboard-portofolio-ten.vercel.app/dashboard" target="_blank"
-        class="flex items-center justify-center lg:justify-start gap-3 px-3 py-2.5 rounded-xl bg-gradient-to-r from-[#1f2937] to-[#111827] border border-[#334155] text-white hover:border-[#00ff88]/50 hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] transition-all group relative overflow-hidden">
+        class="flex items-center justify-center lg:justify-start gap-3 px-3 py-2 rounded-xl bg-gradient-to-r from-[#1f2937] to-[#111827] border border-[#334155] text-white hover:border-[#00ff88]/50 hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] transition-all group relative overflow-hidden">
         <div class="absolute inset-0 bg-[#00ff88]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         <div class="relative">
           <i class="fas fa-chart-line text-[#00ff88] group-hover:scale-110 transition-transform text-sm"></i>
@@ -220,7 +220,7 @@
           <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full border border-[#111827]"></span>
         </div>
         <span class="font-semibold text-xs md:hidden lg:inline group-hover:text-[#00ff88] transition-colors"
-          data-i18n="nav.dashboard">Dashboard</span>
+          data-i18n="nav.dashboard">Dashboard Activity</span>
       </a>
     </div>
   </aside>
@@ -556,17 +556,19 @@
           <article class="edu-card group">
             <header class="mb-6 pb-6 border-b border-slate-700/50">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
-                <h3 class="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors"
+                  data-i18n="edu.ubharajaya.name">
                   Universitas Bhayangkara Jakarta Raya
                 </h3>
                 <span
-                  class="px-3 py-1 text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-400/10 rounded-full border border-emerald-400/20">
+                  class="px-3 py-1 text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-400/10 rounded-full border border-emerald-400/20"
+                  data-i18n="edu.status.now">
                   Now
                 </span>
               </div>
               <p class="text-lg text-slate-300 font-medium">
-                S1 Informatika <span class="text-slate-500 mx-2">•</span> <span class="text-slate-400">2023 –
-                  Sekarang</span>
+                <span data-i18n="edu.ubharajaya.degree">S1 Informatika</span> <span class="text-slate-500 mx-2">•</span>
+                <span class="text-slate-400" data-i18n="edu.ubharajaya.duration">2023 – Sekarang</span>
               </p>
             </header>
 
@@ -575,8 +577,8 @@
               <li class="flex items-start gap-3">
                 <i class="fas fa-bullseye text-emerald-500 mt-1.5 text-sm"></i>
                 <div>
-                  <span class="block text-slate-200 font-medium mb-1">Focus Areas</span>
-                  <p class="text-sm text-slate-400 leading-relaxed">
+                  <span class="block text-slate-200 font-medium mb-1" data-i18n="edu.labels.focus">Focus Areas</span>
+                  <p class="text-sm text-slate-400 leading-relaxed" data-i18n="edu.ubharajaya.focus">
                     Data Engineering fundamentals, ETL pipelines, Database design, & Scalable system architecture.
                   </p>
                 </div>
@@ -586,8 +588,9 @@
               <li class="flex items-start gap-3">
                 <i class="fas fa-book-open text-blue-400 mt-1.5 text-sm"></i>
                 <div>
-                  <span class="block text-slate-200 font-medium mb-1">Relevant Coursework</span>
-                  <p class="text-sm text-slate-400 leading-relaxed">
+                  <span class="block text-slate-200 font-medium mb-1" data-i18n="edu.labels.coursework">Relevant
+                    Coursework</span>
+                  <p class="text-sm text-slate-400 leading-relaxed" data-i18n="edu.ubharajaya.coursework">
                     Data Structures & Algorithms, Database Systems, Artificial Intelligence, Machine Learning.
                   </p>
                 </div>
@@ -597,8 +600,9 @@
               <li class="flex items-start gap-3">
                 <i class="fas fa-laptop-code text-cyan-500 mt-1.5 text-sm"></i>
                 <div>
-                  <span class="block text-slate-200 font-medium mb-1">Key Projects</span>
-                  <p class="text-sm text-slate-400 leading-relaxed">
+                  <span class="block text-slate-200 font-medium mb-1" data-i18n="edu.labels.projects">Key
+                    Projects</span>
+                  <p class="text-sm text-slate-400 leading-relaxed" data-i18n="edu.ubharajaya.projects">
                     Tomato Leaf Classification (MobileNetV2), CRUD App with Auth, & Personal Portfolio.
                   </p>
                 </div>
@@ -608,8 +612,9 @@
               <li class="flex items-start gap-3">
                 <i class="fas fa-tools text-purple-500 mt-1.5 text-sm"></i>
                 <div>
-                  <span class="block text-slate-200 font-medium mb-1">Technical Stack</span>
-                  <p class="text-sm text-slate-400 leading-relaxed">
+                  <span class="block text-slate-200 font-medium mb-1" data-i18n="edu.labels.stack">Technical
+                    Stack</span>
+                  <p class="text-sm text-slate-400 leading-relaxed" data-i18n="edu.ubharajaya.stack">
                     Python (Pandas, NumPy), SQL (MySQL/PostgreSQL), TensorFlow, Git/GitHub, & Deployment.
                   </p>
                 </div>
@@ -621,7 +626,7 @@
           <article class="edu-card">
             <h3 class="text-xl font-bold text-white mb-8 flex items-center gap-3">
               <i class="fas fa-history text-emerald-400"></i>
-              Academic Journey
+              <span data-i18n="edu.journey.title">Academic Journey</span>
             </h3>
 
             <div class="edu-timeline">
@@ -629,9 +634,11 @@
               <div class="edu-timeline-item">
                 <div class="edu-dot"></div>
                 <div class="pl-2">
-                  <span class="text-xs font-mono text-emerald-400 mb-1 block">2023 – Present</span>
-                  <h4 class="text-white font-semibold text-lg">Universitas Bhayangkara</h4>
-                  <p class="text-sm text-slate-500 mt-1">S1 Informatika</p>
+                  <span class="text-xs font-mono text-emerald-400 mb-1 block" data-i18n="edu.ubharajaya.duration">2023 –
+                    Present</span>
+                  <h4 class="text-white font-semibold text-lg" data-i18n="edu.ubharajaya.shortName">Universitas
+                    Bhayangkara</h4>
+                  <p class="text-sm text-slate-500 mt-1" data-i18n="edu.ubharajaya.degree">S1 Informatika</p>
                 </div>
               </div>
 
@@ -641,7 +648,7 @@
                 <div class="pl-2">
                   <span class="text-xs font-mono text-slate-500 mb-1 block">2020 – 2023</span>
                   <h4 class="text-slate-200 font-medium text-base">SMAN Negeri 1 Tambun Utara</h4>
-                  <p class="text-sm text-slate-500 mt-1">High School (SMA)</p>
+                  <p class="text-sm text-slate-500 mt-1" data-i18n="edu.history.sma">High School (SMA)</p>
                 </div>
               </div>
 
@@ -651,7 +658,7 @@
                 <div class="pl-2">
                   <span class="text-xs font-mono text-slate-500 mb-1 block">2017 – 2020</span>
                   <h4 class="text-slate-200 font-medium text-base">MTs Negeri 01 Bekasi</h4>
-                  <p class="text-sm text-slate-500 mt-1">Junior High School</p>
+                  <p class="text-sm text-slate-500 mt-1" data-i18n="edu.history.smp">Junior High School</p>
                 </div>
               </div>
 
@@ -661,7 +668,7 @@
                 <div class="pl-2">
                   <span class="text-xs font-mono text-slate-500 mb-1 block">2010 – 2016</span>
                   <h4 class="text-slate-200 font-medium text-base">SDN Srimahi 02</h4>
-                  <p class="text-sm text-slate-500 mt-1">Elementary School</p>
+                  <p class="text-sm text-slate-500 mt-1" data-i18n="edu.history.sd">Elementary School</p>
                 </div>
               </div>
             </div>
@@ -718,6 +725,60 @@
 
         <!-- Projects Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
+
+          <!-- Project: Diamond Analytics Hub -->
+          <article
+            class="project-card group flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-offset-2"
+            style="background-color: #1a1f2e; border: 1px solid #334155;" data-category="ML">
+
+            <div class="relative aspect-video overflow-hidden cursor-pointer" style="background-color: #0b0f14;"
+              data-cert-modal data-cert-title="Diamond Analytics Hub"
+              data-cert-img="assets/images/diamond-analytics-hub/cover.PNG">
+              <img src="assets/images/diamond-analytics-hub/cover.PNG" alt="Diamond Analytics Hub"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold"
+                style="background-color: rgba(0, 255, 136, 0.2); color: #00ff88;">
+                ML
+              </span>
+            </div>
+
+            <div class="p-5 flex flex-col flex-1 space-y-4">
+              <h3 class="text-xl font-bold line-clamp-2" style="color: #f8fafc;" data-i18n="project.diamond.title">
+                Diamond Analytics Hub
+              </h3>
+
+              <p class="text-sm line-clamp-2" style="color: #94a3b8;" data-i18n="project.diamond.desc">
+                Real-time automation from Raw Ingestion to Analytical Warehouse. Includes pipeline health monitoring,
+                audit trail, trend insights, and forecasting alerts.
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">Python</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">Streamlit</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">SQL</span>
+                <span class="px-2 py-1 rounded text-xs font-medium"
+                  style="background-color: #0b0f14; color: #94a3b8;">ETL</span>
+              </div>
+
+              <div class="flex gap-3 pt-2 mt-auto">
+                <button
+                  class="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:opacity-90 focus:outline-none focus:ring-2"
+                  style="background-color: #00ff88; color: #0b0f14;" onclick="openProjectModal('diamond-analytics-hub')"
+                  data-i18n="btn.details">
+                  Details
+                </button>
+                <a href="https://github.com/wanhangerrrr" target="_blank"
+                  class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2"
+                  style="background-color: #0b0f14; color: #94a3b8; border: 1px solid #334155;">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
 
           <!-- Project 1: Fraud Detection -->
           <article

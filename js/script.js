@@ -384,6 +384,50 @@ if (filterBtns.length > 0) {
 
 // ===== Project Modal =====
 const projectData = {
+  'diamond-analytics-hub': {
+    title: 'Diamond Analytics Hub',
+    description: 'Real-time automation from Raw Ingestion to Analytical Warehouse. Includes pipeline health monitoring, audit trail, trend insights, and forecasting alerts.',
+    features: [
+      'Real-time Data Ingestion & Automation',
+      'End-to-End ETL Pipeline',
+      'Pipeline Health & Monitoring Dashboard',
+      'Detailed Audit Trail & Run Logs',
+      'Intelligent Trend Insights & Forecasting Alerts'
+    ],
+    tech: ['Python', 'Streamlit', 'SQL', 'Pandas', 'ETL', 'Data Warehouse'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'https://hafiz-data-engine-n7jwztnazaaledhqnudnx.streamlit.app',
+    isLiveDemo: true,
+    screenshots: [
+      'assets/images/diamond-analytics-hub/dashboard1.PNG',
+      'assets/images/diamond-analytics-hub/dashboard2.PNG',
+      'assets/images/diamond-analytics-hub/dashboard3.PNG',
+      'assets/images/diamond-analytics-hub/system-health.PNG'
+    ],
+    architecture: {
+      diagram: [
+        { name: 'Raw Ingestion', icon: 'fas fa-download', tech: 'Python/API' },
+        { name: 'Transformation Layer', icon: 'fas fa-cogs', tech: 'Pandas/SQL' },
+        { name: 'Analytical Warehouse', icon: 'fas fa-database', tech: 'PostgreSQL' },
+        { name: 'Analytics Hub', icon: 'fas fa-chart-line', tech: 'Streamlit' }
+      ],
+      dataFlow: [
+        'Raw data ingested from various sources via Python scripts',
+        'Data cleaned, normalized, and transformed in the ETL layer',
+        'Processed data stored in the Analytical Data Warehouse',
+        'Streamlit dashboard fetches data for real-time visualization'
+      ],
+      techDecisions: {
+        why: [
+          'Python for versatile data processing and automation',
+          'Streamlit for rapid development of interactive data apps',
+          'SQL for robust data management and querying'
+        ],
+        tradeOff: 'Streamlit may face performance bottlenecks with extremely large datasets without optimization',
+        next: 'Implement advanced forecasting models and multi-source cloud integration'
+      }
+    }
+  },
   'fraud-detection': {
     title: 'Fraud Detection Mobile Banking (XGBoost)',
     description: 'A comprehensive machine learning solution to detect fraudulent transactions in mobile banking systems using XGBoost algorithm with advanced preprocessing pipeline.',
@@ -847,6 +891,22 @@ function openProjectModal(projectId) {
     <div id="modal-tab-overview" class="tab-content block animate-fade-in">
       <p class="text-base mb-6" style="color: #94a3b8;">${project.description}</p>
       
+      ${project.screenshots ? `
+      <div class="mb-6">
+        <h4 class="text-lg font-semibold mb-3" style="color: #f8fafc;">Project Screenshots</h4>
+        <div class="flex gap-4 overflow-x-auto pb-4 custom-scrollbar snap-x">
+          ${project.screenshots.map(src => `
+            <div class="flex-shrink-0 w-full sm:w-[400px] aspect-video rounded-lg overflow-hidden border border-[#334155] snap-center hover:border-[#00ff88] transition-colors duration-300">
+              <img src="${src}" class="w-full h-full object-cover" alt="Project Screenshot" loading="lazy">
+            </div>
+          `).join('')}
+        </div>
+        <p class="text-xs text-slate-500 mt-2 flex items-center gap-1">
+          <i class="fas fa-info-circle"></i> Scroll horizontally to view all screenshots
+        </p>
+      </div>
+      ` : ''}
+      
       <div class="mb-6">
         <h4 class="text-lg font-semibold mb-3" style="color: #f8fafc;">Key Features</h4>
         <ul class="space-y-2">
@@ -977,6 +1037,7 @@ if (projectModal) {
 // ===== Language Switcher Logic =====
 // Project Status Data
 const projectStatus = {
+  'diamond-analytics-hub': 'active',
   'fraud-detection': 'experimental',
   'ai-notebook': 'active',
   'tomato-leaf': 'maintained',
@@ -999,7 +1060,7 @@ const translations = {
       projects: "Projects",
       certificates: "Certificates",
       contact: "Contact",
-      dashboard: "Dashboard",
+      dashboard: "Dashboard Activity",
       hiring: "Technical Summary"
     },
     hero: {
@@ -1062,6 +1123,10 @@ const translations = {
       }
     },
     project: {
+      diamond: {
+        title: "Diamond Analytics Hub",
+        desc: "Real-time automation from Raw Ingestion to Analytical Warehouse. Includes pipeline health monitoring, audit trail, trend insights, and forecasting alerts."
+      },
       fraud: {
         title: "Fraud Detection Mobile Banking (XGBoost)",
         desc: "Machine learning model to detect fraudulent transactions with preprocessing pipeline and performance metrics evaluation."
@@ -1113,6 +1178,35 @@ const translations = {
       ctaTitle: "Ready to hire?",
       ctaText: "Download my CV or schedule a chat.",
       topProjects: "Top Relevant Projects"
+    },
+    edu: {
+      status: {
+        now: "Now"
+      },
+      labels: {
+        focus: "Focus Areas",
+        coursework: "Relevant Coursework",
+        projects: "Key Projects",
+        stack: "Technical Stack"
+      },
+      ubharajaya: {
+        name: "Universitas Bhayangkara Jakarta Raya",
+        shortName: "Universitas Bhayangkara",
+        degree: "S1 Informatika",
+        duration: "2023 – Present",
+        focus: "Data Engineering fundamentals, ETL pipelines, Database design, & Scalable system architecture.",
+        coursework: "Data Structures & Algorithms, Database Systems, Artificial Intelligence, Machine Learning.",
+        projects: "Tomato Leaf Classification (MobileNetV2), CRUD App with Auth, & Personal Portfolio.",
+        stack: "Python (Pandas, NumPy), SQL (MySQL/PostgreSQL), TensorFlow, Git/GitHub, & Deployment."
+      },
+      journey: {
+        title: "Academic Journey"
+      },
+      history: {
+        sma: "High School (SMA)",
+        smp: "Junior High School",
+        sd: "Elementary School"
+      }
     },
     cert: {
       tag: {
@@ -1290,8 +1384,7 @@ const translations = {
       projects: "Proyek",
       certificates: "Sertifikat",
       contact: "Kontak",
-      dashboard: "Dasbor",
-      dashboard: "Dasbor",
+      dashboard: "Dashboard Activity",
       hiring: "Ringkasan Teknis",
       principles: "Prinsip Engineering"
     },
@@ -1355,6 +1448,10 @@ const translations = {
       }
     },
     project: {
+      diamond: {
+        title: "Diamond Analytics Hub",
+        desc: "Otomasi real-time dari Raw Ingestion ke Analytical Warehouse. Mencakup pemantauan kesehatan pipeline, jejak audit, wawasan tren, dan peringatan prakiraan."
+      },
       fraud: {
         title: "Deteksi Penipuan Mobile Banking (XGBoost)",
         desc: "Model machine learning untuk mendeteksi transaksi curang dengan pipeline pra-pemrosesan dan evaluasi metrik performa."
@@ -1549,6 +1646,35 @@ const translations = {
         linkedin: "LinkedIn",
         download: "Unduh CV",
         whatsapp: "WhatsApp"
+      }
+    },
+    edu: {
+      status: {
+        now: "Sekarang"
+      },
+      labels: {
+        focus: "Area Fokus",
+        coursework: "Mata Kuliah Relevan",
+        projects: "Proyek Utama",
+        stack: "Stack Teknis"
+      },
+      ubharajaya: {
+        name: "Universitas Bhayangkara Jakarta Raya",
+        shortName: "Universitas Bhayangkara",
+        degree: "S1 Informatika",
+        duration: "2023 – Sekarang",
+        focus: "Dasar-dasar Data Engineering, pipeline ETL, desain Database, & arsitektur sistem yang Scalable.",
+        coursework: "Struktur Data & Algoritma, Sistem Database, Kecerdasan Buatan, Machine Learning.",
+        projects: "Klasifikasi Daun Tomat (MobileNetV2), Aplikasi CRUD dengan Auth, & Portofolio Pribadi.",
+        stack: "Python (Pandas, NumPy), SQL (MySQL/PostgreSQL), TensorFlow, Git/GitHub, & Deployment."
+      },
+      journey: {
+        title: "Perjalanan Akademik"
+      },
+      history: {
+        sma: "Sekolah Menengah Atas (SMA)",
+        smp: "Sekolah Menengah Pertama (SMP)",
+        sd: "Sekolah Dasar (SD)"
       }
     },
     principles: {
