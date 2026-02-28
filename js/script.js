@@ -320,22 +320,23 @@ if (fadeItems.length) {
 
 
 // ===== Live Clock =====
-// ===== Live Clock =====
 function updateClock() {
-  const clockEl = document.getElementById('digital-clock');
-  const dateEl = document.getElementById('date-display');
+  const clockEls = document.querySelectorAll('.digital-clock');
+  const dateEls = document.querySelectorAll('.date-display');
 
-  if (!clockEl || !dateEl) return;
+  if (clockEls.length === 0 && dateEls.length === 0) return;
 
   const now = new Date();
 
   // Time: 00:00:00
   const timeOpt = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-  clockEl.textContent = now.toLocaleTimeString('en-US', timeOpt);
+  const timeStr = now.toLocaleTimeString('en-US', timeOpt);
+  clockEls.forEach(el => el.textContent = timeStr);
 
   // Date: MON, JAN 01
   const dateOpt = { weekday: 'short', month: 'short', day: '2-digit' };
-  dateEl.textContent = now.toLocaleDateString('en-US', dateOpt).toUpperCase();
+  const dateStr = now.toLocaleDateString('en-US', dateOpt).toUpperCase();
+  dateEls.forEach(el => el.textContent = dateStr);
 }
 updateClock();
 setInterval(updateClock, 1000);

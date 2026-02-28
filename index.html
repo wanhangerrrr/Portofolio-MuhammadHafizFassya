@@ -31,13 +31,14 @@
     <div>
       <!-- Profile Header -->
       <div class="p-2.5 flex flex-col items-center border-b border-[#1f2937]/50 relative">
-        <!-- Live Clock -->
-        <div id="live-clock-container" class="absolute top-2 left-3 flex flex-col items-start z-20">
-          <div id="digital-clock" class="text-[#00ff88] text-xs font-mono font-bold tracking-wider"
+        <!-- Live Clock (Desktop Sidebar) -->
+        <div id="live-clock-container" class="absolute top-2 left-3 flex flex-col items-start z-20 md:flex hidden">
+          <div id="digital-clock" class="digital-clock text-[#00ff88] text-xs font-mono font-bold tracking-wider"
             style="text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);">
             00:00:00
           </div>
-          <div id="date-display" class="text-[#94a3b8] text-[8px] font-medium tracking-wide uppercase mt-0.5">
+          <div id="date-display"
+            class="date-display text-[#94a3b8] text-[8px] font-medium tracking-wide uppercase mt-0.5">
             MON, JAN 01
           </div>
         </div>
@@ -232,8 +233,19 @@
       <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#00ff88] to-[#00d9ff] p-[2px]">
         <img src="images/wanhanger.jpg" class="w-full h-full rounded-full object-cover">
       </div>
-      <span class="text-white font-bold text-lg font-poppins tracking-wide">M. Hafiz</span>
+      <span class="text-white font-bold text-lg font-poppins tracking-wide">Informatics</span>
     </div>
+
+    <!-- Mobile Clock -->
+    <div class="flex flex-col items-center flex-1 mx-4">
+      <div class="digital-clock text-[#00ff88] text-sm font-mono font-bold tracking-wider">
+        00:00:00
+      </div>
+      <div class="date-display text-[#94a3b8] text-[8px] font-medium tracking-wide uppercase">
+        MON, JAN 01
+      </div>
+    </div>
+
     <button onclick="toggleSidebar()"
       class="text-[#00ff88] p-2 focus:outline-none active:scale-95 transition-transform bg-[#1a1f2e] rounded-lg border border-[#1f2937]">
       <i class="fas fa-bars text-xl"></i>
