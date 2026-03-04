@@ -1214,6 +1214,7 @@ const translations = {
         onlineCourse: "ONLINE COURSE",
         webinar: "ACADEMIC WEBINAR",
         industry: "INDUSTRY EVENT",
+        blockchainEvent: "BLOCKCHAIN EVENT",
         workshop: "WORKSHOP",
         practicum: "ACADEMIC PRACTICUM"
       },
@@ -1534,6 +1535,7 @@ const translations = {
         onlineCourse: "KURSUS ONLINE",
         webinar: "WEBINAR AKADEMIK",
         industry: "ACARA INDUSTRI",
+        blockchainEvent: "ACARA BLOCKCHAIN",
         workshop: "LOKAKARYA",
         practicum: "PRAKTIKUM AKADEMIK"
       },
