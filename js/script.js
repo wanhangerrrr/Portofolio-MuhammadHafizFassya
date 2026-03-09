@@ -783,6 +783,120 @@ const projectData = {
         next: 'Implement server-side sync for multi-device support'
       }
     }
+  },
+  'desa-srimahi': {
+    title: 'Website Resmi Desa Srimahi',
+    description: 'Portal resmi Pemerintah Desa Srimahi yang transparan, informatif, dan melayani. Menyajikan informasi profil desa, data statistik penduduk, pemerintahan, layanan publik, berita desa, dan transparansi anggaran.',
+    features: [
+      'Profil desa lengkap dengan data statistik penduduk',
+      'Informasi pemerintahan desa dan struktur organisasi',
+      'Layanan publik dengan akses mudah',
+      'Transparansi anggaran desa (APBDes)',
+      'Berita dan agenda kegiatan desa',
+      'Responsive design untuk semua perangkat'
+    ],
+    tech: ['React', 'Vite', 'Tailwind CSS', 'Vercel'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'https://website-desa-srimahi.vercel.app/',
+    isLiveDemo: true,
+    architecture: {
+      diagram: [
+        { name: 'React SPA', icon: 'fab fa-react', tech: 'Frontend' },
+        { name: 'Vite Build', icon: 'fas fa-bolt', tech: 'Bundler' },
+        { name: 'Tailwind', icon: 'fas fa-palette', tech: 'Styling' },
+        { name: 'Vercel', icon: 'fas fa-cloud', tech: 'Hosting' }
+      ],
+      dataFlow: [
+        'User mengakses portal desa via browser',
+        'React SPA merender halaman profil dan data desa',
+        'Tailwind CSS menangani layout responsif',
+        'Vercel mendistribusikan aset secara optimal via edge network'
+      ],
+      techDecisions: {
+        why: [
+          'React + Vite untuk performa build dan development yang cepat',
+          'Tailwind CSS untuk desain responsif yang konsisten dan modern'
+        ],
+        tradeOff: 'Data statis, perlu update manual untuk informasi terbaru',
+        next: 'Integrasi API backend untuk data desa real-time'
+      }
+    }
+  },
+  'summary-hafiz': {
+    title: 'Portfolio Summary Muhammad Hafiz Fassya',
+    description: 'Website ringkasan portofolio dalam 60 detik yang menampilkan keahlian di bidang Data Engineering, AI/ML, dan Web Systems. Dirancang sebagai overview cepat dan profesional dari profil teknis.',
+    features: [
+      'Ringkasan profil profesional dalam 60 detik',
+      'Highlight core focus areas (Data, ML, Web)',
+      'Personal branding yang kuat dan modern',
+      'Direct links ke Full Portfolio dan GitHub',
+      'Desain minimalis dan responsif',
+      'Animasi smooth dan interaktif'
+    ],
+    tech: ['React', 'Vite', 'Tailwind CSS', 'Vercel'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'https://summary-portofolio.vercel.app/',
+    isLiveDemo: true,
+    architecture: {
+      diagram: [
+        { name: 'React SPA', icon: 'fab fa-react', tech: 'Frontend' },
+        { name: 'Vite Build', icon: 'fas fa-bolt', tech: 'Bundler' },
+        { name: 'Tailwind', icon: 'fas fa-palette', tech: 'Styling' },
+        { name: 'Vercel', icon: 'fas fa-cloud', tech: 'Hosting' }
+      ],
+      dataFlow: [
+        'Pengunjung mengakses summary portfolio',
+        'React merender ringkasan profil dengan animasi',
+        'Highlight area keahlian ditampilkan secara interaktif',
+        'CTA mengarahkan ke portofolio lengkap dan GitHub'
+      ],
+      techDecisions: {
+        why: [
+          'React untuk komponen dinamis dan animasi yang smooth',
+          'Tailwind CSS untuk styling cepat dan konsisten'
+        ],
+        tradeOff: 'Konten statis, perlu deployment ulang untuk update',
+        next: 'Implementasi CMS headless untuk konten dinamis'
+      }
+    }
+  },
+  'clipforge': {
+    title: 'ClipForge Vertical Clip Generator By Fiz',
+    description: 'AI-powered tool yang mengonversi konten video panjang (podcast, interview, dll.) menjadi clip vertikal viral yang dioptimalkan untuk platform media sosial seperti TikTok, Instagram Reels, dan YouTube Shorts.',
+    features: [
+      'AI engagement identification untuk menemukan momen terbaik',
+      'Auto vertical formatting (9:16) untuk media sosial',
+      'Generasi clip otomatis 30-60 detik',
+      'Upload video dengan antarmuka sederhana',
+      'Optimalisasi untuk TikTok, Reels, dan Shorts',
+      'Preview dan download hasil clip'
+    ],
+    tech: ['React', 'Tailwind CSS', 'AI Video API', 'Vercel'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'https://clip-video-by-fiz.vercel.app/',
+    isLiveDemo: true,
+    architecture: {
+      diagram: [
+        { name: 'React UI', icon: 'fab fa-react', tech: 'Frontend' },
+        { name: 'Upload Engine', icon: 'fas fa-upload', tech: 'File Handler' },
+        { name: 'AI Processor', icon: 'fas fa-brain', tech: 'Video Analysis' },
+        { name: 'Clip Output', icon: 'fas fa-film', tech: '9:16 Vertical' }
+      ],
+      dataFlow: [
+        'User mengunggah video panjang ke platform',
+        'AI menganalisis konten untuk menemukan highlight',
+        'Engine memotong dan memformat ke rasio 9:16',
+        'Clip vertikal siap diunduh untuk media sosial'
+      ],
+      techDecisions: {
+        why: [
+          'React untuk UI interaktif dan responsive',
+          'AI Video API untuk analisis konten otomatis'
+        ],
+        tradeOff: 'Ketergantungan pada API eksternal untuk pemrosesan video',
+        next: 'Tambahkan subtitle otomatis dan overlay branding'
+      }
+    }
   }
 };
 
@@ -1048,7 +1162,10 @@ const projectStatus = {
   'dashboard-traffic': 'active',
   'ai-insight': 'active',
   'aurev-store': 'active',
-  'ramadhan-planner': 'active'
+  'ramadhan-planner': 'active',
+  'desa-srimahi': 'active',
+  'summary-hafiz': 'active',
+  'clipforge': 'active'
 };
 
 const translations = {
@@ -1167,6 +1284,18 @@ const translations = {
       ramadhan: {
         title: "Ramadhan Planner",
         desc: "A Ramadan productivity web app with planner, Qur’an reading, khatam tracker, and donation features in a calm dark UI."
+      },
+      srimahi: {
+        title: "Official Srimahi Village Website",
+        desc: "Official Srimahi Village Government portal featuring village profile, population statistics, public services, and budget transparency."
+      },
+      summaryHafiz: {
+        title: "Portfolio Summary Muhammad Hafiz Fassya",
+        desc: "A 60-second portfolio summary website showcasing expertise in Data Engineering, AI/ML, and Web Systems."
+      },
+      clipforge: {
+        title: "ClipForge Vertical Clip Generator By Fiz",
+        desc: "AI-powered tool that converts long-form videos into viral vertical clips optimized for TikTok, Reels, and Shorts."
       }
     },
     hiring: {
@@ -1493,6 +1622,18 @@ const translations = {
       ramadhan: {
         title: "Ramadhan Planner",
         desc: "Aplikasi produktivitas Ramadan dengan fitur planner, tadarus Al-Qur'an, pelacak khatam, dan donasi dalam UI gelap yang tenang."
+      },
+      srimahi: {
+        title: "Website Resmi Desa Srimahi",
+        desc: "Portal resmi Pemerintah Desa Srimahi yang transparan dan informatif, menyajikan profil desa, data statistik penduduk, layanan publik, dan transparansi anggaran."
+      },
+      summaryHafiz: {
+        title: "Portfolio Summary Muhammad Hafiz Fassya",
+        desc: "Website ringkasan portofolio 60 detik yang menampilkan keahlian di bidang Data Engineering, AI/ML, dan Web Systems secara ringkas dan profesional."
+      },
+      clipforge: {
+        title: "ClipForge Vertical Clip Generator By Fiz",
+        desc: "Tool bertenaga AI yang mengubah video panjang menjadi clip vertikal viral untuk TikTok, Reels, dan Shorts secara otomatis."
       }
     },
     hiring: {
@@ -2288,7 +2429,7 @@ function openLiveDemo(projectId) {
     renderDemoList(currentDemoRef);
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
-  } else if (projectId === 'aurev-store' || projectId === 'ramadhan-planner') {
+  } else if (projectId === 'aurev-store' || projectId === 'ramadhan-planner' || projectId === 'desa-srimahi' || projectId === 'summary-hafiz' || projectId === 'clipforge') {
     window.open(projectData[projectId].demo, '_blank');
   }
 }

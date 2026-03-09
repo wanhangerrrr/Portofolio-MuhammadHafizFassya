@@ -50,6 +50,29 @@
   background: #00ff88;
 }
 
+/* Custom Scrollbar for Project Modal */
+#projectModal>div::-webkit-scrollbar {
+  width: 6px;
+}
+
+#projectModal>div::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 10px;
+}
+
+#projectModal>div::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+#projectModal>div::-webkit-scrollbar-thumb:hover {
+  background: #00ff88;
+}
+
+#projectModal>div {
+  overscroll-behavior: contain;
+}
+
 /* Firefox */
 * {
   scrollbar-width: thin;
