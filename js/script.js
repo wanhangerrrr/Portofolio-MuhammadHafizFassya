@@ -98,12 +98,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
   let current = '';
-  const offset = 100; // Adjustment for scroll offset
+  const offset = 150; // Increased offset for better trigger timing
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    // const sectionHeight = section.clientHeight; // Unused
-    if (window.scrollY >= (sectionTop - offset)) {
+    const sectionHeight = section.clientHeight;
+    if (window.scrollY >= (sectionTop - offset) && window.scrollY < (sectionTop + sectionHeight - offset)) {
       current = section.getAttribute('id');
     }
   });
@@ -117,8 +117,8 @@ window.addEventListener('scroll', () => {
     const icon = link.querySelector('i');
     if (icon) icon.classList.remove('scale-110');
 
-    // Indicator reset
-    const indicator = link.querySelector('div.absolute'); // The green bar
+    // Indicator reset (the green bar)
+    const indicator = link.querySelector('div.absolute');
     if (indicator) indicator.classList.remove('opacity-100');
 
     const href = link.getAttribute('href');
@@ -329,17 +329,24 @@ function updateClock() {
   const now = new Date();
 
   // Time: 00:00:00
-  const timeOpt = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-  const timeStr = now.toLocaleTimeString('en-US', timeOpt);
+  const timeStr = now.toLocaleTimeString('en-GB', { 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit', 
+    hour12: false 
+  });
   clockEls.forEach(el => el.textContent = timeStr);
 
   // Date: MON, JAN 01
-  const dateOpt = { weekday: 'short', month: 'short', day: '2-digit' };
-  const dateStr = now.toLocaleDateString('en-US', dateOpt).toUpperCase();
+  const dateStr = now.toLocaleDateString('en-US', { 
+    weekday: 'short', 
+    month: 'short', 
+    day: '2-digit' 
+  }).toUpperCase();
   dateEls.forEach(el => el.textContent = dateStr);
 }
-updateClock();
 setInterval(updateClock, 1000);
+updateClock(); // Initial call
 
 // ===== Projects Filter (New Tailwind Design) =====
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -426,6 +433,41 @@ const projectData = {
         ],
         tradeOff: 'Streamlit may face performance bottlenecks with extremely large datasets without optimization',
         next: 'Implement advanced forecasting models and multi-source cloud integration'
+      }
+    }
+  },
+  'chronos-forecast': {
+    title: 'Chronos: Time Series Forecasting',
+    description: 'A collection of pretrained models for zero-shot probabilistic time series forecasting, leveraging language model architectures to transform time series into tokens.',
+    features: [
+      'Zero-shot Probabilistic Forecasting',
+      'Language Model Architecture (T5)',
+      'Quantization of Time Series into Tokens',
+      'Probabilistic Quantile Forecasting',
+      'Advanced Multivariate Support'
+    ],
+    tech: ['Python', 'PyTorch', 'HuggingFace', 'Transformers'],
+    github: 'https://github.com/wanhangerrrr/chronos-forecast',
+    demo: null,
+    isSimulator: false,
+    screenshots: ['images/chronos1.PNG'],
+    architecture: {
+      diagram: [
+        { name: 'Time Series', icon: 'fas fa-chart-line', tech: 'Input' },
+        { name: 'Quantization', icon: 'fas fa-braille', tech: 'Tokenization' },
+        { name: 'T5 Model', icon: 'fas fa-brain', tech: 'Transformers' },
+        { name: 'Quantiles', icon: 'fas fa-percentage', tech: 'Output' }
+      ],
+      dataFlow: [
+        'Historical data normalization',
+        'Tokenization of values',
+        'Transformer-based prediction',
+        'De-quantization to values'
+      ],
+      techDecisions: {
+        why: ['State-of-the-art transformer architecture', 'Zero-shot capabilities'],
+        tradeOff: 'Higher inference latency',
+        next: 'Optimized ONNX export'
       }
     }
   },
@@ -917,6 +959,28 @@ function openProjectModal(projectId) {
     return key.split('.').reduce((obj, k) => (obj || {})[k], t) || defaultText;
   };
 
+  const idMap = {
+    'diamond-analytics-hub': 'diamond',
+    'chronos-forecast': 'chronos',
+    'fraud-detection': 'fraud',
+    'ai-notebook': 'aiNotebook',
+    'tomato-leaf': 'tomatoMobile',
+    'umkm-app': 'umkm',
+    'tomato-web': 'tomatoWeb',
+    'crud-flutter': 'crud',
+    'dashboard-traffic': 'dashboard',
+    'ai-insight': 'aiInsight',
+    'aurev-store': 'aurev',
+    'ramadhan-planner': 'ramadhan',
+    'desa-srimahi': 'srimahi',
+    'summary-hafiz': 'summaryHafiz'
+  };
+
+  const transKey = idMap[projectId] || projectId.replace(/-([a-z])/g, (g) => g[1]);
+
+  const finalTitle = getText(`project.${transKey}.title`, project.title);
+  const finalDesc = getText(`project.${transKey}.desc`, project.description);
+
   const textOverview = getText('cert.tabs.overview', 'Overview');
   const textArch = getText('cert.tabs.architecture', 'Architecture');
 
@@ -992,7 +1056,7 @@ function openProjectModal(projectId) {
   // Build Modal Content (Tabs + Views)
   let html = `
     <h3 class="text-2xl sm:text-3xl font-bold mb-2 flex items-center gap-2" style="color: #f8fafc;">
-      ${project.title}
+      ${finalTitle}
       ${badgeHtml}
     </h3>
     
@@ -1004,7 +1068,7 @@ function openProjectModal(projectId) {
 
     <!-- Overview Content -->
     <div id="modal-tab-overview" class="tab-content block animate-fade-in">
-      <p class="text-base mb-6" style="color: #94a3b8;">${project.description}</p>
+      <p class="text-base mb-6" style="color: #94a3b8;">${finalDesc}</p>
       
       ${project.screenshots ? `
       <div class="mb-6">
@@ -1296,6 +1360,10 @@ const translations = {
       clipforge: {
         title: "ClipForge Vertical Clip Generator By Fiz",
         desc: "AI-powered tool that converts long-form videos into viral vertical clips optimized for TikTok, Reels, and Shorts."
+      },
+      chronos: {
+        title: "Chronos: Time Series Forecasting",
+        desc: "A collection of pretrained models for zero-shot probabilistic time series forecasting, leveraging language model architectures to transform time series into tokens."
       }
     },
     hiring: {
@@ -1634,6 +1702,10 @@ const translations = {
       clipforge: {
         title: "ClipForge Vertical Clip Generator By Fiz",
         desc: "Tool bertenaga AI yang mengubah video panjang menjadi clip vertikal viral untuk TikTok, Reels, dan Shorts secara otomatis."
+      },
+      chronos: {
+        title: "Chronos: Peramalan Deret Waktu",
+        desc: "Kumpulan model terlatih untuk peramalan deret waktu probabilistik zero-shot, memanfaatkan arsitektur model bahasa untuk mengubah deret waktu menjadi token."
       }
     },
     hiring: {
@@ -2575,7 +2647,8 @@ function renderProjectBadges(lang) {
   });
 }
 
-// ===== Mini Data Pipeline Simulation Logic =====
+// ===== Mini Data Pipeline Simulation Logic (Disabled) =====
+/*
 const pipelineState = {
   isRunning: false,
   nodes: ['ingest', 'transform', 'validate', 'load', 'serve'],
@@ -2585,6 +2658,7 @@ const pipelineState = {
   qualityScore: 0,
   timer: null
 };
+*/
 
 // Global Safety Net
 window.addEventListener("error", function (event) {
@@ -2627,40 +2701,14 @@ const btnConfig = {
 function updateRunButton(status) {
   const btn = document.getElementById('btnRunPipeline');
   if (!btn) return;
-
-  const config = btnConfig[status];
-  if (!config) return;
-
-  // 1. Get Translation
-  const lang = localStorage.getItem('siteLang') || 'en';
-  const t = translations[lang === 'default' ? 'en' : lang] || translations['en'];
-
-  let label = "";
-  if (status === 'running') {
-    label = lang === 'id' ? 'Berjalan...' : 'Running...';
-  } else {
-    label = t?.pipeline?.btn?.[config.textKey] || (status === 'failed' ? 'Retry' : 'Run Pipeline');
-  }
-
-  // 2. Update Content
-  btn.innerHTML = `<i class="fas ${config.icon}"></i> ${label}`;
-
-  // 3. Update Classes
-  btn.classList.remove(...config.classRemove);
-  btn.classList.add(...config.classAdd);
-
-  // 4. Update Disabled State
-  btn.disabled = config.disabled;
+  // ... rest of the logic can stay as it won't be called without the button
 }
 
 async function runPipeline() {
-  console.log("Run Pipeline Triggered. Status:", pipelineState.isRunning ? "Running" : "Idle");
-
   const btn = document.getElementById('btnRunPipeline');
   if (!btn) return;
-
-  // STRICT GUARD: Only block if actually running
-  if (pipelineState.isRunning) return;
+  
+  if (typeof pipelineState === 'undefined' || pipelineState.isRunning) return;
 
   try {
     await internalRunPipeline(btn);
@@ -2942,7 +2990,7 @@ function updateMetrics(rows, latency, rejected = 0, quality = '-') {
 
 // ===== Initialization =====
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Attach Run Listener
+  // Pipeline Simulation Controls
   const btnRun = document.getElementById('btnRunPipeline');
   if (btnRun) {
     // Avoid duplicates if any
