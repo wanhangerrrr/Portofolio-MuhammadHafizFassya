@@ -87,13 +87,11 @@
 }
 
 :root {
-  /* ===== CSS Variables for Theme Support ===== */
-
-  /* Core Brand Colors (Constant) */
+  /* Core Brand Colors */
   --primary-color: #00ff88;
   --secondary-color: #00d9ff;
 
-  /* Theme Semantic Colors (Default/Dark) */
+  /* Theme Semantic Colors */
   --bg-body: #050810;
   --bg-sidebar: #0b0f14;
   --bg-panel: #1a1f2e;
@@ -102,42 +100,15 @@
 
   --text-primary: #ffffff;
   --text-secondary: #94a3b8;
-  /* Was #a0a0a0 or #94a3b8 */
   --text-muted: #64748b;
 
   --border-color: #334155;
-  /* Slate-700 */
   --border-light: rgba(148, 163, 184, 0.22);
 
   --shadow-color: rgba(0, 0, 0, 0.5);
   --glass-border: rgba(255, 255, 255, 0.05);
 }
 
-/* Light Theme Overrides */
-[data-theme="light"] {
-  --bg-body: #f8fafc;
-  /* Slate-50 */
-  --bg-sidebar: #ffffff;
-  /* White */
-  --bg-panel: #e2e8f0;
-  /* Slate-200 */
-  --bg-card: rgba(255, 255, 255, 0.8);
-  --bg-card-hover: #ffffff;
-
-  --text-primary: #0f172a;
-  /* Slate-900 */
-  --text-secondary: #475569;
-  /* Slate-600 */
-  --text-muted: #94a3b8;
-  /* Slate-400 */
-
-  --border-color: #cbd5e1;
-  /* Slate-300 */
-  --border-light: rgba(148, 163, 184, 0.4);
-
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --glass-border: rgba(0, 0, 0, 0.05);
-}
 
 html,
 body {
@@ -4787,7 +4758,7 @@ html {
   display: none !important;
 }
 
-/* ===== Target Companies Section (Modern Redesign) ===== */
+/* ===== Target Companies Section (Modern Redesign) - HIDDEN =====
 .target-grid {
   display: grid;
   gap: 2rem;
@@ -4939,7 +4910,6 @@ html {
   color: #f8fafc;
 }
 
-/* Subtle corner decoration */
 .card-decoration {
   position: absolute;
   bottom: -20px;
@@ -4955,4 +4925,4 @@ html {
 .target-card:hover .card-decoration {
   transform: scale(1.5);
   background: radial-gradient(circle, rgba(0, 255, 136, 0.08) 0%, transparent 70%);
-}
+} */
