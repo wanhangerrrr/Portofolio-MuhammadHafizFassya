@@ -392,6 +392,116 @@ if (filterBtns.length > 0) {
 
 // ===== Project Modal =====
 const projectData = {
+  'medcare-insight': {
+    title: 'MedCare Insight',
+    description: 'MedCare Insight adalah platform skrining kesehatan berbasis AI yang dirancang untuk mendeteksi dini risiko penyakit GERD. Website ini membantu pengguna melakukan deteksi mandiri berdasarkan gejala klinis dan kebiasaan gaya hidup melalui pengolahan data medis yang cerdas dan intuitif.',
+    features: [
+      'Interactive Screening Form validated with Zod',
+      'AI-Powered Risk Analysis (SVC Model)',
+      'Risk Factor Visualization with Recharts',
+      'Educational Dashboard with model metrics'
+    ],
+    tech: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'Scikit-learn', 'Recharts'],
+    github: 'https://github.com/wanhangerrrr',
+    demo: 'https://gerd-svc.vercel.app/',
+    isLiveDemo: true,
+    screenshots: ['images/gerd clasification.PNG'],
+    architecture: {
+      diagram: [
+        { name: 'Frontend', icon: 'fab fa-react', tech: 'Next.js 14' },
+        { name: 'API Layer', icon: 'fas fa-server', tech: 'FastAPI' },
+        { name: 'ML Engine', icon: 'fas fa-brain', tech: 'SVC Model' }
+      ],
+      dataFlow: [
+        'User fills screening form with physical symptoms',
+        'Data validated via Zod and sent to FastAPI backend',
+        'ML model processes features and returns risk level',
+        'Results visualized with Recharts on dashboard'
+      ],
+      techDecisions: {
+        why: [
+          'Next.js for interactive and SEO-friendly frontend',
+          'FastAPI for high-performance Python backend',
+          'SVC model for high accuracy clinical classification'
+        ],
+        tradeOff: 'Standalone API requires separate hosting or serverless configuration',
+        next: 'Expand dataset to include more gastrointestinal conditions'
+      }
+    }
+  },
+  'data-engineer-planner': {
+    title: 'Data Engineer Study Planner',
+    description: 'Data Engineer Study Planner adalah platform pembelajaran terstruktur yang dirancang khusus untuk membantu calon Data Engineer menguasai roadmap teknis dari level dasar hingga tingkat lanjut.',
+    features: [
+      'Structured Roadmap: Python, SQL, Cloud, dbt, Airflow, Spark, Kafka',
+      'Gamified Dashboard with rank system',
+      'Interactive Analytics for weekly study stats',
+      'Curated Resources and external links',
+      'Adaptive Expertise Tracking skill radar'
+    ],
+    tech: ['Next.js 15+', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Framer Motion', 'Recharts'],
+    github: 'https://github.com/wanhangerrrr',
+    screenshots: ['images/data engineer study planner.PNG'],
+    architecture: {
+      diagram: [
+        { name: 'Core', icon: 'fab fa-react', tech: 'Next.js 15/React 19' },
+        { name: 'Styling', icon: 'fas fa-paint-brush', tech: 'Tailwind CSS 4' },
+        { name: 'Visualization', icon: 'fas fa-chart-pie', tech: 'Recharts' },
+        { name: 'Persistence', icon: 'fas fa-save', tech: 'localStorage' }
+      ],
+      dataFlow: [
+        'User navigates through structured roadmap modules',
+        'Progress tracked instantly via localStorage (No backend needed)',
+        'Learning analytics updated in real-time on dashboard',
+        'Gamification engine calculates rank based on completed nodes'
+      ],
+      techDecisions: {
+        why: [
+          'Next.js App Router for modern SPA experience',
+          'Framer Motion for smooth gamified transitions',
+          'localStorage for zero-latency progress tracking'
+        ],
+        tradeOff: 'localStorage limits multi-device sync without cloud integration',
+        next: 'Add Firebase Auth for cross-platform progress synchronization'
+      }
+    }
+  },
+  'catatan-kuliah': {
+    title: 'Catatan Kuliah Digital',
+    description: 'Catatan Kuliah Digital adalah aplikasi pencatatan berbasis web yang dirancang untuk membantu mahasiswa mengorganisir materi kuliah secara efisien dengan fokus pada kemudahan akses dan produktivitas.',
+    features: [
+      'Sinkronisasi cloud 24/7 real-time',
+      'Pengelompokan per mata kuliah',
+      'Sistem login (Google & Email)',
+      'Manajemen deadline tugas',
+      'Dukungan Dark Mode'
+    ],
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Firebase Firestore', 'Firebase Auth'],
+    github: 'https://github.com/wanhangerrrr',
+    screenshots: ['images/catatan kuliah.PNG'],
+    architecture: {
+      diagram: [
+        { name: 'UI', icon: 'fab fa-js-square', tech: 'Native JS/HTML5' },
+        { name: 'Storage', icon: 'fas fa-cloud-upload-alt', tech: 'Firestore' },
+        { name: 'Auth', icon: 'fas fa-user-lock', tech: 'Firebase Auth' }
+      ],
+      dataFlow: [
+        'User authenticates via Firebase Auth',
+        'Notes created/edited in the browser',
+        'Data synced instantly to Firestore cloud database',
+        'Real-time listeners update UI on all connected devices'
+      ],
+      techDecisions: {
+        why: [
+          'Native JS for lightweight performance',
+          'Firebase for easy real-time synchronization',
+          'CSS Variables for robust theme switching (Dark Mode)'
+        ],
+        tradeOff: 'Native JS requires manually managing DOM states vs React',
+        next: 'Mobile-first PWA implementation for offline note taking'
+      }
+    }
+  },
   'diamond-analytics-hub': {
     title: 'Diamond Analytics Hub',
     description: 'Real-time automation from Raw Ingestion to Analytical Warehouse. Includes pipeline health monitoring, audit trail, trend insights, and forecasting alerts.',
@@ -2433,7 +2543,7 @@ function openLiveDemo(projectId) {
     renderDemoList(currentDemoRef);
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
-  } else if (projectId === 'aurev-store' || projectId === 'ramadhan-planner' || projectId === 'desa-srimahi' || projectId === 'summary-hafiz' || projectId === 'clipforge') {
+  } else if (projectData[projectId] && projectData[projectId].demo) {
     window.open(projectData[projectId].demo, '_blank');
   }
 }
